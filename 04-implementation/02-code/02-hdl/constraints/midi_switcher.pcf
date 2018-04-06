@@ -34,10 +34,10 @@ set_io gpio_bin[8] 37
 set_io gpio_bin[9] 41
 set_io gpio_bin[10] 27
 set_io gpio_bin[11] 29
-set_io gpio_bin[12] 33
-set_io gpio_bin[13] 36
-set_io gpio_bin[14] 40
-set_io gpio_bin[15] 42
+#set_io gpio_bin[12] 33
+#set_io gpio_bin[13] 36
+#set_io gpio_bin[14] 40
+#set_io gpio_bin[15] 42
 set_io spi_clk 48
 set_io spi_miso 45
 set_io spi_mosi 46
