@@ -1,0 +1,43 @@
+# ##############################################################################
+
+# iCEcube PCF
+
+# Version:            2017.08.27940
+
+# File Generated:     Feb 17 2018 06:34:16
+
+# Family & Device:    iCE40HX1K
+
+# Package:            VQ100
+
+# ##############################################################################
+
+###IOSet List 43
+set_io clk 13
+set_io gpio_fbin[0] 19
+set_io gpio_fbin[1] 18
+set_io gpio_fbin[2] 16
+set_io gpio_fbin[3] 15
+#set_io gpio_bin[0] 21
+#set_io gpio_bin[1] 20
+#set_io gpio_bin[2] 19
+#set_io gpio_bin[3] 18
+set_io gpio_bin[0] 20
+set_io gpio_bin[1] 21
+set_io gpio_bin[2] 24
+set_io gpio_bin[3] 25
+set_io gpio_bin[4] 26
+set_io gpio_bin[5] 28
+set_io gpio_bin[6] 30
+set_io gpio_bin[7] 34
+set_io gpio_bin[8] 37
+set_io gpio_bin[9] 41
+set_io gpio_bin[10] 27
+set_io gpio_bin[11] 29
+set_io gpio_bin[12] 33
+set_io gpio_bin[13] 36
+set_io gpio_bin[14] 40
+set_io gpio_bin[15] 42
+set_io spi_clk 48
+set_io spi_miso 45
+set_io spi_mosi 46
