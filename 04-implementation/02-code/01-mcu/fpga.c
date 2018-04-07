@@ -18,28 +18,29 @@
  * In order to configure the iCE40 device, the #SS line must be inactive
  * before #reset is set inactive.
  *
- * The following sequence applies:
- *  application processor sets active #reset for at least 200 nsec
- *  application processor sets inactive #reset for at least 800 usec
- *  application processor begins clocking in data, MSb first
- *  configuration image always starts with 0x7EAA997E synchronization word
- *  FPGA sets active done
- *  application processor clocks 49 dummy bits to FPGA
- *  SPI pins are available to FPGA configuration for user to use
+ * The following sequence applies (set means active state):
+ *  set #reset
+ *  set SPI_SS = 0, SPI_SCK = 1
+ *  wait at least 200 nsec
+ *  release #reset (or clear #reset)
+ *  wait at least 300 usec to clear internal configuration memory
+ *  Send configuration serially on SPI_MOSI, MSb first, on falling edge of SPI_SCK.
+ *  if CDONE
+ *    Send at least 49 additional dummy bits with dummy clock pulses
+ *    FPGA is ready to use, including SPI configuration pins
+ *  else
+ *    error
+ *    reset and try again, if desired
  *********************************************************************/
 void Fpga_Configure(void)
 {
     uint16_t iCnt;
     volatile uint8_t iRx;
     
-    /* 200 ns @ 34.01 MHz */
-    /* const uint16_t iResetTime = 7; */
-    /* 200 ns @ 69 MHz */
-    const uint16_t iResetTime = (uint16_t)14;
-    /* 800 us @ 34.01 MHz */
-    /* const uint16_t iFpgaInitTime = 27210; */
-    /* 800 us @ 69 MHz */
-    const uint16_t iFpgaInitTime = (uint16_t)55275;
+    /* 200 ns @ 16 MHz = 3.2 clock cycles */
+    const uint16_t iResetTime = (uint16_t)4;
+    /* 800 us @ 16 MHz = 12,800 clock cycles */
+    const uint16_t iFpgaInitTime = (uint16_t)12800;
 
     Hal_GpioSetReset();
     //Hal_SpiInitForFpga();

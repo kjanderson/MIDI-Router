@@ -34,6 +34,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="BSP" projectFiles="true">
+        <itemPath>../usb-bsp/buttons.c</itemPath>
+        <itemPath>../usb-bsp/leds.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="USB" projectFiles="true">
         <itemPath>../usb/usb_device.c</itemPath>
@@ -97,7 +99,7 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <C30>
-        <property key="code-model" value="default"/>
+        <property key="code-model" value="large-code"/>
         <property key="const-model" value="default"/>
         <property key="data-model" value="default"/>
         <property key="disable-instruction-scheduling" value="false"/>

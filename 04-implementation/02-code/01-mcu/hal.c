@@ -93,9 +93,6 @@ static void _Hal_InitGpio(void)
     TRISA = 0xFFFF;
     TRISB = 0xFFFF;
     TRISC = 0xFFFF;
-    TRISD = 0xFFFF;
-    TRISE = 0xFFFF;
-    TRISG = 0xFFFF;
     
     Hal_GpioSetReset();
     Hal_GpioClrReset();
@@ -244,7 +241,6 @@ void Hal_InitPeripherals(void)
     _Hal_InitGpio();
     _Hal_InitSpiForFpga();
     _Hal_InitSpi();
-    _Hal_InitPmp();
     _Hal_InitTimer();
     _Hal_InitWatchdog();
 }

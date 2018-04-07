@@ -20,23 +20,23 @@ limitations under the License.
 
 #include "leds.h"
 
-#define LED_D3_LAT      LATAbits.LATA0
-#define LED_D4_LAT      LATAbits.LATA1
-#define LED_D5_LAT      LATAbits.LATA2
-#define LED_D6_LAT      LATAbits.LATA3
-#define LED_D7_LAT      LATAbits.LATA4
-#define LED_D8_LAT      LATAbits.LATA5
-#define LED_D9_LAT      LATAbits.LATA6
-#define LED_D10_LAT     LATAbits.LATA7      //Overlaps with S5
+#define LED_D3_LAT      
+#define LED_D4_LAT      
+#define LED_D5_LAT      
+#define LED_D6_LAT      
+#define LED_D7_LAT      
+#define LED_D8_LAT      
+#define LED_D9_LAT      
+#define LED_D10_LAT    
 
-#define LED_D3_TRIS     TRISAbits.TRISA0
-#define LED_D4_TRIS     TRISAbits.TRISA1
-#define LED_D5_TRIS     TRISAbits.TRISA2
-#define LED_D6_TRIS     TRISAbits.TRISA3
-#define LED_D7_TRIS     TRISAbits.TRISA4
-#define LED_D8_TRIS     TRISAbits.TRISA5
-#define LED_D9_TRIS     TRISAbits.TRISA6
-#define LED_D10_TRIS    TRISAbits.TRISA7    //Overlaps with S5
+#define LED_D3_TRIS     
+#define LED_D4_TRIS     
+#define LED_D5_TRIS     
+#define LED_D6_TRIS     
+#define LED_D7_TRIS    
+#define LED_D8_TRIS     
+#define LED_D9_TRIS     
+#define LED_D10_TRIS    
 
 #define LED_ON  1
 #define LED_OFF 0
@@ -62,43 +62,6 @@ limitations under the License.
 ********************************************************************/
 void LED_On(LED led)
 {
-    switch(led)
-    {
-        case LED_D3:
-            LED_D3_LAT = LED_ON;
-            break ;
-
-        case LED_D4:
-            LED_D4_LAT = LED_ON;
-            break ;
-
-        case LED_D5:
-            LED_D5_LAT = LED_ON;
-            break;
-
-        case LED_D6:
-            LED_D6_LAT = LED_ON;
-            break;
-
-        case LED_D7:
-            LED_D7_LAT = LED_ON;
-            break;
-
-        case LED_D8:
-            LED_D8_LAT = LED_ON;
-            break;
-
-        case LED_D9:
-            LED_D9_LAT = LED_ON;
-            break ;
-
-        case LED_D10:
-            LED_D10_LAT = LED_ON;
-            break ;
-
-        default:
-            break;
-    }
 }
 
 /*********************************************************************
@@ -119,43 +82,6 @@ void LED_On(LED led)
 ********************************************************************/
 void LED_Off(LED led)
 {
-    switch(led)
-    {
-        case LED_D3:
-            LED_D3_LAT = LED_OFF;
-            break ;
-
-        case LED_D4:
-            LED_D4_LAT = LED_OFF;
-            break ;
-
-        case LED_D5:
-            LED_D5_LAT = LED_OFF;
-            break;
-
-        case LED_D6:
-            LED_D6_LAT = LED_OFF;
-            break;
-
-        case LED_D7:
-            LED_D7_LAT = LED_OFF;
-            break;
-
-        case LED_D8:
-            LED_D8_LAT = LED_OFF;
-            break;
-
-        case LED_D9:
-            LED_D9_LAT = LED_OFF;
-            break ;
-
-        case LED_D10:
-            LED_D10_LAT = LED_OFF;
-            break ;
-
-        default:
-            break;
-    }
 }
 
 /*********************************************************************
@@ -176,43 +102,6 @@ void LED_Off(LED led)
 ********************************************************************/
 void LED_Toggle(LED led)
 {
-    switch(led)
-    {
-        case LED_D3:
-            LED_D3_LAT ^= 1;
-            break;
-
-        case LED_D4:
-            LED_D4_LAT ^= 1;
-            break;
-
-        case LED_D5:
-            LED_D5_LAT ^= 1;
-            break;
-
-        case LED_D6:
-            LED_D6_LAT ^= 1;
-            break;
-
-        case LED_D7:
-            LED_D7_LAT ^= 1;
-            break;
-
-        case LED_D8:
-            LED_D8_LAT ^= 1;
-            break;
-
-        case LED_D9:
-            LED_D9_LAT ^= 1;
-            break;
-
-        case LED_D10:
-            LED_D10_LAT ^= 1;
-            break;
-
-        default:
-            break;
-    }
 }
 
 /*********************************************************************
@@ -233,35 +122,6 @@ void LED_Toggle(LED led)
 ********************************************************************/
 bool LED_Get(LED led)
 {
-    switch(led)
-    {
-        case LED_D3:
-            return ( ( LED_D3_LAT == LED_ON ) ? true : false ) ;
-
-        case LED_D4:
-            return ( ( LED_D4_LAT == LED_ON ) ? true : false ) ;
-
-        case LED_D5:
-            return ( (LED_D5_LAT == LED_ON) ? true : false );
-
-        case LED_D6:
-            return ( (LED_D6_LAT == LED_ON) ? true : false );
-
-        case LED_D7:
-            return ( (LED_D7_LAT == LED_ON) ? true : false );
-
-        case LED_D8:
-            return ( (LED_D8_LAT == LED_ON) ? true : false );
-
-        case LED_D9:
-            return ( ( LED_D9_LAT == LED_ON ) ? true : false ) ;
-
-        case LED_D10:
-            return ( ( LED_D10_LAT == LED_ON ) ? true : false ) ;
-
-        default:
-            break;
-    }
     return false;
 }
 
@@ -282,42 +142,4 @@ bool LED_Get(LED led)
 ********************************************************************/
 void LED_Enable(LED led)
 {
-    switch(led)
-    {
-        case LED_D3:
-            LED_D3_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D4:
-            LED_D4_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D5:
-            LED_D5_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D6:
-            LED_D6_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D7:
-            LED_D7_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D8:
-            LED_D8_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D9:
-            LED_D9_TRIS = PIN_OUTPUT;
-            break;
-
-        case LED_D10:
-            LED_D10_TRIS = PIN_OUTPUT;
-            break ;
-
-        default:
-            break;
-    }
 }
-

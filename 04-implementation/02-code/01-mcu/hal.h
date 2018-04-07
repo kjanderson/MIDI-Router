@@ -15,19 +15,23 @@
 #define Hal_WatchdogReset() ClrWdt()
 
 /* GPIO interface */
-#define Hal_GpioSetReset() (LATC |= _LATC_LATC13_MASK)
-#define Hal_GpioClrReset() (LATC &= ~(_LATC_LATC13_MASK))
-#define Hal_GpioGetDone() (PORTC & _LATC_LATC14_MASK)
-#define Hal_GpioClrCfgSpiSs() (PORTD &= ~(_LATD_LATD14_MASK))
-#define Hal_GpioSetCfgSpiSs() (PORTD |= _LATD_LATD14_MASK)
-#define Hal_GpioGetFbin0() (PORTG & _LATG_LATG6_MASK)
-#define Hal_GpioGetFbin1() (PORTG & _LATG_LATG7_MASK)
-#define Hal_GpioGetFbin2() (PORTG & _LATG_LATG8_MASK)
-#define Hal_GpioGetFbin3() (PORTG & _LATG_LATG9_MASK)
-#define Hal_GpioSetMode() (PORTF |= _LATF_LATF13_MASK)
-#define Hal_GpioClrMode() (PORTF &= ~(_LATF_LATF13_MASK))
-#define Hal_LedModeOn() (PORTF &= ~(_LATF_LATF13_MASK))
-#define Hal_LedModeOff() (PORTF |= ~(_LATF_LATF13_MASK))
+/* CRESET is active low */
+#define Hal_GpioSetReset() (LATA &= ~(_LATA_LATA4_MASK))
+#define Hal_GpioClrReset() (LATA |= _LATA_LATA4_MASK)
+/* CDONE is active high */
+#define Hal_GpioGetDone() (PORTA & _LATA_LATA9_MASK)
+/* SPI_SS is active low */
+#define Hal_GpioSetCfgSpiSs() (PORTC &= ~(_LATC_LATC3_MASK))
+#define Hal_GpioClrCfgSpiSs() (PORTC |= _LATC_LATC3_MASK)
+#define Hal_GpioGetFbin0() (PORTB & _LATB_LATB9_MASK)
+#define Hal_GpioGetFbin1() (PORTC & _LATC_LATC6_MASK)
+#define Hal_GpioGetFbin2() (PORTC & _LATC_LATC7_MASK)
+#define Hal_GpioGetFbin3() (PORTC & _LATC_LATC8_MASK)
+/* LED is active low */
+#define Hal_GpioSetMode() (PORTB &= ~(_LATB_LATB4_MASK))
+#define Hal_GpioClrMode() (PORTB |= _LATB_LATB4_MASK)
+#define Hal_LedModeOn()   (PORTB &= ~(_LATB_LATB4_MASK))
+#define Hal_LedModeOff()  (PORTB |= _LATB_LATB4_MASK)
 
 /* Timer interface */
 #define Hal_Timer1Disable()
@@ -41,6 +45,9 @@
 #define Hal_SpiSetTxData(x)
 #define Hal_SpiGetRxData() (SPI1BUFL)
 #define Hal_Spi1ClrInt()
+
+/* USB interface */
+#define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)
 
 void Hal_InitFpga(void);
 void Hal_InitPeripherals(void);

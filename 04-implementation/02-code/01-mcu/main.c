@@ -30,6 +30,10 @@
  *   FBIN.2:   this FPGA output is tested after configuration
  *   FBIN.3:   this FPGA output is tested after configuration
  *   MODE:     this MCU output is tested after configuration
+ * TODO:
+ *  1. setup configuration bits
+ *  2. setup LED mode logic
+ *  3. setup FPGA configuration code
  *********************************************************************/
 
 #include "hal.h"

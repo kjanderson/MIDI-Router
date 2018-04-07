@@ -22,6 +22,7 @@ please contact mla_licensing@microchip.com
 #include "usb.h"
 #include "leds.h"
 #include "buttons.h"
+#include "hal.h"
 
 //------------------------------------------------------------------------------
 //Example USB compatible oscillator settings.  Uncomment only one of the below.
@@ -32,6 +33,7 @@ please contact mla_licensing@microchip.com
 
 
 /** CONFIGURATION Bits **********************************************/
+#if 0
 // FSEC
 #pragma config BWRP = OFF               // Boot Segment Write Protect (Boot segment may be written)
 #pragma config BSS = DISABLED           // Boot segment Protect (No Protection (other than BWRP))
@@ -86,7 +88,8 @@ please contact mla_licensing@microchip.com
 #pragma config ALTCMPI = DISABLE        // Alternate Comparator Input Enable bit (C1INC, C2INC, and C3INC are on their standard pin locations)
 #pragma config TMPRPIN = OFF            // Tamper Pin Enable bit (TMPRN pin function is disabled)
 #pragma config ALTVREF = ALTVREFDIS     // Alternate VREF location Enable (VREF is on a default pin (VREF+ on RA10 and VREF- on RA9))
- 
+#endif /* 0 */ 
+
 /*********************************************************************
 * Function: void SYSTEM_Initialize( SYSTEM_STATE state )
 *
@@ -108,7 +111,8 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
             //the VBUS pin is always consistently configured to be tri-stated in
             //USB applications, so as to avoid any possible contention with the host.
             //(ex: maintain TRISFbits.TRISF7 = 1 at all times).
-            TRISFbits.TRISF7 = 1;
+            //TRISFbits.TRISF7 = 1;
+            Hal_UsbDisableVbusPort();
 
             //Configure clock settings to be compatible with USB operation.  
             //This could involve doing nothing (ex: if the config bit settings
