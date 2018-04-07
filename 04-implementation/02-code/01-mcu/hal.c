@@ -17,7 +17,6 @@
 static void _Hal_InitGpio(void);
 static void _Hal_InitSpiForFpga(void);
 static void _Hal_InitSpi(void);
-static void _Hal_InitPmp(void);
 static void _Hal_InitClock(void);
 static void _Hal_InitCore(void);
 static void _Hal_InitWatchdog(void);
@@ -101,22 +100,6 @@ static void _Hal_InitGpio(void)
     Hal_GpioSetReset();
     Hal_GpioClrReset();
     (void)Hal_GpioGetDone();
-    (void)Hal_GpioGetPmpD7();
-    (void)Hal_GpioGetPmpD6();
-    (void)Hal_GpioGetPmpD5();
-    (void)Hal_GpioGetPmpD4();
-    (void)Hal_GpioGetPmpD3();
-    (void)Hal_GpioGetPmpD2();
-    (void)Hal_GpioGetPmpD1();
-    (void)Hal_GpioGetPmpD0();
-    (void)Hal_GpioGetPmpRd();
-    (void)Hal_GpioGetPmpWr();
-    (void)Hal_GpioGetPmpBe0();
-    (void)Hal_GpioGetPmpAck();
-    (void)Hal_GpioGetPmpCs1();
-    (void)Hal_GpioGetPmpBe1();
-    (void)Hal_GpioGetPmpAll();
-    (void)Hal_GpioGetPmpAlh();
     (void)Hal_GpioGetFbin0();
     (void)Hal_GpioGetFbin1();
     (void)Hal_GpioGetFbin2();
@@ -189,10 +172,6 @@ static void _Hal_InitSpiForFpga(void)
  * This function initializes the SPI port for application use.
  *********************************************************************/
 static void _Hal_InitSpi(void)
-{
-}
-
-static void _Hal_InitPmp(void)
 {
 }
 

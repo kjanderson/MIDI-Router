@@ -6,3 +6,8 @@ signals from source to destination automatically.
 
 The hardware provides 4 MIDI inputs, 4 MIDI thru's, and 4 MIDI outputs.
 This software project implements the routing of the inputs to the outputs.
+
+Notes
+ - USB is copied from the MLA USB Framework
+ - USB-app is copied from the application example in the MLA
+ - USB-bsp is copied from the application example in the MLA
