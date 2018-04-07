@@ -32,15 +32,18 @@
  *    error
  *    reset and try again, if desired
  *********************************************************************/
-void Fpga_Configure(void)
+uint8_t Fpga_Configure(void)
 {
     uint16_t iCnt;
     volatile uint8_t iRx;
+    uint8_t uResult;
     
     /* 200 ns @ 16 MHz = 3.2 clock cycles */
-    const uint16_t iResetTime = (uint16_t)4;
+    const uint16_t iResetTicks = (uint16_t)4;
     /* 800 us @ 16 MHz = 12,800 clock cycles */
-    const uint16_t iFpgaInitTime = (uint16_t)12800;
+    const uint16_t iFpgaInitTicks = (uint16_t)12800;
+    
+    uResult = 0U;
 
     Hal_GpioSetReset();
     //Hal_SpiInitForFpga();
@@ -50,7 +53,7 @@ void Fpga_Configure(void)
     Hal_GpioClrReset();
     Hal_Timer1Disable();
     /* configure timer to expire after 200 ns */
-    Hal_Timer1Config(iResetTime, 0);
+    Hal_Timer1Config(iResetTicks, 0);
     Hal_Timer1Restart();
     Hal_Timer1Enable();
     while(!Hal_Timer1IsExpired())
@@ -60,7 +63,7 @@ void Fpga_Configure(void)
 
     /* configure timer to expire after 800 us */
     Hal_GpioSetReset();
-    Hal_Timer1Config(iFpgaInitTime, 0);
+    Hal_Timer1Config(iFpgaInitTicks, 0);
     Hal_Timer1Restart();
     Hal_Timer1Enable();
     while(!Hal_Timer1IsExpired())
@@ -72,34 +75,42 @@ void Fpga_Configure(void)
     /* Hal_GpioClrCfgSpiSs(); */
 
     /* prime the SPI slave with a byte of dummy data */
-    SPI1BUFL = (uint8_t)0;
+    Hal_SpiSetTxData(0U);
     while(Hal_Spi1TxBusy())
     {
     }
-    iRx = SPI1BUFL;
+    iRx = Hal_SpiGetRxData();
     Hal_Spi1ClrInt();
 
     for(iCnt=(uint16_t)0; iCnt<HAL_DIM(vuFpgaImage); iCnt++)
     {
         /* send the current byte */
-        SPI1BUFL = vuFpgaImage[iCnt];
+        Hal_SpiSetTxData(vuFpgaImage[iCnt]);
         while(Hal_Spi1TxBusy())
         {
         }
-        iRx = SPI1BUFL;
+        iRx = Hal_SpiGetRxData();
         Hal_Spi1ClrInt();
     }
-    /* after the last data byte is sent, make sure the clock is active
-     * for at least 100 clock cycles (13 bytes = 104 clock cycles) */
-    for(iCnt=(uint16_t)0; iCnt<(uint16_t)13; iCnt++)
+    
+    if (Hal_GpioGetDone())
     {
-        /* send dummy data */
-        SPI1BUFL = (uint8_t)0;
-        while(Hal_Spi1TxBusy())
+        uResult = 1U;
+        
+        /* after the last data byte is sent, make sure the clock is active
+         * for at least 100 clock cycles (13 bytes = 104 clock cycles) */
+        for(iCnt=(uint16_t)0; iCnt<(uint16_t)13; iCnt++)
         {
+            /* send dummy data */
+            Hal_SpiSetTxData(0U);
+            while(Hal_Spi1TxBusy())
+            {
+            }
+            iRx = Hal_SpiGetRxData();
+            Hal_Spi1ClrInt();
         }
-        iRx = SPI1BUFL;
-        Hal_Spi1ClrInt();
     }
     Hal_GpioSetCfgSpiSs();
+    
+    return uResult;
 }

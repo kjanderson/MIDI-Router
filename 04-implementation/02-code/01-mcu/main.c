@@ -31,16 +31,16 @@
  *   FBIN.3:   this FPGA output is tested after configuration
  *   MODE:     this MCU output is tested after configuration
  * TODO:
- *  1. setup configuration bits
+ *  1. verify configuration bits
  *  2. setup LED mode logic
- *  3. setup FPGA configuration code
  *********************************************************************/
 
 #include "hal.h"
 
 int main(void)
 {
-    Hal_InitFpga();
+    uint8_t uFpgaResult;
+    uFpgaResult = Hal_InitFpga();
     
     Hal_InitPeripherals();
     Hal_InitInterrupts();

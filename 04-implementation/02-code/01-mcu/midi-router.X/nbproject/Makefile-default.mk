@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../usb/usb_device.c ../usb/usb_device_cdc.c ../usb/usb_hal_16bit.c ../usb-app/app_device_cdc_basic.c ../usb-app/app_led_usb_status.c ../usb-app/system.c ../usb-app/usb_descriptors.c ../usb-app/usb_events.c ../fpga.c ../fpga_image.c ../hal.c ../main.c ../usb-bsp/buttons.c ../usb-bsp/leds.c
+SOURCEFILES_QUOTED_IF_SPACED=../usb-bsp/buttons.c ../usb-bsp/leds.c ../usb/usb_device.c ../usb/usb_device_cdc.c ../usb/usb_hal_16bit.c ../usb-app/app_device_cdc_basic.c ../usb-app/app_led_usb_status.c ../usb-app/system.c ../usb-app/usb_descriptors.c ../usb-app/usb_events.c ../fpga.c ../fpga_image.c ../hal.c ../main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360939189/usb_device.o ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o ${OBJECTDIR}/_ext/1832463095/system.o ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o ${OBJECTDIR}/_ext/1832463095/usb_events.o ${OBJECTDIR}/_ext/1472/fpga.o ${OBJECTDIR}/_ext/1472/fpga_image.o ${OBJECTDIR}/_ext/1472/hal.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1832462041/buttons.o ${OBJECTDIR}/_ext/1832462041/leds.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360939189/usb_device.o.d ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o.d ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o.d ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o.d ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o.d ${OBJECTDIR}/_ext/1832463095/system.o.d ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o.d ${OBJECTDIR}/_ext/1832463095/usb_events.o.d ${OBJECTDIR}/_ext/1472/fpga.o.d ${OBJECTDIR}/_ext/1472/fpga_image.o.d ${OBJECTDIR}/_ext/1472/hal.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/_ext/1832462041/buttons.o.d ${OBJECTDIR}/_ext/1832462041/leds.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1832462041/buttons.o ${OBJECTDIR}/_ext/1832462041/leds.o ${OBJECTDIR}/_ext/1360939189/usb_device.o ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o ${OBJECTDIR}/_ext/1832463095/system.o ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o ${OBJECTDIR}/_ext/1832463095/usb_events.o ${OBJECTDIR}/_ext/1472/fpga.o ${OBJECTDIR}/_ext/1472/fpga_image.o ${OBJECTDIR}/_ext/1472/hal.o ${OBJECTDIR}/_ext/1472/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1832462041/buttons.o.d ${OBJECTDIR}/_ext/1832462041/leds.o.d ${OBJECTDIR}/_ext/1360939189/usb_device.o.d ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o.d ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o.d ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o.d ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o.d ${OBJECTDIR}/_ext/1832463095/system.o.d ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o.d ${OBJECTDIR}/_ext/1832463095/usb_events.o.d ${OBJECTDIR}/_ext/1472/fpga.o.d ${OBJECTDIR}/_ext/1472/fpga_image.o.d ${OBJECTDIR}/_ext/1472/hal.o.d ${OBJECTDIR}/_ext/1472/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1360939189/usb_device.o ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o ${OBJECTDIR}/_ext/1832463095/system.o ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o ${OBJECTDIR}/_ext/1832463095/usb_events.o ${OBJECTDIR}/_ext/1472/fpga.o ${OBJECTDIR}/_ext/1472/fpga_image.o ${OBJECTDIR}/_ext/1472/hal.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1832462041/buttons.o ${OBJECTDIR}/_ext/1832462041/leds.o
+OBJECTFILES=${OBJECTDIR}/_ext/1832462041/buttons.o ${OBJECTDIR}/_ext/1832462041/leds.o ${OBJECTDIR}/_ext/1360939189/usb_device.o ${OBJECTDIR}/_ext/1360939189/usb_device_cdc.o ${OBJECTDIR}/_ext/1360939189/usb_hal_16bit.o ${OBJECTDIR}/_ext/1832463095/app_device_cdc_basic.o ${OBJECTDIR}/_ext/1832463095/app_led_usb_status.o ${OBJECTDIR}/_ext/1832463095/system.o ${OBJECTDIR}/_ext/1832463095/usb_descriptors.o ${OBJECTDIR}/_ext/1832463095/usb_events.o ${OBJECTDIR}/_ext/1472/fpga.o ${OBJECTDIR}/_ext/1472/fpga_image.o ${OBJECTDIR}/_ext/1472/hal.o ${OBJECTDIR}/_ext/1472/main.o
 
 # Source Files
-SOURCEFILES=../usb/usb_device.c ../usb/usb_device_cdc.c ../usb/usb_hal_16bit.c ../usb-app/app_device_cdc_basic.c ../usb-app/app_led_usb_status.c ../usb-app/system.c ../usb-app/usb_descriptors.c ../usb-app/usb_events.c ../fpga.c ../fpga_image.c ../hal.c ../main.c ../usb-bsp/buttons.c ../usb-bsp/leds.c
+SOURCEFILES=../usb-bsp/buttons.c ../usb-bsp/leds.c ../usb/usb_device.c ../usb/usb_device_cdc.c ../usb/usb_hal_16bit.c ../usb-app/app_device_cdc_basic.c ../usb-app/app_led_usb_status.c ../usb-app/system.c ../usb-app/usb_descriptors.c ../usb-app/usb_events.c ../fpga.c ../fpga_image.c ../hal.c ../main.c
 
 
 CFLAGS=
@@ -94,6 +94,20 @@ MP_LINKER_FILE_OPTION=,--script=p24FJ128GB204.gld
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/_ext/1832462041/buttons.o: ../usb-bsp/buttons.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
+	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/buttons.c  -o ${OBJECTDIR}/_ext/1832462041/buttons.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/buttons.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/buttons.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1832462041/leds.o: ../usb-bsp/leds.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
+	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/leds.c  -o ${OBJECTDIR}/_ext/1832462041/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/leds.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/leds.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/_ext/1360939189/usb_device.o: ../usb/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360939189" 
 	@${RM} ${OBJECTDIR}/_ext/1360939189/usb_device.o.d 
@@ -178,21 +192,21 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main.c  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+else
 ${OBJECTDIR}/_ext/1832462041/buttons.o: ../usb-bsp/buttons.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
 	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/buttons.c  -o ${OBJECTDIR}/_ext/1832462041/buttons.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/buttons.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/buttons.c  -o ${OBJECTDIR}/_ext/1832462041/buttons.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/buttons.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/buttons.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1832462041/leds.o: ../usb-bsp/leds.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
 	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/leds.c  -o ${OBJECTDIR}/_ext/1832462041/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/leds.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/leds.c  -o ${OBJECTDIR}/_ext/1832462041/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/leds.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/leds.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-else
 ${OBJECTDIR}/_ext/1360939189/usb_device.o: ../usb/usb_device.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1360939189" 
 	@${RM} ${OBJECTDIR}/_ext/1360939189/usb_device.o.d 
@@ -276,20 +290,6 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../main.c  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1832462041/buttons.o: ../usb-bsp/buttons.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
-	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1832462041/buttons.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/buttons.c  -o ${OBJECTDIR}/_ext/1832462041/buttons.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/buttons.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/buttons.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1832462041/leds.o: ../usb-bsp/leds.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1832462041" 
-	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1832462041/leds.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../usb-bsp/leds.c  -o ${OBJECTDIR}/_ext/1832462041/leds.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1832462041/leds.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mlarge-code -O0 -I"../" -I"../usb" -I"../usb-app" -I"../usb-bsp" -msmart-io=1 -Wall -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1832462041/leds.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

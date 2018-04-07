@@ -41,15 +41,15 @@
 #define Hal_Timer1Clear()
 
 /* SPI interface */
-#define Hal_Spi1TxBusy() (0U)
-#define Hal_SpiSetTxData(x)
+#define Hal_Spi1TxBusy() (SPI1STATL & _SPI1STATL_SPIBUSY_MASK)
+#define Hal_SpiSetTxData(x) (SPI1BUFL = (x))
 #define Hal_SpiGetRxData() (SPI1BUFL)
 #define Hal_Spi1ClrInt()
 
 /* USB interface */
 #define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)
 
-void Hal_InitFpga(void);
+uint8_t Hal_InitFpga(void);
 void Hal_InitPeripherals(void);
 void Hal_InitInterrupts(void);
 void Hal_SpiInitForFpga(void);
