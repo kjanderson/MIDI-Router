@@ -25,6 +25,7 @@
       <itemPath>../fpga.h</itemPath>
       <itemPath>../fpga_image.h</itemPath>
       <itemPath>../hal.h</itemPath>
+      <itemPath>../app.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -51,6 +52,7 @@
       <itemPath>../fpga_image.c</itemPath>
       <itemPath>../hal.c</itemPath>
       <itemPath>../main.c</itemPath>
+      <itemPath>../app.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

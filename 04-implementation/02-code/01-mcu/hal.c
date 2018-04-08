@@ -1,5 +1,6 @@
 #include <xc.h>
 
+#include "app.h"
 #include "hal.h"
 
 #include "system.h"
@@ -299,3 +300,11 @@ void __attribute__((__interrupt__, auto_psv)) _MathError(void)
  * ISR's, if applicable
  **********************************************************************
  *********************************************************************/
+
+void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
+{
+    App_TickIsr();
+    
+    /* clear the interrupt to receive more timer interrupts */
+    IFS0 &= _IFS0_T1IF_MASK;
+}

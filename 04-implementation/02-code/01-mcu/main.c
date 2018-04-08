@@ -33,8 +33,10 @@
  * TODO:
  *  1. verify configuration bits
  *  2. setup LED mode logic
+ *  3. place the FPGA image in its assigned memory region
  *********************************************************************/
 
+#include "app.h"
 #include "hal.h"
 
 int main(void)
@@ -49,6 +51,7 @@ int main(void)
     {
         Hal_WatchdogReset();
         Hal_IdleTasks();
+        App_IdleTasks();
     }
     
     return (int)0;
