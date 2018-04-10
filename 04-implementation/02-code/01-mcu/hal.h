@@ -53,7 +53,7 @@ uint8_t Hal_InitFpga(void);
 void Hal_InitPeripherals(void);
 void Hal_InitInterrupts(void);
 void Hal_SpiInitForFpga(void);
-void Hal_Timer1Config(uint16_t uTime, uint8_t uFlags);
+void Hal_Timer1Config(uint16_t uTicks, uint8_t uFlags);
 void Hal_IdleTasks(void);
 
 #endif /* HAL_H */

@@ -198,8 +198,17 @@ static void _Hal_InitWatchdog(void)
 {
 }
 
+/**********************************************************************
+ * _Hal_InitTimer
+ * 
+ * Description
+ * Initialize timer 1 for 1 1-msec overflow time.
+ *********************************************************************/
 static void _Hal_InitTimer(void)
 {
+    T1CON = 0U;
+    PR1 = 16000U;
+    T1CON = 0x8000U;
 }
 
 uint8_t Hal_InitFpga(void)
@@ -239,10 +248,13 @@ void Hal_InitSpiForFpga(void)
     _Hal_InitSpiForFpga();
 }
 
-void Hal_Timer1Config(uint16_t uTime, uint8_t uOptions)
+void Hal_Timer1Config(uint16_t uTicks, uint8_t uOptions)
 {
-    (void)uTime;
     (void)uOptions;
+    
+    T1CON = 0U;
+    PR1 = uTicks;
+    T1CON = 0x8000U;
 }
 
 void Hal_IdleTasks(void)

@@ -3,6 +3,31 @@
 #include "hal.h"
 #include "app.h"
 
+static uint8_t fg_uFpgaMode;
+static uint16_t fg_uLedPeriod;
+static uint16_t fg_uLedDuty;
+static uint16_t fg_uLedCnt;
+
+void App_Init(void)
+{
+    fg_uFpgaMode = 0U;
+    /* ticks in msec (depends on timer 1 configuration) */
+    fg_uLedPeriod = 1000U;
+    fg_uLedDuty = 500U;
+    fg_uLedCnt = fg_uLedPeriod;
+}
+
+/**********************************************************************
+ * App_SetFpgaMode
+ * 
+ * Description
+ * Access function for FPGA mode.
+ *********************************************************************/
+void App_SetFpgaMode(uint8_t uValue)
+{
+    fg_uFpgaMode = uValue;
+}
+
 /**********************************************************************
  * App_TickIsr
  * 
@@ -16,6 +41,32 @@ void App_TickIsr(void)
      * code here will start an SPI transaction */
     
     /* blink the LED according to the application state */
+    if (fg_uFpgaMode > 0U)
+    {
+        fg_uLedDuty = 500U;
+    }
+    else
+    {
+        fg_uLedDuty = 100U;
+    }
+    if (fg_uLedCnt > 0U)
+    {
+        fg_uLedCnt = fg_uLedCnt - 1U;
+        
+        if (fg_uLedCnt > fg_uLedDuty)
+        {
+            Hal_LedModeOn();
+        }
+        else
+        {
+            Hal_LedModeOff();
+        }
+        
+        if (fg_uLedCnt == 0U)
+        {
+            fg_uLedCnt = fg_uLedPeriod;
+        }
+    }
 }
 
 /**********************************************************************
