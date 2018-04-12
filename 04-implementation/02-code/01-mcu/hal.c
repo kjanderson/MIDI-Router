@@ -72,12 +72,28 @@ static void _Hal_InitTimer(void);
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+/**********************************************************************
+ * _Hal_InitGpio
+ *
+ * Description
+ * This function initializes the GPIO module, including the
+ * peripheral crossbar and clock output.
+ *
+ * Notes
+ *  GP Inputs:
+ *  GP Outputs: LED Mode (RB4)
+ *  GP Outputs: SPI #SS  (RC3)
+ *  SPI ports:  SPI MOSI
+ *              SPI MISO
+ *              SPI SCK
+ *  Clk Output: REFO (32 MHz) (RB13)
+ *********************************************************************/
 static void _Hal_InitGpio(void)
 {
     /* test functions */
     TRISA = 0xFFFF;
-    TRISB = 0xFFFF;
-    TRISC = 0xFFFF;
+    TRISB = 0xFFEF;
+    TRISC = 0xFFF7;
     
     Hal_GpioSetReset();
     Hal_GpioClrReset();
