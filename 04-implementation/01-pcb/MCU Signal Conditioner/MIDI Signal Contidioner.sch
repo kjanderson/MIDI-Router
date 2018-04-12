@@ -8189,6 +8189,8 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805W" package3d_urn="urn:adsk.eagle:package:23537/1" value="2.2K"/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8332,6 +8334,8 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <instance part="+3V2" gate="G$1" x="215.9" y="0" smashed="yes">
 <attribute name="VALUE" x="215.9" y="2.54" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="GND10" gate="1" x="228.6" y="-111.76"/>
+<instance part="GND11" gate="1" x="236.22" y="-111.76"/>
 </instances>
 <busses>
 </busses>
@@ -8466,6 +8470,26 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <pinref part="GND7" gate="1" pin="GND"/>
 <pinref part="U4" gate="G$1" pin="P$3/A2"/>
 <wire x1="154.94" y1="-35.56" x2="165.1" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="X5" gate="S" pin="S4"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="236.22" y1="-104.14" x2="236.22" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="X5" gate="S" pin="S3"/>
+<wire x1="236.22" y1="-106.68" x2="236.22" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="-104.14" x2="233.68" y2="-106.68" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="-106.68" x2="236.22" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="236.22" y="-106.68"/>
+</segment>
+<segment>
+<pinref part="X5" gate="S" pin="S1"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="228.6" y1="-104.14" x2="228.6" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="X5" gate="S" pin="S2"/>
+<wire x1="228.6" y1="-106.68" x2="228.6" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-104.14" x2="231.14" y2="-106.68" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-106.68" x2="228.6" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="228.6" y="-106.68"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
