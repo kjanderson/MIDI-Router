@@ -82,6 +82,7 @@ static void _Hal_InitTimer(void);
  * Notes
  *  GP Inputs:
  *  GP Outputs: LED Mode (RB4)
+ *  CRESET:     FPGA reset (RA4)
  *  GP Outputs: SPI #SS  (RC3)
  *  SPI ports:  SPI MOSI
  *              SPI MISO
@@ -92,20 +93,13 @@ static void _Hal_InitGpio(void)
 {
     /* enable outputs */
     TRISA = 0xFFFF;
-    TRISB = ~(_TRISB_TRISB4_MASK);
-    TRISC = ~(_TRISC_TRISC3_MASK);
+    TRISB = 0xFFFF;
+    TRISC = 0xFFFF;
+    Hal_GpioEnableOutputSpiSs();
+    Hal_GpioEnableOutputMode();
+    Hal_GpioEnableOutputReset();
     
     Hal_GpioSetReset();
-    Hal_GpioClrReset();
-    (void)Hal_GpioGetDone();
-    (void)Hal_GpioGetFbin0();
-    (void)Hal_GpioGetFbin1();
-    (void)Hal_GpioGetFbin2();
-    (void)Hal_GpioGetFbin3();
-    (void)Hal_SpiGetRxData();
-    Hal_GpioSetMode();
-    Hal_GpioClrMode();
-    Hal_LedModeOn();
     Hal_LedModeOff();
     
     /* configure PPS registers */

@@ -39,7 +39,7 @@ uint8_t Fpga_Configure(void)
     uint8_t uResult;
     
     /* 200 ns @ 16 MHz = 3.2 clock cycles */
-    const uint16_t iResetTicks = (uint16_t)4;
+    const uint16_t iResetTicks = (uint16_t)10;
     /* 800 us @ 16 MHz = 12,800 clock cycles */
     const uint16_t iFpgaInitTicks = (uint16_t)12800;
     
@@ -49,8 +49,8 @@ uint8_t Fpga_Configure(void)
     //Hal_SpiInitForFpga();
     
     /* initialize timer to setup timing on reset output */
-    Hal_GpioClrCfgSpiSs();
-    Hal_GpioClrReset();
+    Hal_GpioSetCfgSpiSs();
+    Hal_GpioSetReset();
     Hal_Timer1Disable();
     /* configure timer to expire after 200 ns */
     Hal_Timer1Config(iResetTicks, 0);
@@ -59,7 +59,10 @@ uint8_t Fpga_Configure(void)
     while(!Hal_Timer1IsExpired())
     {
     }
-    Hal_Timer1Clear();
+    while(Hal_Timer1IsExpired())
+    {
+        Hal_Timer1Clear();
+    }
 
     /* configure timer to expire after 800 us */
     Hal_GpioSetReset();
@@ -69,7 +72,10 @@ uint8_t Fpga_Configure(void)
     while(!Hal_Timer1IsExpired())
     {
     }
-    Hal_Timer1Clear();
+    while(Hal_Timer1IsExpired())
+    {
+        Hal_Timer1Clear();
+    }
 
     /* release SS */
     /* Hal_GpioClrCfgSpiSs(); */
