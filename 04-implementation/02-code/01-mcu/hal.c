@@ -90,10 +90,10 @@ static void _Hal_InitTimer(void);
  *********************************************************************/
 static void _Hal_InitGpio(void)
 {
-    /* test functions */
+    /* enable outputs */
     TRISA = 0xFFFF;
-    TRISB = 0xFFEF;
-    TRISC = 0xFFF7;
+    TRISB = ~(_TRISB_TRISB4_MASK);
+    TRISC = ~(_TRISC_TRISC3_MASK);
     
     Hal_GpioSetReset();
     Hal_GpioClrReset();
@@ -107,6 +107,24 @@ static void _Hal_InitGpio(void)
     Hal_GpioClrMode();
     Hal_LedModeOn();
     Hal_LedModeOff();
+    
+    /* configure PPS registers */
+    __builtin_write_OSCCONL(OSCCON & ~(0x40));
+    /* SPI1:
+     *  SCK  on RP20, pin 37 (function 8)
+     *  MOSI on RP21, pin 38 (function 7)
+     *  SS   on GPIO RC3
+     *  MISO on RP7, pin 43 */
+    RPOR10bits.RP20R = 8;
+    RPOR10bits.RP21R = 7;
+    RPINR20bits.SDI1R = 7;
+    __builtin_write_OSCCONL(OSCCON |   0x40);
+    
+    /* enable reference output on REFO pin */
+    while((REFOCONL & _REFOCONL_ROACTIVE_MASK) != 0U)
+    {
+    }
+    REFOCONL = 0x9000;
 }
 
 /**********************************************************************
