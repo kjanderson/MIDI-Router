@@ -180,9 +180,12 @@ static void _Hal_InitSpiForFpga(void)
  * 
  * Description
  * This function initializes the SPI port for application use.
+ * 
+ * SCK frequency is 16 MHz
  *********************************************************************/
 static void _Hal_InitSpi(void)
 {
+    /* same settings as above, except run SCK at 16 MHz instead of 2 MHz */
 }
 
 /**********************************************************************
@@ -218,10 +221,22 @@ static void _Hal_InitClock(void)
     OSCTUNbits.STSRC = 1U;
 }
 
+/**********************************************************************
+ * _Hal_InitCore
+ * 
+ * Description
+ * Initialize any core-specific registers, if any.
+ *********************************************************************/
 static void _Hal_InitCore(void)
 {
 }
 
+/**********************************************************************
+ * _Hal_InitWatchdog
+ * 
+ * Description
+ * Start the watchdog timer.
+ *********************************************************************/
 static void _Hal_InitWatchdog(void)
 {
 }
@@ -239,6 +254,19 @@ static void _Hal_InitTimer(void)
     T1CON = 0x8000U;
 }
 
+/**********************************************************************
+ * Hal_InitFpga
+ * 
+ * Description
+ * Initialize minimum peripherals to support FPGA configuration.
+ * 
+ * Requirements
+ *   SCK between 1 MHz and 25 MHz
+ *   CKE=0
+ *   CKP=1
+ *   Timer1 configured to support timing of SPI frames and reset
+ *   Reset configured as an output
+ *********************************************************************/
 uint8_t Hal_InitFpga(void)
 {
     _Hal_InitClock();
@@ -250,6 +278,12 @@ uint8_t Hal_InitFpga(void)
     return Fpga_Configure();
 }
 
+/**********************************************************************
+ * Hal_InitPeripherals
+ * 
+ * Description
+ * Final initialization of MCU peripherals.
+ *********************************************************************/
 void Hal_InitPeripherals(void)
 {
     SYSTEM_Initialize(SYSTEM_STATE_USB_START);
@@ -267,6 +301,12 @@ void Hal_InitPeripherals(void)
     _Hal_InitWatchdog();
 }
 
+/**********************************************************************
+ * Hal_InitInterrupts
+ * 
+ * Description
+ * Initialize interrupts for the application.
+ *********************************************************************/
 void Hal_InitInterrupts(void)
 {
 }

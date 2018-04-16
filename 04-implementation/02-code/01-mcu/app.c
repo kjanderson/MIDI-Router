@@ -3,11 +3,21 @@
 #include "hal.h"
 #include "app.h"
 
+#include "system.h"
+#include "usb.h"
+#include "usb_device_cdc.h"
+
 static uint8_t fg_uFpgaMode;
 static uint16_t fg_uLedPeriod;
 static uint16_t fg_uLedDuty;
 static uint16_t fg_uLedCnt;
 
+/**********************************************************************
+ * App_Init
+ * 
+ * Description
+ * Initialization function for application.
+ *********************************************************************/
 void App_Init(void)
 {
     fg_uFpgaMode = 0U;
@@ -25,7 +35,9 @@ void App_Init(void)
  *********************************************************************/
 void App_SetFpgaMode(uint8_t uValue)
 {
+    Hal_IrqDisable();
     fg_uFpgaMode = uValue;
+    Hal_IrqEnable();
 }
 
 /**********************************************************************
@@ -82,4 +94,32 @@ void App_IdleTasks(void)
 {
     /* when the router is implemented,
      * code here will retrieve data from the FIFO for processing */
+    
+    /* implement a UART echo device for now */
+    uint8_t uBytesRead;
+    uint8_t vuBuffer[CDC_COMM_IN_EP_SIZE];
+    static uint8_t uState = 0U;
+    
+    uBytesRead = 0U;
+    switch(uState)
+    {
+        case 0:
+            uBytesRead = getsUSBUSART(&(vuBuffer[0]), sizeof(vuBuffer));
+            if (uBytesRead > 0U)
+            {
+                if (USBUSARTIsTxTrfReady())
+                {
+                    uState = 1U;
+                }
+            }
+            break;
+            
+        case 1:
+            putUSBUSART(vuBuffer, uBytesRead);
+            break;
+            
+        default:
+            break;
+    }
+    
 }
