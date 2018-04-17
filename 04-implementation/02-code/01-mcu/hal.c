@@ -309,6 +309,10 @@ void Hal_InitPeripherals(void)
  *********************************************************************/
 void Hal_InitInterrupts(void)
 {
+    /* clear Timer1 interrupt */
+    IFS0 &= ~(_IFS0_T1IF_MASK);
+    /* turn on Timer1 interrupt */
+    IEC0 |= _IEC0_T1IE_MASK;
 }
 
 void Hal_InitSpiForFpga(void)
@@ -386,5 +390,5 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
     App_TickIsr();
     
     /* clear the interrupt to receive more timer interrupts */
-    IFS0 &= _IFS0_T1IF_MASK;
+    IFS0 &= ~(_IFS0_T1IF_MASK);
 }
