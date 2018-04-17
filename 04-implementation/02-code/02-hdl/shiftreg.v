@@ -36,7 +36,7 @@ wire clk;
 wire spi_clk;
 wire din;
 wire dout;
-wire regout;
+wire [n-1:0] regout;
 
 reg [n-1:0] regdata;
 reg z_spi_clk;

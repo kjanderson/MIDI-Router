@@ -53,6 +53,7 @@ wire spi_ss;
 
 /* make the register a multiple of 8 bits to fit the MCU SPI pattern */
 wire [15:0] regout;
+wire nreset;
 
 /* assign outputs */
 assign gpio_bin = regout[11:0];
