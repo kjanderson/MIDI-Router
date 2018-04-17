@@ -67,7 +67,7 @@ static void _Hal_InitTimer(void);
 #pragma config LPCFG = OFF              // Low power regulator control (Disabled - regardless of RETEN)
 #pragma config GWRP = OFF               // General Segment Write Protect (Write to program memory allowed)
 #pragma config GCP = OFF                // General Segment Code Protect (Code protection is disabled)
-#pragma config JTAGEN = ON              // JTAG Port Enable (Enabled)
+#pragma config JTAGEN = OFF             // JTAG Port Enable (Disabled)
 
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.

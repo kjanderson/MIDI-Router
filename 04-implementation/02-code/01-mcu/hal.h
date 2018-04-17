@@ -63,7 +63,7 @@
 #define Hal_Spi1TxBusy() (SPI1STATL & _SPI1STATL_SPIBUSY_MASK)
 #define Hal_SpiSetTxData(x) (SPI1BUFL = (x))
 #define Hal_SpiGetRxData() (SPI1BUFL)
-#define Hal_Spi1ClrInt()
+#define Hal_Spi1ClrInt() (IFS0 &= ~(_IFS0_SPI1IF_MASK))
 
 /* USB interface */
 #define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)
