@@ -30,9 +30,9 @@ static void _Hal_InitTimer(void);
 // CONFIG4
 #pragma config DSWDTPS = DSWDTPS1F      // Deep Sleep Watchdog Timer Postscale Select bits (1:68719476736 (25.7 Days))
 #pragma config DSWDTOSC = LPRC          // DSWDT Reference Clock Select (DSWDT uses LPRC as reference clock)
-#pragma config DSBOREN = ON             // Deep Sleep BOR Enable bit (DSBOR Enabled)
-#pragma config DSWDTEN = ON             // Deep Sleep Watchdog Timer Enable (DSWDT Enabled)
-#pragma config DSSWEN = ON              // DSEN Bit Enable (Deep Sleep is controlled by the register bit DSEN)
+#pragma config DSBOREN = OFF            // Deep Sleep BOR Enable bit (DSBOR Disabled)
+#pragma config DSWDTEN = OFF            // Deep Sleep Watchdog Timer Enable (DSWDT Disabled)
+#pragma config DSSWEN = OFF             // DSEN Bit Enable (Deep Sleep operation is always disabled)
 #pragma config PLLDIV = DIVIDE2         // USB 96 MHz PLL Prescaler Select bits (Oscillator input divided by 2 (8 MHz input))
 #pragma config I2C1SEL = DISABLE        // Alternate I2C1 enable bit (I2C1 uses SCL1 and SDA1 pins)
 #pragma config IOL1WAY = OFF            // PPS IOLOCK Set Only Once Enable bit (The IOLOCK bit can be set and cleared using the unlock sequence)
