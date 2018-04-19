@@ -49,7 +49,7 @@ static void _Hal_InitTimer(void);
 
 // CONFIG2
 #pragma config POSCMD = NONE            // Primary Oscillator Select (Primary Oscillator Disabled)
-#pragma config WDTCLK = SYSCLK          // WDT Clock Source Select bits (WDT uses system clock when active, LPRC while in Sleep mode)
+#pragma config WDTCLK = LPRC            // WDT Clock Source Select bits (WDT uses LPRC)
 #pragma config OSCIOFCN = ON            // OSCO Pin Configuration (OSCO/CLKO/RA3 functions as port I/O (RA3))
 #pragma config FCKSM = CSDCMD           // Clock Switching and Fail-Safe Clock Monitor Configuration bits (Clock switching and Fail-Safe Clock Monitor are disabled)
 #pragma config FNOSC = FRCPLL           // Initial Oscillator Select (Fast RC Oscillator with PLL module (FRCPLL))
