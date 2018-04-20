@@ -13,6 +13,8 @@
 
 /* watchdog interface */
 #define Hal_WatchdogReset() ClrWdt()
+#define Hal_WatchdogEnable() (RCON |= _RCON_SWDTEN_MASK)
+#define Hal_WatchdogDisable() (RCON &= ~(_RCON_SWDTEN_MASK))
 
 /* GPIO interface */
 /* CRESET is active low */

@@ -56,13 +56,13 @@ static void _Hal_InitTimer(void);
 #pragma config ALTRB6 = APPEND          // Alternate RB6 pin function enable bit (Append the RP6/ASCL1/PMPD6 functions of RB6 to RA1 pin functions)
 #pragma config ALTCMPI = CxINC_RB       // Alternate Comparator Input bit (C1INC is on RB13, C2INC is on RB9 and C3INC is on RA0)
 #pragma config WDTCMX = WDTCLK          // WDT Clock Source Select bits (WDT clock source is determined by the WDTCLK Configuration bits)
-#pragma config IESO = ON                // Internal External Switchover (Enabled)
+#pragma config IESO = OFF               // Internal External Switchover (Disabled)
 
 // CONFIG1
 #pragma config WDTPS = PS32768          // Watchdog Timer Postscaler Select (1:32,768)
 #pragma config FWPSA = PR128            // WDT Prescaler Ratio Select (1:128)
 #pragma config WINDIS = OFF             // Windowed WDT Disable (Standard Watchdog Timer)
-#pragma config FWDTEN = ON              // Watchdog Timer Enable (WDT enabled in hardware)
+#pragma config FWDTEN = SWON            // Watchdog Timer Enable (WDT controlled with the SWDTEN bit)
 #pragma config ICS = PGx3               // Emulator Pin Placement Select bits (Emulator functions are shared with PGEC3/PGED3)
 #pragma config LPCFG = OFF              // Low power regulator control (Disabled - regardless of RETEN)
 #pragma config GWRP = OFF               // General Segment Write Protect (Write to program memory allowed)
@@ -239,6 +239,7 @@ static void _Hal_InitCore(void)
  *********************************************************************/
 static void _Hal_InitWatchdog(void)
 {
+    Hal_WatchdogEnable();
 }
 
 /**********************************************************************
@@ -295,7 +296,6 @@ void Hal_InitPeripherals(void)
     _Hal_InitCore();
     _Hal_InitTimer();
     _Hal_InitGpio();
-    _Hal_InitSpiForFpga();
     _Hal_InitSpi();
     _Hal_InitTimer();
     _Hal_InitWatchdog();
