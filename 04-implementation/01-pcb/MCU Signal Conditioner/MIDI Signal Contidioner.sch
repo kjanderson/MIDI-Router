@@ -616,30 +616,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</descripti
 <wire x1="6.51" y1="3.7" x2="6.51" y2="-3.2" width="0.2032" layer="51"/>
 <wire x1="6.51" y1="-3.2" x2="6.51" y2="-3.7" width="0.2032" layer="51"/>
 <wire x1="6.858" y1="5.842" x2="6.858" y2="-5.842" width="0.1998" layer="39"/>
-<smd name="2" x="-6.985" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="1" x="-8.255" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="3" x="-5.715" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="4" x="-4.445" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="12" x="5.715" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="11" x="4.445" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="6" x="-1.905" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="9" x="1.905" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="5" x="-3.175" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="7" x="-0.635" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="10" x="3.175" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="8" x="0.635" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="13" x="5.715" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="14" x="4.445" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="15" x="3.175" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="16" x="1.905" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="17" x="0.635" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="18" x="-0.635" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="19" x="-1.905" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="20" x="-3.175" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="21" x="-4.445" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="22" x="-5.715" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="23" x="-6.985" y="4.6" dx="0.6" dy="2.2" layer="1"/>
-<smd name="24" x="-8.255" y="4.6" dx="0.6" dy="2.2" layer="1"/>
+<smd name="1" x="-8.255" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="13" x="5.715" y="5.1" dx="0.6" dy="3.2" layer="1"/>
 <text x="-6.985" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-6.985" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-8.5001" y1="-5.32" x2="-8.0099" y2="-3.8001" layer="51"/>
@@ -667,6 +645,28 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</descripti
 <rectangle x1="-7.2301" y1="3.8001" x2="-6.7399" y2="5.32" layer="51"/>
 <rectangle x1="-8.5001" y1="3.8001" x2="-8.0099" y2="5.32" layer="51"/>
 <rectangle x1="-8.9" y1="-3.2" x2="-7.8" y2="3.6" layer="51"/>
+<smd name="2" x="-6.985" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="3" x="-5.715" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="4" x="-4.445" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="5" x="-3.175" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="6" x="-1.905" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="7" x="-0.635" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="8" x="0.635" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="9" x="1.905" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="10" x="3.175" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="11" x="4.445" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="12" x="5.715" y="-5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="14" x="4.445" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="15" x="3.175" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="16" x="1.905" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="17" x="0.635" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="18" x="-0.635" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="19" x="-1.905" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="20" x="-3.175" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="21" x="-4.445" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="22" x="-5.715" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="23" x="-6.985" y="5.1" dx="0.6" dy="3.2" layer="1"/>
+<smd name="24" x="-8.255" y="5.1" dx="0.6" dy="3.2" layer="1"/>
 </package>
 </packages>
 <symbols>
