@@ -11,3 +11,5 @@ Notes
  - USB is copied from the MLA USB Framework
  - USB-app is copied from the application example in the MLA
  - USB-bsp is copied from the application example in the MLA
+
+![System Diagram](/01-requirements/system specification figures/system drawing.png)
