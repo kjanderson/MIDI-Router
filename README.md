@@ -12,4 +12,4 @@ Notes
  - USB-app is copied from the application example in the MLA
  - USB-bsp is copied from the application example in the MLA
 
-![System Diagram]("/01-requirements/system specification figures/system drawing.png")
+![System Diagram]("https://github.com/kjanderson/MIDI-Router/01-requirements/system specification figures/system drawing.png")
