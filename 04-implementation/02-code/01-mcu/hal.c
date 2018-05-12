@@ -115,10 +115,12 @@ static void _Hal_InitGpio(void)
     __builtin_write_OSCCONL(OSCCON |   0x40);
     
     /* enable reference output on REFO pin */
+    /*
     while((REFOCONL & _REFOCONL_ROACTIVE_MASK) != 0U)
     {
     }
     REFOCONL = 0x9000;
+     */
 }
 
 /**********************************************************************
