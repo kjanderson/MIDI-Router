@@ -303,6 +303,7 @@ void Hal_InitPeripherals(void)
     _Hal_InitWatchdog();
 }
 
+
 /**********************************************************************
  * Hal_InitInterrupts
  * 

@@ -16,8 +16,7 @@
  *   FBIN.3:   this FPGA output is tested after configuration
  *   MODE:     this MCU output is tested after configuration
  * TODO:
- *  1. verify configuration bits
- *  3. place the FPGA image in its assigned memory region
+ *  1. troubleshoot REFO clock reference
  *********************************************************************/
 
 #include "app.h"
@@ -34,6 +33,8 @@ int main(void)
     
     Hal_InitPeripherals();
     Hal_InitInterrupts();
+    
+    Hal_LedModeOn();
     
     for(;;)
     {

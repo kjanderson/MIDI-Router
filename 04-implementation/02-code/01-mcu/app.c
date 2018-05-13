@@ -65,6 +65,7 @@ void App_TickIsr(void)
     {
         fg_uLedCnt = fg_uLedCnt - 1U;
         
+        /* disable LED control for testing */
         if (fg_uLedCnt > fg_uLedDuty)
         {
             Hal_LedModeOn();

@@ -13,46 +13,46 @@
 
 /* watchdog interface */
 #define Hal_WatchdogReset() ClrWdt()
-#define Hal_WatchdogEnable() (RCON |= _RCON_SWDTEN_MASK)
-#define Hal_WatchdogDisable() (RCON &= ~(_RCON_SWDTEN_MASK))
+#define Hal_WatchdogEnable() (RCONbits.SWDTEN = 1)
+#define Hal_WatchdogDisable() (RCONbits.SWDTEN = 0)
 
 /* GPIO interface */
 /* CRESET is active low */
-#define Hal_GpioSetReset() (LATA &= ~(_LATA_LATA4_MASK))
-#define Hal_GpioClrReset() (LATA |= _LATA_LATA4_MASK)
-#define Hal_GpioEnableOutputReset() (TRISA &= ~(_TRISA_TRISA4_MASK))
-#define Hal_GpioDisableOutputReset() (TRISA |= (_TRISA_TRISA4_MASK))
+#define Hal_GpioSetReset() (LATAbits.LATA4 = 0)
+#define Hal_GpioClrReset() (LATAbits.LATA4 = 1)
+#define Hal_GpioEnableOutputReset() (TRISAbits.TRISA4 = 0)
+#define Hal_GpioDisableOutputReset() (TRISAbits.TRISA4 = 1)
 /* CDONE is active high */
 #define Hal_GpioGetDone() (PORTA & _LATA_LATA9_MASK)
-#define Hal_GpioDisableOutputDone() (TRISA |= (_TRISA_TRISA9_MASK))
+#define Hal_GpioDisableOutputDone() (TRISAbits.TRISA9 = 1)
 /* SPI_SS is active low */
-#define Hal_GpioSetCfgSpiSs() (PORTC &= ~(_LATC_LATC3_MASK))
-#define Hal_GpioClrCfgSpiSs() (PORTC |= _LATC_LATC3_MASK)
-#define Hal_GpioEnableOutputSpiSs() (TRISC &= ~(_TRISC_TRISC3_MASK))
-#define Hal_GpioDisableOutputSpiSs() (TRISC |= (_TRISC_TRISC3_MASK))
+#define Hal_GpioSetCfgSpiSs() (LATCbits.LATC3 = 0)
+#define Hal_GpioClrCfgSpiSs() (LATCbits.LATC3 = 1)
+#define Hal_GpioEnableOutputSpiSs() (TRISCbits.TRISC3 = 0)
+#define Hal_GpioDisableOutputSpiSs() (TRISCbits.TRISC3 = 1)
 /* FBIN0 */
-#define Hal_GpioGetFbin0() (PORTB & _LATB_LATB9_MASK)
-#define Hal_GpioEnableOutputFbin0() (TRISB &= ~(_TRISB_TRISB9_MASK))
-#define Hal_GpioDisableOutputFbin0() (TRISB |= (_TRISB_TRISB9_MASK))
+#define Hal_GpioGetFbin0() (PORTBbits.RB9)
+#define Hal_GpioEnableOutputFbin0() (TRISBbits.TRISB9 = 0)
+#define Hal_GpioDisableOutputFbin0() (TRISBbits.TRISB9 = 1)
 /* FBIN1 */
-#define Hal_GpioGetFbin1() (PORTC & _LATC_LATC6_MASK)
-#define Hal_GpioEnableOutputFbin1() (TRISC &= ~(_TRISC_TRISC6_MASK))
-#define Hal_GpioDisableOutputFbin1() (TRISC |= (_TRISC_TRISC6_MASK))
+#define Hal_GpioGetFbin1() (PORTCbits.RC6)
+#define Hal_GpioEnableOutputFbin1() (TRISCbits.TRISC6 = 0)
+#define Hal_GpioDisableOutputFbin1() (TRISCbits.TRISC6 = 1)
 /* FBIN2 */
-#define Hal_GpioGetFbin2() (PORTC & _LATC_LATC7_MASK)
-#define Hal_GpioEnableOutputFbin2() (TRISC &= ~(_TRISC_TRISC7_MASK))
-#define Hal_GpioDisableOutputFbin2() (TRISC |= (_TRISC_TRISC7_MASK))
+#define Hal_GpioGetFbin2() (PORTCbits.RC7)
+#define Hal_GpioEnableOutputFbin2() (TRISCbits.TRISC7 = 0)
+#define Hal_GpioDisableOutputFbin2() (TRISCbits.TRISC7 = 1)
 /* FBIN3 */
-#define Hal_GpioGetFbin3() (PORTC & _LATC_LATC8_MASK)
-#define Hal_GpioEnableOutputFbin3() (TRISC &= ~(_TRISC_TRISC8_MASK))
-#define Hal_GpioDisableOutputFbin3() (TRISC |= (_TRISC_TRISC8_MASK))
+#define Hal_GpioGetFbin3() (PORTCbits.RC8)
+#define Hal_GpioEnableOutputFbin3() (TRISCbits.TRISC8 = 0)
+#define Hal_GpioDisableOutputFbin3() (TRISCbits.TRISC8 = 1)
 /* LED is active low */
-#define Hal_GpioSetMode() (PORTB &= ~(_LATB_LATB4_MASK))
-#define Hal_GpioClrMode() (PORTB |= _LATB_LATB4_MASK)
-#define Hal_LedModeOn()   (PORTB &= ~(_LATB_LATB4_MASK))
-#define Hal_LedModeOff()  (PORTB |= _LATB_LATB4_MASK)
-#define Hal_GpioEnableOutputMode() (TRISB &= ~(_TRISB_TRISB4_MASK))
-#define Hal_GpioDisableOutputMode() (TRISB |= (_TRISB_TRISB4_MASK))
+#define Hal_GpioSetMode() (LATAbits.LATA8 = 0)
+#define Hal_GpioClrMode() (LATAbits.LATA8 = 1)
+#define Hal_LedModeOn()   (LATAbits.LATA8 = 0)
+#define Hal_LedModeOff()  (LATAbits.LATA8 = 1)
+#define Hal_GpioEnableOutputMode() (TRISAbits.TRISA8 = 0)
+#define Hal_GpioDisableOutputMode() (TRISAbits.TRISA8 = 1)
 
 /* Timer interface */
 #define Hal_Timer1Disable() (T1CON &= ~(_T1CON_TON_MASK))
