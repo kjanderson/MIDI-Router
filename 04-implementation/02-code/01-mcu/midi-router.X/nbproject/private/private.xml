@@ -10,8 +10,9 @@
             <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/app.c</file>
             <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb/usb_device.c</file>
             <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb-app/app_device_cdc_basic.c</file>
-            <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb/usb_hal_16bit.c</file>
-            <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb-app/system.c</file>
+            <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb/usb_device_cdc.c</file>
+            <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb/usb_device_cdc.h</file>
+            <file>file:/C:/Users/Korwinula/Documents/MIDI-Router/04-implementation/02-code/01-mcu/fpga_image.c</file>
         </group>
     </open-files>
 </project-private>

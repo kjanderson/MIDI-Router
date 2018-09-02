@@ -17,6 +17,9 @@
  *   MODE:     this MCU output is tested after configuration
  * TODO:
  *  1. troubleshoot REFO clock reference
+ *    - REFO turns on, but it only reaches 2.5V, and it has heavy slew
+ *    - used OC1 instead
+ *  2. troubleshoot USB CDC device operation lockup.
  *********************************************************************/
 
 #include "app.h"
@@ -39,8 +42,8 @@ int main(void)
     for(;;)
     {
         Hal_WatchdogReset();
-        Hal_IdleTasks();
-        App_IdleTasks();
+        // Hal_IdleTasks();
+        // App_IdleTasks();
     }
     
     return (int)0;

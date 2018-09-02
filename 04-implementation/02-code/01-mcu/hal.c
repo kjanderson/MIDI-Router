@@ -88,6 +88,7 @@ static void _Hal_InitTimer(void);
  *              SPI MISO
  *              SPI SCK
  *  Clk Output: REFO (32 MHz) (RB13)
+ *  Clk Output: OC1 (8 MHz) (RB13)
  *********************************************************************/
 static void _Hal_InitGpio(void)
 {
@@ -108,9 +109,11 @@ static void _Hal_InitGpio(void)
      *  SCK  on RP20, pin 37 (function 8)
      *  MOSI on RP21, pin 38 (function 7)
      *  SS   on GPIO RC3
-     *  MISO on RP7, pin 43 */
+     *  MISO on RP7, pin 43
+     *  OC1  on RP13, pin 11 */
     RPOR10bits.RP20R = 8;
     RPOR10bits.RP21R = 7;
+    RPOR6bits.RP13R = 13;
     RPINR20bits.SDI1R = 7;
     __builtin_write_OSCCONL(OSCCON |   0x40);
     
@@ -121,6 +124,21 @@ static void _Hal_InitGpio(void)
     }
     REFOCONL = 0x9000;
      */
+    REFOCONL = 0x9000;
+    REFOCONH = 0x0002;
+    /* enable "clock" output on OC1 */
+#if 0
+    OC1CON1 = 0x0000;
+    OC1CON2 = 0x0000;
+    /* default timer synchronization is OK, so leave as is */
+    OC1R = 1;
+    OC1RS = 1;
+    T2CON = 0;
+    PR2 = 1;
+    OC1CON1 = _OC1CON1_OCM_MASK & 5;
+    OC1CON2 = _OC1CON2_SYNCSEL_MASK & 12;
+    T2CON = _T2CON_TON_MASK;
+#endif
 }
 
 /**********************************************************************

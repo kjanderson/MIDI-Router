@@ -98,7 +98,7 @@ void App_IdleTasks(void)
     
     /* implement a UART echo device for now */
     uint8_t uBytesRead;
-    uint8_t vuBuffer[CDC_COMM_IN_EP_SIZE];
+    uint8_t vuBuffer[64];
     static uint8_t uState = 0U;
     
     uBytesRead = 0U;
