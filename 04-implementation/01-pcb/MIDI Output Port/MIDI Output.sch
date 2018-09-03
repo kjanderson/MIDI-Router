@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.0">
+<eagle version="9.0.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7354,7 +7354,6 @@ Source: Samtec SSW.pdf</description>
 <part name="IC1" library="MIDI router parts" deviceset="74*1G32" device="">
 <attribute name="SPICEPREFIX" value="J"/>
 </part>
-<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
 <part name="J1" library="con-samtec" library_urn="urn:adsk.eagle:library:184" deviceset="SSW-107-02-S-D" device=""/>
@@ -7375,7 +7374,6 @@ Source: Samtec SSW.pdf</description>
 <part name="IC2" library="MIDI router parts" deviceset="74*1G32" device="">
 <attribute name="SPICEPREFIX" value="J"/>
 </part>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
 <part name="L4" library="MIDI router parts" deviceset="BEAD" device=""/>
@@ -7391,7 +7389,6 @@ Source: Samtec SSW.pdf</description>
 <part name="IC3" library="MIDI router parts" deviceset="74*1G32" device="">
 <attribute name="SPICEPREFIX" value="J"/>
 </part>
-<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
 <part name="L6" library="MIDI router parts" deviceset="BEAD" device=""/>
@@ -7407,7 +7404,6 @@ Source: Samtec SSW.pdf</description>
 <part name="IC4" library="MIDI router parts" deviceset="74*1G32" device="">
 <attribute name="SPICEPREFIX" value="J"/>
 </part>
-<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
 <part name="L8" library="MIDI router parts" deviceset="BEAD" device=""/>
@@ -7422,9 +7418,6 @@ Source: Samtec SSW.pdf</description>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
-<part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
-<part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7434,7 +7427,6 @@ Source: Samtec SSW.pdf</description>
 <instance part="U1" gate="G$1" x="2.54" y="91.44"/>
 <instance part="L1" gate="G$1" x="35.56" y="-7.62"/>
 <instance part="IC1" gate="A" x="2.54" y="-7.62"/>
-<instance part="C1" gate="G$1" x="27.94" y="38.1"/>
 <instance part="GND2" gate="1" x="27.94" y="27.94"/>
 <instance part="R1" gate="G$1" x="22.86" y="-7.62"/>
 <instance part="J1" gate="-1" x="-68.58" y="-2.54"/>
@@ -7473,7 +7465,6 @@ Source: Samtec SSW.pdf</description>
 <instance part="U2" gate="G$1" x="99.06" y="91.44"/>
 <instance part="L3" gate="G$1" x="132.08" y="-7.62"/>
 <instance part="IC2" gate="A" x="99.06" y="-7.62"/>
-<instance part="C3" gate="G$1" x="124.46" y="38.1"/>
 <instance part="GND10" gate="1" x="124.46" y="27.94"/>
 <instance part="R3" gate="G$1" x="119.38" y="-7.62"/>
 <instance part="L4" gate="G$1" x="104.14" y="5.08"/>
@@ -7490,7 +7481,6 @@ Source: Samtec SSW.pdf</description>
 <instance part="U3" gate="G$1" x="195.58" y="91.44"/>
 <instance part="L5" gate="G$1" x="228.6" y="-7.62"/>
 <instance part="IC3" gate="A" x="195.58" y="-7.62"/>
-<instance part="C5" gate="G$1" x="220.98" y="38.1"/>
 <instance part="GND16" gate="1" x="220.98" y="27.94"/>
 <instance part="R5" gate="G$1" x="215.9" y="-7.62"/>
 <instance part="L6" gate="G$1" x="200.66" y="5.08"/>
@@ -7507,7 +7497,6 @@ Source: Samtec SSW.pdf</description>
 <instance part="U4" gate="G$1" x="292.1" y="91.44"/>
 <instance part="L7" gate="G$1" x="325.12" y="-7.62"/>
 <instance part="IC4" gate="A" x="292.1" y="-7.62"/>
-<instance part="C7" gate="G$1" x="317.5" y="38.1"/>
 <instance part="GND22" gate="1" x="317.5" y="27.94"/>
 <instance part="R7" gate="G$1" x="312.42" y="-7.62"/>
 <instance part="L8" gate="G$1" x="297.18" y="5.08"/>
@@ -7525,25 +7514,10 @@ Source: Samtec SSW.pdf</description>
 <instance part="GND3" gate="1" x="91.44" y="81.28" rot="R270"/>
 <instance part="GND4" gate="1" x="187.96" y="81.28" rot="R270"/>
 <instance part="GND9" gate="1" x="284.48" y="81.28" rot="R270"/>
-<instance part="C9" gate="G$1" x="-35.56" y="25.4"/>
-<instance part="P+1" gate="1" x="-35.56" y="33.02"/>
-<instance part="GND11" gate="1" x="-35.56" y="15.24"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$6" class="0">
-<segment>
-<wire x1="22.86" y1="43.18" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="P$6"/>
-<wire x1="22.86" y1="45.72" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="P$7"/>
-<wire x1="27.94" y1="45.72" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
-<junction x="27.94" y="43.18"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="43.18" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="L1" gate="G$1" pin="1"/>
@@ -7622,17 +7596,17 @@ Source: Samtec SSW.pdf</description>
 <pinref part="P+22" gate="1" pin="+5V"/>
 <wire x1="345.44" y1="-2.54" x2="345.44" y2="2.54" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="C9" gate="G$1" pin="1"/>
-<pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="-35.56" y1="27.94" x2="-35.56" y2="30.48" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="27.94" y1="30.48" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="43.18" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="P$6"/>
+<wire x1="22.86" y1="45.72" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="P$7"/>
+<wire x1="27.94" y1="45.72" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
+<junction x="27.94" y="43.18"/>
+<wire x1="27.94" y1="30.48" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J1" gate="-2" pin="1"/>
@@ -7656,8 +7630,13 @@ Source: Samtec SSW.pdf</description>
 </segment>
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
-<pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="30.48" x2="124.46" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="43.18" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="P$6"/>
+<wire x1="119.38" y1="45.72" x2="119.38" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="P$7"/>
+<wire x1="124.46" y1="45.72" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
+<junction x="124.46" y="43.18"/>
+<wire x1="124.46" y1="30.48" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="P" pin="GND"/>
@@ -7671,8 +7650,13 @@ Source: Samtec SSW.pdf</description>
 </segment>
 <segment>
 <pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="220.98" y1="30.48" x2="220.98" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="43.18" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="P$6"/>
+<wire x1="215.9" y1="45.72" x2="215.9" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="P$7"/>
+<wire x1="220.98" y1="45.72" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
+<junction x="220.98" y="43.18"/>
+<wire x1="220.98" y1="30.48" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="P" pin="GND"/>
@@ -7686,8 +7670,13 @@ Source: Samtec SSW.pdf</description>
 </segment>
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
-<pinref part="C7" gate="G$1" pin="2"/>
-<wire x1="317.5" y1="30.48" x2="317.5" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="43.18" x2="317.5" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="P$6"/>
+<wire x1="312.42" y1="45.72" x2="312.42" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="P$7"/>
+<wire x1="317.5" y1="45.72" x2="317.5" y2="43.18" width="0.1524" layer="91"/>
+<junction x="317.5" y="43.18"/>
+<wire x1="317.5" y1="30.48" x2="317.5" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC4" gate="P" pin="GND"/>
@@ -7718,11 +7707,6 @@ Source: Samtec SSW.pdf</description>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="U1" gate="G$1" pin="P$2/SHD"/>
 <wire x1="-2.54" y1="81.28" x2="2.54" y2="81.28" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="-35.56" y1="17.78" x2="-35.56" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D-OUT2" class="0">
@@ -7831,18 +7815,6 @@ Source: Samtec SSW.pdf</description>
 <wire x1="15.24" y1="-7.62" x2="17.78" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$10" class="0">
-<segment>
-<wire x1="119.38" y1="43.18" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="P$6"/>
-<wire x1="119.38" y1="45.72" x2="119.38" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="P$7"/>
-<wire x1="124.46" y1="45.72" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
-<junction x="124.46" y="43.18"/>
-<pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="43.18" x2="124.46" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="L3" gate="G$1" pin="1"/>
@@ -7864,18 +7836,6 @@ Source: Samtec SSW.pdf</description>
 <wire x1="111.76" y1="-7.62" x2="114.3" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$19" class="0">
-<segment>
-<wire x1="215.9" y1="43.18" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="P$6"/>
-<wire x1="215.9" y1="45.72" x2="215.9" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U3" gate="G$1" pin="P$7"/>
-<wire x1="220.98" y1="45.72" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
-<junction x="220.98" y="43.18"/>
-<pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="220.98" y1="43.18" x2="220.98" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="L5" gate="G$1" pin="1"/>
@@ -7895,18 +7855,6 @@ Source: Samtec SSW.pdf</description>
 <pinref part="IC3" gate="A" pin="O"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="208.28" y1="-7.62" x2="210.82" y2="-7.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<wire x1="312.42" y1="43.18" x2="317.5" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U4" gate="G$1" pin="P$6"/>
-<wire x1="312.42" y1="45.72" x2="312.42" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="U4" gate="G$1" pin="P$7"/>
-<wire x1="317.5" y1="45.72" x2="317.5" y2="43.18" width="0.1524" layer="91"/>
-<junction x="317.5" y="43.18"/>
-<pinref part="C7" gate="G$1" pin="1"/>
-<wire x1="317.5" y1="43.18" x2="317.5" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
