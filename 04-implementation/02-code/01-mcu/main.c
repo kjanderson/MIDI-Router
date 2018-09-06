@@ -16,9 +16,6 @@
  *   FBIN.3:   this FPGA output is tested after configuration
  *   MODE:     this MCU output is tested after configuration
  * TODO:
- *  1. troubleshoot REFO clock reference
- *    - REFO turns on, but it only reaches 2.5V, and it has heavy slew
- *    - used OC1 instead
  *  2. troubleshoot USB CDC device operation lockup.
  *********************************************************************/
 
