@@ -5,7 +5,8 @@
 
 #include "system.h"
 
-#include "app_device_cdc_basic.h"
+//#include "app_device_cdc_basic.h"
+#include "app_device_cdc_to_uart.h"
 #include "app_led_usb_status.h"
 
 #include "usb.h"
@@ -359,7 +360,8 @@ void Hal_IdleTasks(void)
 #endif
 
     //Application specific tasks
-    APP_DeviceCDCBasicDemoTasks();
+    //APP_DeviceCDCBasicDemoTasks();
+    APP_DeviceCDCEmulatorTasks();
 }
 
 /**********************************************************************

@@ -16,11 +16,11 @@
         <itemPath>../usb/usb_device_cdc.h</itemPath>
         <itemPath>../usb/usb_hal.h</itemPath>
         <itemPath>../usb/usb_hal_pic24f.h</itemPath>
-        <itemPath>../usb-app/app_device_cdc_basic.h</itemPath>
         <itemPath>../usb-app/app_led_usb_status.h</itemPath>
         <itemPath>../usb-app/io_mapping.h</itemPath>
         <itemPath>../usb-app/system.h</itemPath>
         <itemPath>../usb-app/usb_config.h</itemPath>
+        <itemPath>../usb-app/app_device_cdc_to_uart.h</itemPath>
       </logicalFolder>
       <itemPath>../fpga.h</itemPath>
       <itemPath>../fpga_image.h</itemPath>
@@ -42,11 +42,11 @@
         <itemPath>../usb/usb_device.c</itemPath>
         <itemPath>../usb/usb_device_cdc.c</itemPath>
         <itemPath>../usb/usb_hal_16bit.c</itemPath>
-        <itemPath>../usb-app/app_device_cdc_basic.c</itemPath>
         <itemPath>../usb-app/app_led_usb_status.c</itemPath>
         <itemPath>../usb-app/system.c</itemPath>
         <itemPath>../usb-app/usb_descriptors.c</itemPath>
         <itemPath>../usb-app/usb_events.c</itemPath>
+        <itemPath>../usb-app/app_device_cdc_to_uart.c</itemPath>
       </logicalFolder>
       <itemPath>../fpga.c</itemPath>
       <itemPath>../fpga_image.c</itemPath>
