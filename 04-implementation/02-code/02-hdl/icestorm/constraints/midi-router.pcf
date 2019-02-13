@@ -1,0 +1,12 @@
+# For the iCE40HX TQFP 144 part
+
+set_io out[0] 99
+set_io out[1] 98
+set_io out[2] 97
+set_io out[3] 96
+set_io out[4] 95
+set_io out[5] 94
+set_io out[6] 93
+set_io out[7] 91
+set_io clk 21
+
