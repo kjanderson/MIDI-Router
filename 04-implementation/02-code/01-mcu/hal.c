@@ -365,6 +365,76 @@ void Hal_IdleTasks(void)
 }
 
 /**********************************************************************
+ * Hal_EraseFlashSector
+ * 
+ * Description
+ * Erase the Flash sector that contains the specified address.
+ *********************************************************************/
+void Hal_EraseFlashSector(uint32_t uBaseAddress)
+{
+    uint32_t progAddr;
+    uint16_t offset;
+    
+    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1);
+    
+    TBLPAG = progAddr >> 16;
+    offset = (uint16_t)(progAddr & (uint32_t)0xFFFF);
+    __builtin_tblwtl(offset, 0x0000);
+    /* NVMCON:
+     *   WREN = 1
+     *   ERASE = 1
+     *   NVMOP = 0010
+     */
+    NVMCON = 0x4042;
+    __builtin_disi(0x0005);
+    __builtin_write_NVM();
+}
+
+/**********************************************************************
+ * Hal_WriteFlashPage
+ * 
+ * Description
+ * Write data to the specified flash page.
+ *********************************************************************/
+void Hal_WriteFlashPage(uint32_t uBaseAddress, uint8_t *vuData)
+{
+    uint32_t progAddr;
+    uint16_t offset;
+    uint16_t progDataL;
+    uint8_t progDataH;
+    uint16_t uCnt;
+    uint32_t insnIndex;
+    
+    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1);
+    
+    /* NVMCON:
+     *   WREN = 1
+     *   ERASE = 0
+     *   NVMOP = 0001
+     */
+    NVMCON = 0x4001;
+    /*
+    TBLPAG = progAddr >> 16;
+    offset = (uint16_t)(progAddr & (uint32_t)0xFFFF);
+    __builtin_tblwtl(offset, progDataL);
+    __builtin_tblwth(offset, progDataH);
+     */
+    TBLPAG = progAddr >> 16;
+    for (uCnt = 0U; uCnt < (uint16_t)(HAL_INSNS_PER_PAGE); uCnt++)
+    {
+        insnIndex = (uint32_t)uCnt;
+        offset = (uint16_t)((progAddr + insnIndex) & (uint32_t)0xFFFF);
+        progDataL = vuData[uCnt];
+        progDataH = 0;
+        __builtin_tblwtl(offset, progDataL);
+        __builtin_tblwth(offset, progDataH);
+    }
+    
+    __builtin_disi(0x0005);
+    __builtin_write_NVM();
+}
+
+/**********************************************************************
  **********************************************************************
  * TRAPS
  **********************************************************************

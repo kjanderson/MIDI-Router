@@ -4,6 +4,12 @@
 #include <xc.h>
 #include <stdint.h>
 
+#define HAL_INSNS_PER_SECTOR 512
+#define HAL_BYTES_PER_INSN 3
+#define HAL_INSNS_PER_PAGE 64
+#define HAL_BYTES_PER_SECTOR ((HAL_INSNS_PER_SECTOR) * (HAL_BYTES_PER_INSN))
+#define HAL_BYTES_PER_PAGE ((HAL_INSNS_PER_PAGE) * (HAL_BYTES_PER_INSN))
+
 /* utility functions */
 #define HAL_DIM(x) (sizeof((x))/sizeof((x[0])))
 
@@ -76,5 +82,7 @@ void Hal_InitInterrupts(void);
 void Hal_SpiInitForFpga(void);
 void Hal_Timer1Config(uint16_t uTicks, uint8_t uFlags);
 void Hal_IdleTasks(void);
+void Hal_EraseFlashSector(uint32_t uBaseAddress);
+void Hal_WriteFlashPage(uint32_t uBaseAddress, uint8_t *vuData);
 
 #endif /* HAL_H */

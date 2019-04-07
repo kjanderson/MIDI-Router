@@ -1,0 +1,53 @@
+Mike@SchorrMetals.com
+24 gauge steel, drawing, qty.
+
+panel outline dimensions
+    426 mm (16.772 inch) wide
+    37.0 mm (1.457 inch) tall
+screw hole positions
+    1.109 inches vertical
+    2.70, 3.2974 mm (0.106, 0.130 inch), 4.5 mm (0.177 inch) diameter
+    2.70, 33.697 mm (0.106, 1.327 inch), 4.5 mm (0.177 inch) diameter
+    42.00, 3.7974 mm (1.654, 0.150 inch), 4.0 mm (0.157 inch) diameter
+    213.00, 3.7974 mm (8.386, 0.150 inch), 4.0 mm (0.157 inch) diameter
+    384.00, 3.7974 mm (15.118, 0.150 inch), 4.0 mm (0.157 inch) diameter
+    423.30, 3.2974 mm (16.665, 0.130 inch), 4.5 mm (0.177 inch) diameter
+    423.30, 33.6974 mm (16.665, 1.327 inch), 4.5 mm (0.177 inch) diameter
+
+120 outlet
+holes: 3.5 mm (0.138 inch) diameter
+       36 mm (1.417 inch) apart
+cutout: 27.3 mm (1.075 inch) tall
+        31.4 mm (1.236 inch) wide
+
+USB connector
+holes: 3.20 mm (0.126 inch) diameter
+       22.0 mm (0.866 inch) apart
+cutout: 13.70 mm (0.539 inch) tall
+        14.70 mm (0.579 inch) wide
+
+120 outlet
+holes: 3.4 mm (0.134 inch)
+       40.0 mm (1.575 inch) apart
+cutout: 30.3 mm (1.193 inch) wide
+        22.3 mm (0.878 inch) tall
+
+spacing of back panel:
+    1.0 mm thick bottom
+    1.0 mm thick top
+    0.75 mm gap between bottom
+    0.75 mm gap between top
+    0.25 mm gap to bottom lip
+    1.5 mm bottom lip
+    0.25 mm gap to top lip
+    1.5 mm top lip
+    3.256 mm (0.128 inch) overhang on top
+    
+    bottom surface at y=-0.75 mm (0.0295 inch)
+    0.5" standoff
+    0.062" PCB thickness
+    10.0 mm (0.394 inch) DIN height
+    DIN5 holes centered at y=0.927 inch
+0.25" standoffs instead of 0.5" standoffs
+    DIN5 holes centered at y=0.677 inch
+    
