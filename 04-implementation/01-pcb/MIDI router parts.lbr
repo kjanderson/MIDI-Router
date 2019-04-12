@@ -44,7 +44,7 @@
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
@@ -1963,9 +1963,9 @@ Source: Samtec SSW.pdf</description>
 <description>&lt;b&gt;SMALL OUTLINE INTEGRATED CIRCUIT&lt;/b&gt;&lt;p&gt;
 wide body 7.5 mm/JEDEC MO-119AB&lt;br&gt;
 Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</description>
-<wire x1="-9.398" y1="6.223" x2="3.048" y2="6.223" width="0.1998" layer="39"/>
-<wire x1="3.048" y1="-6.223" x2="-9.398" y2="-6.223" width="0.1998" layer="39"/>
-<wire x1="-9.398" y1="-6.223" x2="-9.398" y2="6.223" width="0.1998" layer="39"/>
+<wire x1="-9.398" y1="6.523" x2="3.048" y2="6.523" width="0.1998" layer="39"/>
+<wire x1="2.948" y1="-6.523" x2="-9.398" y2="-6.523" width="0.1998" layer="39"/>
+<wire x1="-9.398" y1="-6.523" x2="-9.398" y2="6.523" width="0.1998" layer="39"/>
 <wire x1="2.7" y1="-3.7" x2="-9.05" y2="-3.7" width="0.2032" layer="51"/>
 <wire x1="-9.05" y1="-3.7" x2="-9.05" y2="-3.2" width="0.2032" layer="51"/>
 <wire x1="-9.05" y1="-3.2" x2="-9.05" y2="3.7" width="0.2032" layer="51"/>
@@ -1973,9 +1973,9 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</descripti
 <wire x1="2.7" y1="-3.2" x2="-9.05" y2="-3.2" width="0.2032" layer="51"/>
 <wire x1="2.7" y1="3.7" x2="2.7" y2="-3.2" width="0.2032" layer="51"/>
 <wire x1="2.7" y1="-3.2" x2="2.7" y2="-3.7" width="0.2032" layer="51"/>
-<wire x1="3.048" y1="6.223" x2="3.048" y2="-6.223" width="0.1998" layer="39"/>
-<smd name="1" x="-8.255" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="10" x="1.905" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
+<wire x1="3.048" y1="6.523" x2="2.948" y2="-6.523" width="0.1998" layer="39"/>
+<smd name="1" x="-8.255" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="10" x="1.905" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
 <text x="-6.985" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-6.985" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-8.5001" y1="-5.32" x2="-8.0099" y2="-3.8001" layer="51"/>
@@ -1997,22 +1997,22 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</descripti
 <rectangle x1="-7.2301" y1="3.8001" x2="-6.7399" y2="5.32" layer="51"/>
 <rectangle x1="-8.5001" y1="3.8001" x2="-8.0099" y2="5.32" layer="51"/>
 <rectangle x1="-8.9" y1="-3.2" x2="-7.8" y2="3.6" layer="51"/>
-<smd name="2" x="-6.985" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="3" x="-5.715" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="4" x="-4.445" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="5" x="-3.175" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="6" x="-1.905" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="7" x="-0.635" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="8" x="0.635" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="9" x="1.905" y="-4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="11" x="0.635" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="12" x="-0.635" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="13" x="-1.905" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="14" x="-3.175" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="15" x="-4.445" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="16" x="-5.715" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="17" x="-6.985" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
-<smd name="18" x="-8.255" y="4.7625" dx="0.6" dy="2.4892" layer="1"/>
+<smd name="2" x="-6.985" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="3" x="-5.715" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="4" x="-4.445" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="5" x="-3.175" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="6" x="-1.905" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="7" x="-0.635" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="8" x="0.635" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="9" x="1.905" y="-4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="11" x="0.635" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="12" x="-0.635" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="13" x="-1.905" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="14" x="-3.175" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="15" x="-4.445" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="16" x="-5.715" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="17" x="-6.985" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
+<smd name="18" x="-8.255" y="4.9125" dx="0.6" dy="2.7892" layer="1"/>
 </package>
 <package name="219-3LPSTR" urn="urn:adsk.eagle:footprint:2388/1" locally_modified="yes">
 <description>&lt;b&gt;DBV (R-PDSO-G6)&lt;/b&gt; PLASTIC SMALL-OUTLINE PACKAGE&lt;p&gt;
@@ -2058,10 +2058,12 @@ Source: http://focus.ti.com/lit/ds/symlink/sn74lvc1g3157.</description>
 <wire x1="0.889" y1="-2.286" x2="0.762" y2="-2.032" width="0.127" layer="21"/>
 <wire x1="0.762" y1="-2.032" x2="0.635" y2="-2.286" width="0.127" layer="21"/>
 <wire x1="0.635" y1="-2.286" x2="0.889" y2="-2.286" width="0.127" layer="21"/>
-<pad name="P$1" x="-3.81" y="0" drill="0.8"/>
-<pad name="P$2" x="3.81" y="0" drill="0.8"/>
+<pad name="P$1" x="-3.81" y="0" drill="1"/>
+<pad name="P$2" x="3.81" y="0" drill="1"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.127" layer="51"/>
 <wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.127" layer="51"/>
+<text x="-3.81" y="3.81" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="74LVC4245A-SO24">
 <description>&lt;b&gt;SMALL OUTLINE INTEGRATED CIRCUIT&lt;/b&gt;&lt;p&gt;
@@ -2249,6 +2251,15 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <rectangle x1="-1.11" y1="-1.42" x2="-0.78" y2="-0.67" layer="51"/>
 <rectangle x1="-0.16" y1="-1.42" x2="0.17" y2="-0.67" layer="51"/>
 <rectangle x1="0.79" y1="-1.42" x2="1.12" y2="-0.67" layer="51"/>
+</package>
+<package name="SWITCH">
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="0" width="0.127" layer="21"/>
+<pad name="P$1" x="-3.81" y="0" drill="1"/>
+<pad name="P$2" x="3.81" y="0" drill="1"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.127" layer="51"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.127" layer="51"/>
+<text x="-3.81" y="3.81" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="2.54" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -3279,6 +3290,17 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <text x="1.905" y="2.54" size="1.27" layer="95" rot="R90">VCC</text>
 <pin name="GND" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
 <pin name="VCC" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
+</symbol>
+<symbol name="SWITCH">
+<pin name="P$1" x="2.54" y="0" length="middle"/>
+<pin name="P$2" x="38.1" y="0" length="middle" rot="R180"/>
+<wire x1="15.24" y1="0" x2="17.78" y2="0" width="0.254" layer="94"/>
+<wire x1="17.78" y1="0" x2="22.86" y2="2.54" width="0.254" layer="94"/>
+<wire x1="22.86" y1="0" x2="25.4" y2="0" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="33.02" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="33.02" y1="-5.08" x2="33.02" y2="5.08" width="0.254" layer="94"/>
+<wire x1="33.02" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4482,6 +4504,22 @@ Source: Samtec SSW.pdf</description>
 <connect gate="A" pin="O" pad="4"/>
 <connect gate="P" pin="GND" pad="3"/>
 <connect gate="P" pin="VCC" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PB-SWITCH">
+<gates>
+<gate name="G$1" symbol="SWITCH" x="-2.54" y="-5.08"/>
+</gates>
+<devices>
+<device name="" package="SWITCH">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
