@@ -8239,9 +8239,9 @@ Source: http://www.cypressindustries.com/pdf/32005-201.pdf</description>
 <wire x1="0.7874" y1="1.5748" x2="0.7874" y2="1.2954" width="0.1998" layer="51"/>
 <wire x1="0.7874" y1="1.2954" x2="-0.7874" y2="1.2954" width="0.1998" layer="51"/>
 <wire x1="-0.7874" y1="1.2954" x2="-0.7874" y2="1.5748" width="0.1998" layer="51"/>
-<smd name="1" x="-1.499" y="-1.981" dx="0.8" dy="1.4" layer="1"/>
-<smd name="3" x="1.499" y="-1.981" dx="0.8" dy="1.4" layer="1"/>
-<smd name="2" x="0" y="-1.727" dx="0.8" dy="1.9" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-1.499" y="-2.5" dx="0.8" dy="2.4" layer="1"/>
+<smd name="3" x="1.499" y="-2.5" dx="0.8" dy="2.4" layer="1"/>
+<smd name="2" x="0" y="-2.2" dx="0.8" dy="3" layer="1" stop="no" cream="no"/>
 <smd name="2@1" x="0" y="0.94" dx="2.032" dy="3.65" layer="1" roundness="75"/>
 <text x="-2.54" y="3.175" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.4051" y="-4.3449" size="1.27" layer="27">&gt;VALUE</text>

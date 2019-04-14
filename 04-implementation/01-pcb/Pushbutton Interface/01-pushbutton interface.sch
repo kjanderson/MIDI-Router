@@ -162,9 +162,9 @@ Source: Samtec SSW.pdf</description>
 <wire x1="0.7874" y1="1.5748" x2="0.7874" y2="1.2954" width="0.1998" layer="51"/>
 <wire x1="0.7874" y1="1.2954" x2="-0.7874" y2="1.2954" width="0.1998" layer="51"/>
 <wire x1="-0.7874" y1="1.2954" x2="-0.7874" y2="1.5748" width="0.1998" layer="51"/>
-<smd name="1" x="-1.499" y="-1.981" dx="0.8" dy="1.4" layer="1"/>
-<smd name="3" x="1.499" y="-1.981" dx="0.8" dy="1.4" layer="1"/>
-<smd name="2" x="0" y="-1.727" dx="0.8" dy="1.9" layer="1" stop="no" cream="no"/>
+<smd name="1" x="-1.499" y="-2.5" dx="0.8" dy="2.4" layer="1"/>
+<smd name="3" x="1.499" y="-2.5" dx="0.8" dy="2.4" layer="1"/>
+<smd name="2" x="0" y="-2.2" dx="0.8" dy="3" layer="1" stop="no" cream="no"/>
 <smd name="2@1" x="0" y="0.94" dx="2.032" dy="3.65" layer="1" roundness="75"/>
 <text x="-2.54" y="3.175" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.4051" y="-4.3449" size="1.27" layer="27">&gt;VALUE</text>
@@ -386,6 +386,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc4126.pdf</descripti
 <wire x1="7.62" y1="-5.08" x2="33.02" y2="-5.08" width="0.254" layer="94"/>
 <wire x1="33.02" y1="-5.08" x2="33.02" y2="5.08" width="0.254" layer="94"/>
 <wire x1="33.02" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<text x="7.62" y="7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="7.62" y="5.08" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="MCP23008-SO8">
 <pin name="P$1/SCL" x="0" y="-2.54" length="middle"/>
@@ -8328,7 +8330,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="X1" library="MIDI router parts" deviceset="SSW-107-02-G" device="-D"/>
 <part name="U2" library="MIDI router parts" deviceset="MCP1700-SOT89" device=""/>
 <part name="U3" library="MIDI router parts" deviceset="219-3LPSTR" device=""/>
-<part name="LED1" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -8338,9 +8339,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1u"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="1u"/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="LED2" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
-<part name="LED3" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
-<part name="LED4" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
@@ -8374,10 +8372,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100K"/>
 <part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100K"/>
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100K"/>
-<part name="SW1" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
-<part name="SW2" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
-<part name="SW3" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
-<part name="SW4" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
 <part name="+3V11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -8392,6 +8386,14 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="+3V16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="2.2K"/>
 <part name="+3V17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="S1" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
+<part name="S2" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
+<part name="S3" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
+<part name="S4" library="MIDI router parts" deviceset="PB-SWITCH" device=""/>
+<part name="LED1" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
+<part name="LED2" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
+<part name="LED3" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
+<part name="LED4" library="MIDI router parts" deviceset="559-XXX-007" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8453,10 +8455,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <attribute name="NAME" x="-27.94" y="-58.42" size="1.27" layer="95"/>
 <attribute name="VALUE" x="-27.94" y="-60.96" size="1.27" layer="96"/>
 </instance>
-<instance part="LED1" gate="G$1" x="78.74" y="-5.08" smashed="yes">
-<attribute name="NAME" x="82.296" y="-9.652" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="84.455" y="-9.652" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="P+1" gate="1" x="-40.64" y="-38.1" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-38.1" y="-38.1" size="1.778" layer="96"/>
 </instance>
@@ -8485,18 +8483,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </instance>
 <instance part="GND5" gate="1" x="-25.4" y="-27.94" smashed="yes">
 <attribute name="VALUE" x="-27.94" y="-30.48" size="1.778" layer="96"/>
-</instance>
-<instance part="LED2" gate="G$1" x="88.9" y="-5.08" smashed="yes">
-<attribute name="NAME" x="92.456" y="-9.652" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="94.615" y="-9.652" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="LED3" gate="G$1" x="99.06" y="-5.08" smashed="yes">
-<attribute name="NAME" x="102.616" y="-9.652" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="104.775" y="-9.652" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="LED4" gate="G$1" x="109.22" y="-5.08" smashed="yes">
-<attribute name="NAME" x="112.776" y="-9.652" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="114.935" y="-9.652" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="+3V2" gate="G$1" x="-25.4" y="-2.54" smashed="yes">
 <attribute name="VALUE" x="-27.94" y="-7.62" size="1.778" layer="96" rot="R90"/>
@@ -8649,10 +8635,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <attribute name="NAME" x="153.8986" y="8.89" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="149.098" y="8.89" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="SW1" gate="G$1" x="121.92" y="-60.96" smashed="yes" rot="R270"/>
-<instance part="SW2" gate="G$1" x="132.08" y="-60.96" smashed="yes" rot="R270"/>
-<instance part="SW3" gate="G$1" x="142.24" y="-60.96" smashed="yes" rot="R270"/>
-<instance part="SW4" gate="G$1" x="152.4" y="-60.96" smashed="yes" rot="R270"/>
 <instance part="+3V11" gate="G$1" x="121.92" y="15.24" smashed="yes">
 <attribute name="VALUE" x="119.38" y="10.16" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -8697,6 +8679,38 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </instance>
 <instance part="+3V17" gate="G$1" x="165.1" y="15.24" smashed="yes">
 <attribute name="VALUE" x="162.56" y="10.16" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="S1" gate="G$1" x="121.92" y="-60.96" smashed="yes" rot="R270">
+<attribute name="NAME" x="116.84" y="-68.58" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="116.84" y="-93.98" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="S2" gate="G$1" x="132.08" y="-60.96" smashed="yes" rot="R270">
+<attribute name="NAME" x="127" y="-68.58" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="127" y="-93.98" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="S3" gate="G$1" x="142.24" y="-60.96" smashed="yes" rot="R270">
+<attribute name="NAME" x="137.16" y="-68.58" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="137.16" y="-93.98" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="S4" gate="G$1" x="152.4" y="-60.96" smashed="yes" rot="R270">
+<attribute name="NAME" x="147.32" y="-68.58" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="147.32" y="-93.98" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="LED1" gate="G$1" x="78.74" y="-5.08" smashed="yes">
+<attribute name="NAME" x="82.296" y="-9.652" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="84.455" y="-9.652" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="LED2" gate="G$1" x="88.9" y="-5.08" smashed="yes">
+<attribute name="NAME" x="92.456" y="-9.652" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="94.615" y="-9.652" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="LED3" gate="G$1" x="99.06" y="-5.08" smashed="yes">
+<attribute name="NAME" x="102.616" y="-9.652" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="104.775" y="-9.652" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="LED4" gate="G$1" x="109.22" y="-5.08" smashed="yes">
+<attribute name="NAME" x="112.776" y="-9.652" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="114.935" y="-9.652" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -8800,23 +8814,23 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </segment>
 <segment>
 <pinref part="GND13" gate="1" pin="GND"/>
-<pinref part="SW1" gate="G$1" pin="P$2"/>
 <wire x1="121.92" y1="-101.6" x2="121.92" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="S1" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="GND14" gate="1" pin="GND"/>
-<pinref part="SW2" gate="G$1" pin="P$2"/>
 <wire x1="132.08" y1="-101.6" x2="132.08" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="S2" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="GND15" gate="1" pin="GND"/>
-<pinref part="SW3" gate="G$1" pin="P$2"/>
 <wire x1="142.24" y1="-101.6" x2="142.24" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="S3" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="SW4" gate="G$1" pin="P$2"/>
 <wire x1="152.4" y1="-101.6" x2="152.4" y2="-99.06" width="0.1524" layer="91"/>
+<pinref part="S4" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -8976,9 +8990,9 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="LED4" gate="G$1" pin="A"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="109.22" y1="-2.54" x2="109.22" y2="0" width="0.1524" layer="91"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -9004,34 +9018,34 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="U1" gate="G$1" pin="P$17/GP7"/>
 <wire x1="78.74" y1="-10.16" x2="78.74" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="-20.32" x2="68.58" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="LED1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="LED2" gate="G$1" pin="C"/>
 <wire x1="88.9" y1="-10.16" x2="88.9" y2="-25.4" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$16/GP6"/>
 <wire x1="88.9" y1="-25.4" x2="68.58" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="LED3" gate="G$1" pin="C"/>
 <wire x1="99.06" y1="-10.16" x2="99.06" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$15/GP5"/>
 <wire x1="99.06" y1="-30.48" x2="68.58" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="LED3" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="LED4" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="-10.16" x2="109.22" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$14/GP4"/>
 <wire x1="109.22" y1="-35.56" x2="68.58" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="LED4" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -9073,45 +9087,45 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <net name="N$1" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="SW1" gate="G$1" pin="P$1"/>
 <wire x1="121.92" y1="0" x2="121.92" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$13/GP3"/>
 <wire x1="121.92" y1="-40.64" x2="121.92" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-40.64" x2="121.92" y2="-40.64" width="0.1524" layer="91"/>
 <junction x="121.92" y="-40.64"/>
+<pinref part="S1" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="SW2" gate="G$1" pin="P$1"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="132.08" y1="-63.5" x2="132.08" y2="-45.72" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$12/GP2"/>
 <wire x1="132.08" y1="-45.72" x2="132.08" y2="0" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-45.72" x2="132.08" y2="-45.72" width="0.1524" layer="91"/>
 <junction x="132.08" y="-45.72"/>
+<pinref part="S2" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="2"/>
-<pinref part="SW3" gate="G$1" pin="P$1"/>
 <wire x1="142.24" y1="0" x2="142.24" y2="-50.8" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$11/GP1"/>
 <wire x1="142.24" y1="-50.8" x2="142.24" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-50.8" x2="142.24" y2="-50.8" width="0.1524" layer="91"/>
 <junction x="142.24" y="-50.8"/>
+<pinref part="S3" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="SW4" gate="G$1" pin="P$1"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="152.4" y1="-63.5" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="P$10/GP0"/>
 <wire x1="152.4" y1="-55.88" x2="152.4" y2="0" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="-55.88" x2="152.4" y2="-55.88" width="0.1524" layer="91"/>
 <junction x="152.4" y="-55.88"/>
+<pinref part="S4" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="N$16" class="0">
