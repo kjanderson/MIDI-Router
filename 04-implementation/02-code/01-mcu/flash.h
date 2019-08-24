@@ -6,5 +6,6 @@
 
 void Flash_EraseSector(uint16_t uBaseAddress);
 void Flash_WritePage(uint16_t uBaseAddress, uint8_t *vuData, uint16_t uLen);
+void Flash_EventLoop(void);
 
 #endif /* _FLASH_H */
