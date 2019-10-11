@@ -17,9 +17,9 @@ interface if_spi(
     
     clocking cb @(posedge clk);
         output reset;
-        output spi_clk;
-        output spi_mosi;
-        input spi_miso;
+        output spi_sck;
+        output spi_si;
+        input spi_so;
     endclocking
     
     modport tb (
@@ -28,20 +28,29 @@ interface if_spi(
     );
 endinterface
 
+module spi_test(if_spi spiif);
+endmodule
+
 module test_sr;
 
 initial
 begin
     $dumpfile("test_sr.vcd");
     $dumpvars(0, test_sr);
+    reset = 0;
+    clk = 0;
+    spi_sck = 0;
+    spi_sck_enable = 0;
     #1000 $finish;
 end
 
 /* clock */
-reg spi_clk = 0;
-always #5 spi_clk = !spi_clk;
+reg clk;
+reg spi_clk;
+reg spi_sck_enable;
+always #5 clk = !clk;
 
-wire reset;
+reg reset;
 reg [6:0] spi_cnt = 48;
 wire spi_mosi;
 wire spi_miso;
@@ -50,46 +59,24 @@ wire [47:0] spi_regout;
 
 assign spi_mosi = spi_data[spi_cnt];
 
+if_spi ifspi(
+    clk
+);
+spi_test(ifspi);
+
 mstreset rst0(
     reset,
     spi_clk
 );
 
 /* test the module */
-shiftreg #(48) sr0(
-    reset,
-    spi_clk,
-    spi_mosi,
-    spi_miso,
-    spi_regout
+shiftreg sr0(
+    .nreset(ifspi.reset),
+    .clk(ifspi.clk),
+    .spi_clk(ifspi.spi_sck),
+    .din(ifspi.spi_si),
+    .dout(ifspi.spi_so),
+    .regout(ifspi.regout)
 );
-
-/* clock out the data to the SPI module on the clock rising edge */
-always @ (posedge spi_clk)
-begin
-    if(reset == 0)
-    begin
-    end
-    else
-    begin
-        //spi_clk <= ((spi_ss == 0) && (blank == 0)) ? !scaled_clock[2] : 0;
-    end
-end
-
-/* setup the address during the clock falling edge */
-always @ (negedge spi_clk)
-begin
-    if(reset == 0)
-    begin
-        spi_cnt <= 48;
-    end
-    else
-    begin
-        if (spi_cnt > 0)
-        begin
-            spi_cnt <= spi_cnt - 1;
-        end
-    end
-end
 
 endmodule
