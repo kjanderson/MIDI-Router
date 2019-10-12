@@ -13,7 +13,11 @@
 interface if_spi(
     input wire clk
 );
-    wire reset;
+    logic reset;
+    logic spi_sck;
+    logic spi_so;
+    logic spi_si;
+    logic [7:0] spi_reg;
     
     clocking cb @(posedge clk);
         output reset;
@@ -31,12 +35,26 @@ endinterface
 module spi_test(if_spi spiif);
 endmodule
 
-module test_sr;
+/* convenience task to perform a one-byte data exchange */
+task spi_xchg;
+    input spi_sck;
+    input [7:0] datai;
+    output [7:0] datao;
+    
+    for (int i=0; i<8; i++) begin
+        @(posedge spi_sck);
+        datai[7-i] <= spi_si;
+        @(negedge spi_sck);
+        spi_so <= datao[7-i];
+    end
+endtask
+
+module tb;
 
 initial
 begin
-    $dumpfile("test_sr.vcd");
-    $dumpvars(0, test_sr);
+    $dumpfile("tb_sr.vcd");
+    $dumpvars(0, tb);
     reset = 0;
     clk = 0;
     spi_sck = 0;
@@ -50,14 +68,14 @@ reg spi_clk;
 reg spi_sck_enable;
 always #5 clk = !clk;
 
+assign spi_sck = (spi_sck_enable ? spi_sck_in : 0);
+
 reg reset;
 reg [6:0] spi_cnt = 48;
 wire spi_mosi;
 wire spi_miso;
 reg [47:0] spi_data = 47'h1FFFFFFFFFF;
 wire [47:0] spi_regout;
-
-assign spi_mosi = spi_data[spi_cnt];
 
 if_spi ifspi(
     clk
