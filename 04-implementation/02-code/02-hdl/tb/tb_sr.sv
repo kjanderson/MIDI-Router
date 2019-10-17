@@ -19,6 +19,15 @@ interface if_spi(
     logic spi_si;
     logic [7:0] spi_reg;
     
+    modport dut (
+        input reset,
+        input clk,
+        input spi_sck,
+        input spi_si,
+        output spi_so
+        output spi_reg;
+    );
+    
     clocking cb @(posedge clk);
         output reset;
         output spi_sck;
@@ -32,7 +41,33 @@ interface if_spi(
     );
 endinterface
 
-module spi_test(if_spi spiif);
+/* DUT */
+module spi_dut(
+    if_spi.dut dif
+);
+    shiftreg sr0(
+        .nreset(~dif.reset),
+        .clk(dif.clk),
+        .spi_clk(dif.spi_sck),
+        .din(dif.spi_si),
+        .dout(dif.spi_so),
+        .regout(dif.spi_reg)
+    );
+endmodule
+
+/* test program */
+module spi_test(
+    if_spi.tb tif
+);
+    initial begin
+        tif.cb.reset <= 0;
+        @(tif.cb);
+        spi_sck_enable <= 1;
+        spi_xchg(spi_sck, test_datai, test_datao);
+        spi_sck_enable <= 0;
+        @(tif.cb);
+        $finish;
+    end
 endmodule
 
 /* convenience task to perform a one-byte data exchange */
@@ -49,52 +84,19 @@ task spi_xchg;
     end
 endtask
 
+/* testbench */
 module tb;
+reg clk = 0;
+always #5 clk = ~clk;
 
-initial
-begin
-    $dumpfile("tb_sr.vcd");
-    $dumpvars(0, tb);
-    reset = 0;
-    clk = 0;
-    spi_sck = 0;
-    spi_sck_enable = 0;
-    #1000 $finish;
-end
-
-/* clock */
-reg clk;
-reg spi_clk;
-reg spi_sck_enable;
-always #5 clk = !clk;
-
-assign spi_sck = (spi_sck_enable ? spi_sck_in : 0);
-
-reg reset;
-reg [6:0] spi_cnt = 48;
-wire spi_mosi;
-wire spi_miso;
-reg [47:0] spi_data = 47'h1FFFFFFFFFF;
-wire [47:0] spi_regout;
-
-if_spi ifspi(
+if_spi sif(
     clk
 );
-spi_test(ifspi);
-
-mstreset rst0(
-    reset,
-    spi_clk
+spi_test u_test(
+    sif
 );
-
-/* test the module */
-shiftreg sr0(
-    .nreset(ifspi.reset),
-    .clk(ifspi.clk),
-    .spi_clk(ifspi.spi_sck),
-    .din(ifspi.spi_si),
-    .dout(ifspi.spi_so),
-    .regout(ifspi.regout)
+spi_dut u_dut(
+    sif
 );
 
 endmodule

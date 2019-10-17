@@ -24,24 +24,18 @@ module shiftreg(
 
 parameter n = 8;
 
-input nreset;
-input clk;
-input spi_clk;
-input din;
-output dout;
-output [n-1:0] regout;
-
-wire nreset;
-wire clk;
-wire spi_clk;
-wire din;
-wire dout;
-wire [n-1:0] regout;
+input wire nreset;
+input wire clk;
+input wire spi_clk;
+input wire din;
+output wire dout;
+output wire [n-1:0] regout;
 
 reg [n-1:0] regdata;
+reg _dout;
 reg z_spi_clk;
 
-assign dout = regdata[n-1];
+assign dout = _dout;
 assign regout = regdata;
 
 /* to mimic the SPI port, read data in on the falling edge of spi_clk */
@@ -52,11 +46,15 @@ begin
         regdata <= 0;
         z_spi_clk <= spi_clk;
     end
-    else
-    begin
+    else begin
         z_spi_clk <= spi_clk;
-        if ((z_spi_clk == 0) && (spi_clk == 1))
-        begin
+        /* shift data out on rising edge of sck */
+        if ((spi_clk == 1) && (z_spi_clk == 0)) begin
+            _dout <= regdata[n-1];
+        end
+        
+        /* shift data in on falling edge of sck */
+        if ((spi_clk == 0) && (z_spi_clk == 1)) begin
             regdata <= {regdata[n-2:0], din};
         end
     end
