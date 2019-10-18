@@ -9,6 +9,9 @@
  * To simulate a break between bytes of data, the blank parameter is
  * directly controlled in the initial block.
  * The data sent to the device is controlled with the register data.
+ *
+ * Status
+ * This testbench still doesn't compile
  *********************************************************************/
 interface if_spi(
     input wire clk
@@ -24,8 +27,8 @@ interface if_spi(
         input clk,
         input spi_sck,
         input spi_si,
-        output spi_so
-        output spi_reg;
+        output spi_so,
+        output spi_reg
     );
     
     clocking cb @(posedge clk);
@@ -56,19 +59,29 @@ module spi_dut(
 endmodule
 
 /* test program */
-module spi_test(
-    if_spi.tb tif
+program spi_test(
+    if_spi.tb tif,
+    wire spi_sck_in
 );
+
+reg spi_sck_enable = 0;
+wire spi_sck;
+reg [7:0] test_datai;
+reg [7:0] test_datao;
+assign spi_sck = (spi_sck_enable) ? spi_sck_in : 0;
+
     initial begin
         tif.cb.reset <= 0;
+        spi_sck_enable = 0;
         @(tif.cb);
-        spi_sck_enable <= 1;
+        spi_sck_enable = 1;
+        test_datai = 8'hDE;
         spi_xchg(spi_sck, test_datai, test_datao);
-        spi_sck_enable <= 0;
+        spi_sck_enable = 0;
         @(tif.cb);
         $finish;
     end
-endmodule
+endprogram
 
 /* convenience task to perform a one-byte data exchange */
 task spi_xchg;
@@ -87,13 +100,16 @@ endtask
 /* testbench */
 module tb;
 reg clk = 0;
+reg sck_in = 0;
 always #5 clk = ~clk;
+always #10 sck_in = ~sck_in;
 
 if_spi sif(
     clk
 );
 spi_test u_test(
-    sif
+    sif,
+    sck_in
 );
 spi_dut u_dut(
     sif
