@@ -24,10 +24,12 @@
 
 /* GPIO interface */
 /* CRESET is active low */
-#define Hal_GpioSetReset() (LATAbits.LATA4 = 0)
-#define Hal_GpioClrReset() (LATAbits.LATA4 = 1)
-#define Hal_GpioEnableOutputReset() (TRISAbits.TRISA4 = 0)
-#define Hal_GpioDisableOutputReset() (TRISAbits.TRISA4 = 1)
+/* Pin 34 (RA4) is input only, and compiler support for TRIS A4 was removed */
+/* Until the PCB is corrected, SW won't be able to drive the reset pin */
+#define Hal_GpioSetReset()
+#define Hal_GpioClrReset()
+#define Hal_GpioEnableOutputReset()
+#define Hal_GpioDisableOutputReset()
 /* CDONE is active high */
 #define Hal_GpioGetDone() (PORTA & _LATA_LATA9_MASK)
 #define Hal_GpioDisableOutputDone() (TRISAbits.TRISA9 = 1)
