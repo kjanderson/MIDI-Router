@@ -11,7 +11,7 @@
  * The data sent to the device is controlled with the register data.
  *
  * Status
- * This testbench still doesn't compile
+ * This testbench compiles now, but the timing isn't quite right.
  *********************************************************************/
 interface if_spi(
     input wire clk
@@ -61,7 +61,7 @@ endmodule
 /* test program */
 program spi_test(
     if_spi.tb tif,
-    wire spi_sck_in
+    input wire spi_sck_in
 );
 
 reg spi_sck_enable = 0;
@@ -70,32 +70,41 @@ reg [7:0] test_datai;
 reg [7:0] test_datao;
 assign spi_sck = (spi_sck_enable) ? spi_sck_in : 0;
 
+    /* convenience task to perform a one-byte data exchange */
+    task spi_xchg;
+        input [7:0] datai;
+        output [7:0] datao;
+        
+        for (int i=0; i<8; i++) begin
+            @(posedge spi_sck);
+            tif.cb.spi_sck <= spi_sck;
+            tif.cb.spi_si <= datai[7-i];
+            @(negedge spi_sck);
+            tif.cb.spi_sck <= spi_sck;
+            datao[7-i] = tif.cb.spi_so;
+        end
+    endtask
+    
     initial begin
         tif.cb.reset <= 0;
         spi_sck_enable = 0;
         @(tif.cb);
         spi_sck_enable = 1;
         test_datai = 8'hDE;
-        spi_xchg(spi_sck, test_datai, test_datao);
+        spi_xchg(test_datai, test_datao);
+        spi_sck_enable = 0;
+        repeat (2) begin
+            @(tif.cb);
+        end
+        spi_sck_enable = 1;
+        test_datai = 8'hAD;
+        spi_xchg(test_datai, test_datao);
         spi_sck_enable = 0;
         @(tif.cb);
         $finish;
     end
 endprogram
 
-/* convenience task to perform a one-byte data exchange */
-task spi_xchg;
-    input spi_sck;
-    input [7:0] datai;
-    output [7:0] datao;
-    
-    for (int i=0; i<8; i++) begin
-        @(posedge spi_sck);
-        datai[7-i] <= spi_si;
-        @(negedge spi_sck);
-        spi_so <= datao[7-i];
-    end
-endtask
 
 /* testbench */
 module tb;
