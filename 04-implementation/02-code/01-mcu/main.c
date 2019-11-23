@@ -44,24 +44,12 @@ const uint8_t vuData[64] = {
     0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F
 };
 
-/* try out the boot attribute
- * It looks like I have to attach sections or attributes to each object
- * that I want outside of the text section.
- */
-void __attribute__((boot)) test_function(void)
-{
-    uint16_t uCnt;
-    
-    for(uCnt=0U; uCnt<256; uCnt++)
-    {
-    }
-}
-
 int main(void)
 {
     uint8_t uFpgaResult;
+    /*
     uint16_t uData;
-    
+
     TBLPAG = 0;
     uData = __builtin_tblrdl(0x8004);
     
@@ -69,6 +57,7 @@ int main(void)
     TBLPAG = 0;
     uData = __builtin_tblrdl(0x8004);
     // Hal_WriteFlashPage(0x00008000, (uint8_t*)vuData);
+     */
     
     App_Init();
     
@@ -77,6 +66,13 @@ int main(void)
     
     Hal_InitPeripherals();
     Hal_InitInterrupts();
+    
+    /* attempt sending a byte and reading the inputs */
+    Hal_SpiSetTxData(0xD5U);
+    Hal_GpioGetFbin0();
+    Hal_GpioGetFbin1();
+    Hal_GpioGetFbin2();
+    Hal_GpioGetFbin3();
     
     Hal_LedModeOn();
     

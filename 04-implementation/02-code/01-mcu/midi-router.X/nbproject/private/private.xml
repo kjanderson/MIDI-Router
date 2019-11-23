@@ -10,6 +10,8 @@
             <file>file:/C:/Users/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/hal.h</file>
             <file>file:/C:/Users/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/flash.c</file>
             <file>file:/C:/Users/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/flash.h</file>
+            <file>file:/C:/Users/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/fpga_image.h</file>
+            <file>file:/C:/Users/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/fpga_image.c</file>
         </group>
     </open-files>
 </project-private>

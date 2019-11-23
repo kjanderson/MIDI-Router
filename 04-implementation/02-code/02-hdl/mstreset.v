@@ -19,7 +19,7 @@ wire clk;
 reg [1:0] _sr;
 
 /* reduce bits and invert */
-reset_n = !(& _sr);
+assign reset_n = !(& _sr);
 
 /* implement a shift register to help the simulation along */
 always @ (posedge clk)
