@@ -74,6 +74,8 @@ assign midi_out[1] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 assign midi_out[2] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 assign midi_out[3] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 
+assign gpio_fbin = regout[3:0];
+
 /* instantiate the reset module to get a reset pulse */
 mstreset rst0(
     nreset,
