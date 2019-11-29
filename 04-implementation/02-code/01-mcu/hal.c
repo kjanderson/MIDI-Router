@@ -97,6 +97,8 @@ static void _Hal_InitGpio(void)
     TRISA = 0xFFFF;
     TRISB = 0xFFFF;
     TRISC = 0xFFFF;
+    /* disable analog function on pin 1 */
+    ANSBbits.ANSB9 = 0;
     Hal_GpioEnableOutputSpiSs();
     Hal_GpioEnableOutputMode();
     Hal_GpioEnableOutputReset();
@@ -203,13 +205,17 @@ static void _Hal_InitSpiForFpga(void)
  * This function initializes the SPI port for application use.
  * 
  * SCK frequency is 16 MHz
- *   data sampled during SCK falling edge (CKE=0, CKP=0)
+ *   data sampled during SCK falling edge (CKE=0, CKP=1)
  *   data bytes are sent MSb first
- *   SCK frequency shall be between 1 MHz and 25 MHz
- *   choose 2 MHz: primary prescale 4:1, secondary prescale 2:1
+ *   SCK frequency shall be 500 kHz
+ *   choose 500 kHz: primary prescale 4:1, secondary prescale 2:1
  *********************************************************************/
 static void _Hal_InitSpi(void)
 {
+    /* disable the module */
+    SPI1CON1L = 0x0000U;
+    SPI1CON1H = 0x0000U;
+    
     /* same settings as above, except run SCK at 16 MHz instead of 2 MHz */
     /* clear the interrupt */
     IFS0 &= ~(_IFS0_SPI1IF_MASK);
@@ -220,10 +226,10 @@ static void _Hal_InitSpi(void)
      *  8-bit data
      *  SS pin controlled as GPIO
      *  CKE = 0
-     *  CKP = 0
+     *  CKP = 1
      *  master mode
      */
-    SPI1CON1L = 0x0020U;
+    SPI1CON1L = 0x0060U;
     /* ignore receiver overflow
      * ignore transmit underrun
      */
@@ -239,13 +245,18 @@ static void _Hal_InitSpi(void)
     SPI1STATH = 0U;
     /* SPI1MSK settings */
     SPI1IMSKL = 0U;
+    SPI1IMSKLbits.SPIRBFEN = 1;
     SPI1IMSKH = 0U;
-    /* baud rate settings */
-    SPI1BRGL = 0U;
+    /* baud rate settings
+         - 8 MHz peripheral clock
+         - 500 kHz SPI clock
+     */
+    SPI1BRGL = 7U;
+    
     /* enable the module */
     SPI1CON1Lbits.SPIEN = 1U;
     
-    /* polling mode for FPGA configuration, so don't turn on interrupts */
+    /* turn on interrupts */
 }
 
 /**********************************************************************
@@ -379,6 +390,12 @@ void Hal_InitInterrupts(void)
 void Hal_InitSpiForFpga(void)
 {
     _Hal_InitSpiForFpga();
+}
+
+void Hal_SpiSetTxData(uint8_t uData)
+{
+    SPI1BUFL = (uint16_t)uData;
+    SPI1BUFH = (uint16_t)0;
 }
 
 void Hal_Timer1Config(uint16_t uTicks, uint8_t uOptions)

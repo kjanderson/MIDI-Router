@@ -48,13 +48,13 @@ begin
     end
     else begin
         z_spi_clk <= spi_clk;
-        /* shift data out on rising edge of sck */
-        if ((spi_clk == 1) && (z_spi_clk == 0)) begin
+        /* shift data out on falling edge of sck */
+        if ((spi_clk == 0) && (z_spi_clk == 1)) begin
             _dout <= regdata[n-1];
         end
         
-        /* shift data in on falling edge of sck */
-        if ((spi_clk == 0) && (z_spi_clk == 1)) begin
+        /* shift data in on rising edge of sck */
+        if ((spi_clk == 1) && (z_spi_clk == 0)) begin
             regdata <= {regdata[n-2:0], din};
         end
     end

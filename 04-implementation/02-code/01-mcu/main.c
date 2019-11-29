@@ -48,6 +48,14 @@ int main(void)
 {
     uint8_t uFpgaResult;
     /*
+    uint8_t uGpioFbin0Test;
+    uint8_t uGpioFbin1Test;
+    uint8_t uGpioFbin2Test;
+    uint8_t uGpioFbin3Test;
+     */
+    uint16_t uSpiDataWriteTest;
+    uint8_t uSpiDataReadTest;
+    /*
     uint16_t uData;
 
     TBLPAG = 0;
@@ -68,16 +76,112 @@ int main(void)
     Hal_InitInterrupts();
     
     /* attempt sending a byte and reading the inputs */
-    Hal_SpiSetTxData(0xD5U);
-    Hal_GpioGetFbin0();
-    Hal_GpioGetFbin1();
-    Hal_GpioGetFbin2();
-    Hal_GpioGetFbin3();
+    uSpiDataReadTest = 0x00U;
+    Hal_GpioEnableOutputFbin0();
+    Hal_GpioEnableOutputFbin1();
+    Hal_GpioEnableOutputFbin2();
+    Hal_GpioEnableOutputFbin3();
+    for (uSpiDataWriteTest = 0x01U; uSpiDataWriteTest < 0xFFU; uSpiDataWriteTest <<= 1U)
+    {
+        Hal_SpiSetTxData((uint8_t)uSpiDataWriteTest);
+        while(Hal_Spi1TxBusy())
+        {
+        }
+        /* comment out for loop-back test */
+        Hal_SpiSetTxData(0x00U);
+        while(Hal_Spi1TxBusy())
+        {
+        }
+        uSpiDataReadTest = Hal_SpiGetRxData();
+        if (uSpiDataReadTest & 0x01U)
+        {
+            Hal_GpioSetFbin0();
+        }
+        else
+        {
+            Hal_GpioClrFbin0();
+        }
+        if (uSpiDataReadTest & 0x02U)
+        {
+            Hal_GpioSetFbin1();
+        }
+        else
+        {
+            Hal_GpioClrFbin1();
+        }
+        if (uSpiDataReadTest & 0x04U)
+        {
+            Hal_GpioSetFbin2();
+        }
+        else
+        {
+            Hal_GpioClrFbin2();
+        }
+        if (uSpiDataReadTest & 0x08U)
+        {
+            Hal_GpioSetFbin3();
+        }
+        else
+        {
+            Hal_GpioClrFbin3();
+        }
+        Hal_Spi1ClrInt();
+    }
     
     Hal_LedModeOn();
     
+    uSpiDataWriteTest = 0x0001U;
+    
     for(;;)
     {
+        /* code inserted to test SO port at runtime */
+        if (uSpiDataWriteTest > 0x0080U)
+        {
+            uSpiDataWriteTest = 0x00001U;
+        }
+        Hal_SpiSetTxData((uint8_t)uSpiDataWriteTest);
+        while(Hal_Spi1TxBusy())
+        {
+        }
+        Hal_SpiSetTxData(0x00U);
+        while(Hal_Spi1TxBusy())
+        {
+        }
+        uSpiDataReadTest = Hal_SpiGetRxData();
+        if (uSpiDataReadTest & 0x01U)
+        {
+            Hal_GpioSetFbin0();
+        }
+        else
+        {
+            Hal_GpioClrFbin0();
+        }
+        if (uSpiDataReadTest & 0x02U)
+        {
+            Hal_GpioSetFbin1();
+        }
+        else
+        {
+            Hal_GpioClrFbin1();
+        }
+        if (uSpiDataReadTest & 0x04U)
+        {
+            Hal_GpioSetFbin2();
+        }
+        else
+        {
+            Hal_GpioClrFbin2();
+        }
+        if (uSpiDataReadTest & 0x08U)
+        {
+            Hal_GpioSetFbin3();
+        }
+        else
+        {
+            Hal_GpioClrFbin3();
+        }
+        Hal_Spi1ClrInt();
+        
         Hal_WatchdogReset();
         Hal_IdleTasks();
         App_IdleTasks();

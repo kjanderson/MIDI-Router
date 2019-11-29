@@ -46,26 +46,17 @@ module top_midi_switcher(
 );
 
 /* 41 outputs */
-input clk;
-input [3:0] midi_in;
-output [3:0] midi_out;
-output [3:0] gpio_fbin;
-input spi_clk;
-output spi_miso;
-input spi_mosi;
-input spi_ss;
-
-wire clk;
-wire [3:0] midi_in;
-wire [3:0] midi_out;
-wire [3:0] gpio_fbin;
-wire spi_clk;
-wire spi_miso;
-wire spi_mosi;
-wire spi_ss;
+input wire clk;
+input wire [3:0] midi_in;
+output wire [3:0] midi_out;
+input wire [3:0] gpio_fbin;
+input wire spi_clk;
+output wire spi_miso;
+input wire spi_mosi;
+input wire spi_ss;
 
 /* make the register a multiple of 8 bits to fit the MCU SPI pattern */
-wire [15:0] regout;
+wire [7:0] regout;
 wire nreset;
 
 /* assign outputs */
@@ -74,7 +65,10 @@ assign midi_out[1] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 assign midi_out[2] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 assign midi_out[3] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
 
-assign gpio_fbin = regout[3:0];
+// assign gpio_fbin = regout[3:0];
+
+/* board bring-up debug: loopback interface */
+// assign spi_miso = spi_mosi;
 
 /* instantiate the reset module to get a reset pulse */
 mstreset rst0(
@@ -83,7 +77,7 @@ mstreset rst0(
 );
 
 /* instantiate a 16-bit shift register to test connectivity */
-shiftreg #(16) sr0(
+shiftreg sr0(
     nreset,
     clk,
     spi_clk,

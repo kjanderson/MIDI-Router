@@ -42,18 +42,26 @@
 #define Hal_GpioGetFbin0() (PORTBbits.RB9)
 #define Hal_GpioEnableOutputFbin0() (TRISBbits.TRISB9 = 0)
 #define Hal_GpioDisableOutputFbin0() (TRISBbits.TRISB9 = 1)
+#define Hal_GpioSetFbin0() (LATBbits.LATB9 = 1)
+#define Hal_GpioClrFbin0() (LATBbits.LATB9 = 0)
 /* FBIN1 */
 #define Hal_GpioGetFbin1() (PORTCbits.RC6)
 #define Hal_GpioEnableOutputFbin1() (TRISCbits.TRISC6 = 0)
 #define Hal_GpioDisableOutputFbin1() (TRISCbits.TRISC6 = 1)
+#define Hal_GpioSetFbin1() (LATCbits.LATC6 = 1)
+#define Hal_GpioClrFbin1() (LATCbits.LATC6 = 0)
 /* FBIN2 */
 #define Hal_GpioGetFbin2() (PORTCbits.RC7)
 #define Hal_GpioEnableOutputFbin2() (TRISCbits.TRISC7 = 0)
 #define Hal_GpioDisableOutputFbin2() (TRISCbits.TRISC7 = 1)
+#define Hal_GpioSetFbin2() (LATCbits.LATC7 = 1)
+#define Hal_GpioClrFbin2() (LATCbits.LATC7 = 0)
 /* FBIN3 */
 #define Hal_GpioGetFbin3() (PORTCbits.RC8)
 #define Hal_GpioEnableOutputFbin3() (TRISCbits.TRISC8 = 0)
 #define Hal_GpioDisableOutputFbin3() (TRISCbits.TRISC8 = 1)
+#define Hal_GpioSetFbin3() (LATCbits.LATC8 = 1)
+#define Hal_GpioClrFbin3() (LATCbits.LATC8 = 0)
 /* LED is active low */
 #define Hal_GpioSetMode() (LATAbits.LATA8 = 0)
 #define Hal_GpioClrMode() (LATAbits.LATA8 = 1)
@@ -70,10 +78,11 @@
 #define Hal_Timer1Restart() (TMR1 = 0)
 
 /* SPI interface */
-#define Hal_Spi1TxBusy() (SPI1STATL & _SPI1STATL_SPIBUSY_MASK)
-#define Hal_SpiSetTxData(x) (SPI1BUFL = (x))
+#define Hal_Spi1TxBusy() ((SPI1STATL & _SPI1STATL_SPIRBF_MASK) == 0)
+//#define Hal_SpiSetTxData(x) (SPI1BUFL = (x); SPI1BUFH = 0)
+void Hal_SpiSetTxData(uint8_t uData);
 #define Hal_SpiGetRxData() (SPI1BUFL)
-#define Hal_Spi1ClrInt() (IFS0 &= ~(_IFS0_SPI1IF_MASK))
+#define Hal_Spi1ClrInt() (IFS0 &= ~(_IFS0_U1RXIF_MASK))
 
 /* USB interface */
 #define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)
