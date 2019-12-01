@@ -541,3 +541,10 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
     /* clear the interrupt to receive more timer interrupts */
     IFS0 &= ~(_IFS0_T1IF_MASK);
 }
+
+void __attribute__((__interrupt__, auto_psv)) _SPI1RXInterrupt(void)
+{
+    App_SpiRxIsr(SPI1BUFL);
+    
+    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
+}

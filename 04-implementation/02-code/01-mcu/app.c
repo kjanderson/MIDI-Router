@@ -124,3 +124,96 @@ void App_IdleTasks(void)
     }
     
 }
+
+/**********************************************************************
+ * App_SpiRxIsr
+ * 
+ * Description
+ * This ISR callback function posts data to the ready queue for processing
+ * by the application's event queue.
+ * Any data that is ready to send can get queued up immediately.
+ *********************************************************************/
+void App_SpiRxIsr(uint8_t uData)
+{
+    (void)uData;
+}
+
+static EventQueue fg_eq;
+
+void EventQueue_Init(void)
+{
+    uint8_t uCnt;
+    
+    fg_eq.bEmpty = 1U;
+    fg_eq.bFull = 0U;
+    fg_eq.uHead = 0U;
+    fg_eq.uTail = 0U;
+    for (uCnt = 0U; uCnt < EVENT_QUEUE_SIZE; uCnt++)
+    {
+        fg_eq.events[uCnt].e = (QEvent)0;
+        fg_eq.events[uCnt].data = (uint16_t)0;
+    }
+}
+
+void EventQueue_PushIsr(QEvent e, uint16_t uParam)
+{
+    fg_eq.bEmpty = 0U;
+    
+    if (fg_eq.bFull == 0U)
+    {
+        fg_eq.events[fg_eq.uHead].e = e;
+        fg_eq.events[fg_eq.uHead].data = uParam;
+        
+        fg_eq.uHead = fg_eq.uHead + 1U;
+        if (fg_eq.uHead >= EVENT_QUEUE_SIZE)
+        {
+            fg_eq.uHead = 0U;
+        }
+        if (fg_eq.uHead == fg_eq.uTail)
+        {
+            fg_eq.bFull = 1U;
+        }
+    }
+}
+
+void EventQueue_Push(QEvent e, uint16_t uParam)
+{
+    Hal_IrqDisable();
+    EventQueue_PushIsr(e, uParam);
+    Hal_IrqEnable();
+}
+
+Event * EventQueue_PopIsr(void)
+{
+    Event *result;
+    
+    result = (Event*)NULL;
+    
+    fg_eq.bFull = 0U;
+    if (fg_eq.bEmpty == 0U)
+    {
+        result = (Event*)&(fg_eq.events[fg_eq.uTail]);
+        fg_eq.uTail = fg_eq.uTail + 1U;
+        if (fg_eq.uTail >= EVENT_QUEUE_SIZE)
+        {
+            fg_eq.uTail = 0U;
+        }
+        if (fg_eq.uHead == fg_eq.uTail)
+        {
+            fg_eq.bEmpty = 1U;
+        }
+    }
+    
+    return result;
+}
+
+Event * App_QueuePop(void)
+{
+    Event *result;
+    
+    Hal_IrqDisable();
+    result = EventQueue_PopIsr();
+    Hal_IrqEnable();
+    
+    return result;
+}
