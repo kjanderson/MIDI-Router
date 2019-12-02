@@ -27,6 +27,8 @@
       <itemPath>../hal.h</itemPath>
       <itemPath>../app.h</itemPath>
       <itemPath>../flash.h</itemPath>
+      <itemPath>../event-queue.h</itemPath>
+      <itemPath>../spi-ctrl.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -55,6 +57,8 @@
       <itemPath>../main.c</itemPath>
       <itemPath>../app.c</itemPath>
       <itemPath>../flash.c</itemPath>
+      <itemPath>../event-queue.c</itemPath>
+      <itemPath>../spi-ctrl.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
