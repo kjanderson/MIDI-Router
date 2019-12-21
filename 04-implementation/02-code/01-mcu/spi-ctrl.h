@@ -14,6 +14,10 @@ typedef struct _SpiCtrl SpiCtrl;
 struct _SpiCtrl
 {
     SpiState eState;
+    uint8_t uTxCnt;
+    uint8_t uTxLength;
+    uint8_t uRxCnt;
+    uint8_t uRxLength;
     uint8_t txData[2];
     uint8_t rxData[2];
 };
