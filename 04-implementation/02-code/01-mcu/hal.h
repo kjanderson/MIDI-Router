@@ -82,7 +82,8 @@
 //#define Hal_SpiSetTxData(x) (SPI1BUFL = (x); SPI1BUFH = 0)
 void Hal_SpiSetTxData(uint8_t uData);
 #define Hal_SpiGetRxData() (SPI1BUFL)
-#define Hal_Spi1ClrInt() (IFS0 &= ~(_IFS0_U1RXIF_MASK))
+#define Hal_Spi1ClrInt() (IFS3 &= ~(_IFS3_SPI1RXIF_MASK))
+#define Hal_SpiTxReady() ((SPI1STATL & _SPI1STATL_SPITBE_MASK) != 0)
 
 /* USB interface */
 #define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)

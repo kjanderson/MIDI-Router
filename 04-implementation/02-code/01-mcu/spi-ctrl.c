@@ -51,5 +51,8 @@ void SpiCtrl_SendData(SpiCtrl *pSelf, uint8_t uData)
     pSelf->uRxCnt = 0U;
     pSelf->uTxCnt = 1U;
     Hal_IrqEnable();
-    Hal_SpiSetTxData(pSelf->txData[0U]);
+    if (Hal_SpiTxReady())
+    {
+        Hal_SpiSetTxData(pSelf->txData[0U]);
+    }
 }
