@@ -22,6 +22,8 @@ struct _SpiCtrl
     uint8_t rxData[2];
 };
 
+extern SpiCtrl g_SpiCtrl;
+
 void SpiCtrl_Init(SpiCtrl *pSelf);
 void SpiCtrl_RxIsr(SpiCtrl *pSelf, uint8_t uData);
 void SpiCtrl_SendData(SpiCtrl *pSelf, uint8_t uData);

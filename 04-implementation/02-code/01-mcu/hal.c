@@ -1,7 +1,8 @@
 #include <xc.h>
 
 #include "app.h"
-#include "hal.h"
+#include <hal.h>
+#include "spi-ctrl.h"
 
 #include "system.h"
 
@@ -553,7 +554,7 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 
 void __attribute__((__interrupt__, auto_psv)) _SPI1RXInterrupt(void)
 {
-    App_SpiRxIsr(SPI1BUFL);
+    SpiCtrl_RxIsr(&g_SpiCtrl, SPI1BUFL);
     
     IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
 }

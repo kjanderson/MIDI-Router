@@ -41,3 +41,4 @@ set_io midi_in[1] 36
 set_io spi_clk 48
 set_io spi_miso 45
 set_io spi_mosi 46
+set_io spi_ss 49

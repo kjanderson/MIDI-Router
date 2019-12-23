@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdint.h>
-#include "hal.h"
+#include <hal.h>
 #include "app.h"
+#include "spi-ctrl.h"
 
 #include "system.h"
 #include "usb.h"
@@ -25,6 +26,8 @@ void App_Init(void)
     fg_uLedPeriod = 1000U;
     fg_uLedDuty = 500U;
     fg_uLedCnt = fg_uLedPeriod;
+    
+    SpiCtrl_Init(&g_SpiCtrl);
 }
 
 /**********************************************************************
@@ -50,7 +53,8 @@ void App_SetFpgaMode(uint8_t uValue)
 void App_TickIsr(void)
 {
     /* when the router is implemented,
-     * code here will start an SPI transaction */
+     * code here will start an SPI transaction in response to buttons */
+    SpiCtrl_SendData(&g_SpiCtrl, 0xDE);
     
     /* blink the LED according to the application state */
     if (fg_uFpgaMode > 0U)

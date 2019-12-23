@@ -3,6 +3,8 @@
 #include <hal.h>
 #include "spi-ctrl.h"
 
+SpiCtrl g_SpiCtrl;
+
 void SpiCtrl_Init(SpiCtrl *pSelf)
 {
     uint8_t uCnt;
