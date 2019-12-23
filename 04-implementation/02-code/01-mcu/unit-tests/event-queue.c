@@ -12,6 +12,7 @@
 /* Pointer to the file used by the tests. */
 static FILE* temp_file = NULL;
 static EventQueue fg_eq;
+static SpiCtrl fg_spi;
 
 /* The suite initialization function.
  * Opens the temporary file used by the tests.
@@ -96,6 +97,24 @@ void test_eventqueue_full(void)
 
 void test_eventqueue_empty(void)
 {
+}
+
+/**********************************************************************
+ * test suite for SPI
+ *********************************************************************/
+void init_suite2(void)
+{
+    SpiCtrl_Init(&fg_spi);
+}
+
+void clean_suite2(void)
+{
+}
+
+void test_spi(void)
+{
+    SpiCtrl_RxIsr(&fg_spi, (uint8_t)0x01U);
+    SpiCtrl_RxIsr(&fg_spi, (uint8_t)0x00U);
 }
 
 /* The main() function for setting up and running the tests.

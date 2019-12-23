@@ -57,3 +57,5 @@ eagle.epf
 # file locks introduced since 7.x
 *.lck
 
+/04-implementation/02-code/01-mcu/midi-router.X/build/
+/04-implementation/02-code/01-mcu/midi-router.X/dist/
