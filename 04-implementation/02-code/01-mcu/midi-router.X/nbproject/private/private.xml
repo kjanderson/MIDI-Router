@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/app.c</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/spi-ctrl.c</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/fpga_image.c</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/main.c</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/hal.c</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/app.h</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/hal.h</file>
+            <file>file:/home/kander4/Documents/MIDI-Router/04-implementation/02-code/01-mcu/usb/usb_device.c</file>
+        </group>
     </open-files>
 </project-private>

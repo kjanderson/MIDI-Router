@@ -25,13 +25,18 @@ void SpiCtrl_Init(SpiCtrl *pSelf)
 
 void SpiCtrl_RxIsr(SpiCtrl *pSelf, uint8_t uData)
 {
+    volatile uint8_t uStatus;
+    uStatus = 0U;
+    
     if (pSelf->uRxCnt < HAL_DIM(pSelf->rxData))
     {
         pSelf->rxData[pSelf->uRxCnt] = uData;
         pSelf->uRxCnt = pSelf->uRxCnt + 1U;
         
-        if (pSelf->uTxCnt == pSelf->uTxLength)
+        if ((pSelf->uTxLength > 0U) &&
+            (pSelf->uTxCnt == pSelf->uTxLength))
         {
+            uStatus = 1U;
             /* send message to process the data frame */
         }
     }

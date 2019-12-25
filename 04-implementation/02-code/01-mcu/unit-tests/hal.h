@@ -7,6 +7,7 @@
 #define HAL_DIM(x) (sizeof((x)) / sizeof((x[0])))
 
 #define Hal_SpiSetTxData(x)
+#define Hal_SpiTxReady() (1)
 
 #endif /* HAL_H */
 

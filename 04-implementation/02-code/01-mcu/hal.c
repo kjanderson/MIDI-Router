@@ -161,10 +161,14 @@ static void _Hal_InitGpio(void)
  *********************************************************************/
 static void _Hal_InitSpiForFpga(void)
 {
-    /* clear the interrupt */
+    /* clear the interrupts */
     IFS0 &= ~(_IFS0_SPI1IF_MASK);
+    IFS0 &= ~(_IFS0_SPI1TXIF_MASK);
+    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
     /* disable the interrupt */
     IEC0 &= ~(_IEC0_SPI1IE_MASK);
+    IEC0 &= ~(_IEC0_SPI1TXIE_MASK);
+    IEC3 &= ~(_IEC3_SPI1RXIE_MASK);
     
     /* SPI1CON1 settings
      *  8-bit data
@@ -213,19 +217,54 @@ static void _Hal_InitSpiForFpga(void)
  *********************************************************************/
 static void _Hal_InitSpi(void)
 {
-    /* disable the module */
+    /* disable and reset the module */
     SPI1CON1L = 0x0000U;
     SPI1CON1H = 0x0000U;
     
-    /* same settings as above, except run SCK at 16 MHz instead of 2 MHz */
-    /* clear the interrupt */
-    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
+    /* clear the interrupt flags */
     IFS0 &= ~(_IFS0_SPI1IF_MASK);
     IFS0 &= ~(_IFS0_SPI1TXIF_MASK);
-    /* disable the interrupt */
-    IEC3 &= ~(_IEC3_SPI1RXIE_MASK);
+    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
+    /* disable the interrupts */
     IEC0 &= ~(_IEC0_SPI1IE_MASK);
     IEC0 &= ~(_IEC0_SPI1TXIE_MASK);
+    IEC3 &= ~(_IEC3_SPI1RXIE_MASK);
+    
+    /* SPI1CON2 settings */
+    SPI1CON2 = 0U;
+    SPI1CON2L = 0U;
+    /* SPI1CON3 settings */
+    SPI1CON3 = 0U;
+    
+    /* clear the interrupt flags */
+    IFS0 &= ~(_IFS0_SPI1IF_MASK);
+    IFS0 &= ~(_IFS0_SPI1TXIF_MASK);
+    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
+    
+    /* set interrupt priority */
+    IPC14bits.SPI1RXIP = 4;
+    
+    /* turn on RXIF interrupt */
+    IEC3 |= _IEC3_SPI1RXIE_MASK;
+    
+    /* baud rate settings
+         - 8 MHz peripheral clock
+         - 500 kHz SPI clock
+     */
+    SPI1BRGL = 7U;
+    
+    /* SPI1STAT settings
+     *   clear SPIROV flag
+     *   clear all the other flags
+     */
+    SPI1STATL = 0U;
+    SPI1STATH = 0U;
+    
+    /* SPI1MSK settings
+     *   see page 55 of 70005136a.pdf */
+    SPI1IMSKLbits.SPIRBFEN = 1;
+    // SPI1IMSKLbits.SPIRBFEN = 1;
+    SPI1IMSKH = 0U;
     
     /* SPI1CON1 settings
      *  8-bit data
@@ -239,25 +278,6 @@ static void _Hal_InitSpi(void)
      * ignore transmit underrun
      */
     SPI1CON1H = 0x3000U;
-    /* SPI1CON2 settings */
-    
-    SPI1CON2 = 0U;
-    SPI1CON2L = 0U;
-    /* SPI1CON3 settings */
-    SPI1CON3 = 0U;
-    /* SPI1STAT settings */
-    SPI1STATL = 0U;
-    SPI1STATH = 0U;
-    /* SPI1MSK settings
-     *   see page 55 of 70005136a.pdf */
-    SPI1IMSKL = 0U;
-    // SPI1IMSKLbits.SPIRBFEN = 1;
-    SPI1IMSKH = 0U;
-    /* baud rate settings
-         - 8 MHz peripheral clock
-         - 500 kHz SPI clock
-     */
-    SPI1BRGL = 7U;
     
     /* enable the module */
     SPI1CON1Lbits.SPIEN = 1U;
@@ -391,10 +411,8 @@ void Hal_InitInterrupts(void)
     IFS0 &= ~(_IFS0_T1IF_MASK);
     /* turn on Timer1 interrupt */
     IEC0 |= _IEC0_T1IE_MASK;
-    /* clear SPI1RX interrupt */
-    IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
-    /* turn on SPI1 interrupt */
-    IEC3 |= _IEC3_SPI1RXIE_MASK;
+    
+    /* interrupt for SPI1 was turned on during initialization */
 }
 
 void Hal_InitSpiForFpga(void)
