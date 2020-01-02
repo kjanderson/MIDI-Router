@@ -31,6 +31,9 @@ parameter SPI_DAT_SIZE = 8;
 `define SPI_ST_DAT 3'h3
 
 `define WB_ST_IDLE 3'h0
+`define WB_ST_ADDR 3'h1
+`define WB_ST_DATA 3'h2
+`define WB_ST_NULL 3'h3
 
 output wire spi_miso;
 input wire spi_mosi;
@@ -59,6 +62,8 @@ reg [2:0] _spi_state;
 reg [2:0] _spi_next_state;
 reg [2:0] _wb_state;
 reg [2:0] _wb_next_state;
+reg _spi_start_xchg;
+reg _wb_start_xchg;
 
 /* continuous assignments */
 assign wb_adr_o = _wb_adr;
@@ -89,6 +94,7 @@ end
 always @(posedge wb_clk_i) begin
     if (wb_rst_i == 1'b1) begin
         _spi_state <= `SPI_ST_IDLE;
+        _spi_start_xchg <= 0;
     end
     else begin
         _spi_state <= _spi_next_state;
@@ -99,6 +105,17 @@ end
 always @(posedge wb_clk_i) begin
     case(_wb_state)
         `WB_ST_IDLE: begin
+            if (_spi_start_xchg == 1'b1) begin
+                _wb_next_state = `WB_ST_ADDR;
+            end
+        end
+        `WB_ST_ADDR: begin
+            _wb_next_state = `WB_ST_DATA;
+        end
+        `WB_ST_DATA: begin
+            _wb_next_state = `WB_ST_IDLE;
+        end
+        `WB_ST_NULL: begin
         end
         default: begin
             _wb_next_state = `WB_ST_IDLE;
