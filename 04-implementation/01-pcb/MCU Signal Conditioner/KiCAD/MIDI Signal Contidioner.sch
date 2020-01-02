@@ -1,0 +1,2216 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 15288 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	7000 4300 6700 4300
+Wire Wire Line
+	6700 4300 6700 4400
+Wire Wire Line
+	6700 4400 6700 4500
+Wire Wire Line
+	7000 4400 6700 4400
+Wire Wire Line
+	6700 4200 6700 4300
+Connection ~ 6700 4400
+Connection ~ 6700 4300
+Text Label 7000 4300 0    10   ~ 0
++5V
+Wire Wire Line
+	9200 4500 9600 4500
+Text Label 9200 4500 0    10   ~ 0
++5V
+Wire Wire Line
+	1300 4600 1500 4600
+Text Label 1300 4600 0    10   ~ 0
++5V
+Wire Wire Line
+	11100 1400 11700 1400
+Text Label 11100 1400 0    10   ~ 0
++5V
+Wire Wire Line
+	10600 2800 10600 3100
+Text Label 10600 2800 0    10   ~ 0
++5V
+Wire Wire Line
+	4100 1500 3700 1500
+Text Label 4100 1500 0    10   ~ 0
++5V
+Wire Wire Line
+	5400 2100 5000 2100
+Text Label 5400 2100 0    10   ~ 0
++5V
+Wire Wire Line
+	4100 2500 3700 2500
+Text Label 4100 2500 0    10   ~ 0
++5V
+Wire Wire Line
+	5400 3100 5000 3100
+Text Label 5400 3100 0    10   ~ 0
++5V
+Wire Wire Line
+	4100 3500 3700 3500
+Text Label 4100 3500 0    10   ~ 0
++5V
+Wire Wire Line
+	5400 4100 5000 4100
+Text Label 5400 4100 0    10   ~ 0
++5V
+Wire Wire Line
+	4100 4500 3700 4500
+Text Label 4100 4500 0    10   ~ 0
++5V
+Wire Wire Line
+	4900 5100 4500 5100
+Text Label 4900 5100 0    10   ~ 0
++5V
+Wire Wire Line
+	4100 4100 3700 4100
+Text Label 4100 4100 0    10   ~ 0
+GND
+Wire Wire Line
+	5400 3500 5000 3500
+Text Label 5400 3500 0    10   ~ 0
+GND
+Wire Wire Line
+	4100 3100 3700 3100
+Text Label 4100 3100 0    10   ~ 0
+GND
+Wire Wire Line
+	5400 2500 5000 2500
+Text Label 5400 2500 0    10   ~ 0
+GND
+Wire Wire Line
+	6800 2700 7200 2700
+Text Label 6800 2700 0    10   ~ 0
+GND
+Wire Wire Line
+	9300 2300 8500 2300
+Text Label 9300 2300 0    10   ~ 0
+GND
+Wire Wire Line
+	4100 2100 3700 2100
+Text Label 4100 2100 0    10   ~ 0
+GND
+Wire Wire Line
+	5400 1500 5000 1500
+Text Label 5400 1500 0    10   ~ 0
+GND
+Wire Wire Line
+	10000 2500 10000 2600
+Text Label 10000 2500 0    10   ~ 0
+GND
+Wire Wire Line
+	6700 4900 6700 4800
+Text Label 6700 4900 0    10   ~ 0
+GND
+Wire Wire Line
+	7600 4900 7600 4700
+Text Label 7600 4900 0    10   ~ 0
+GND
+Wire Wire Line
+	8300 4900 8300 4800
+Text Label 8300 4900 0    10   ~ 0
+GND
+Wire Wire Line
+	9200 4900 9600 4900
+Text Label 9200 4900 0    10   ~ 0
+GND
+Wire Wire Line
+	2700 4600 2500 4600
+Text Label 2700 4600 0    10   ~ 0
+GND
+Wire Wire Line
+	1500 1500 1200 1500
+Text Label 1500 1500 0    10   ~ 0
+GND
+Wire Wire Line
+	9500 4000 9600 4000
+Text Label 9500 4000 0    10   ~ 0
+GND
+Wire Wire Line
+	6800 2100 7200 2100
+Text Label 6800 2100 0    10   ~ 0
+GND
+Wire Wire Line
+	6800 2300 7200 2300
+Text Label 6800 2300 0    10   ~ 0
+GND
+Wire Wire Line
+	6800 2500 7200 2500
+Text Label 6800 2500 0    10   ~ 0
+GND
+Wire Wire Line
+	10000 5200 10000 5300
+Wire Wire Line
+	10000 5300 10000 5400
+Wire Wire Line
+	9900 5200 9900 5300
+Wire Wire Line
+	9900 5300 10000 5300
+Connection ~ 10000 5300
+Text Label 10000 5200 0    10   ~ 0
+GND
+Wire Wire Line
+	9700 5200 9700 5300
+Wire Wire Line
+	9700 5300 9700 5400
+Wire Wire Line
+	9800 5200 9800 5300
+Wire Wire Line
+	9800 5300 9700 5300
+Connection ~ 9700 5300
+Text Label 9700 5200 0    10   ~ 0
+GND
+Wire Wire Line
+	11100 3600 11700 3600
+Text Label 11100 3600 0    10   ~ 0
+GND
+Wire Wire Line
+	11100 3400 11700 3400
+Text Label 11100 3400 0    10   ~ 0
+GND
+Wire Wire Line
+	13200 3600 13800 3600
+Text Label 13200 3600 0    10   ~ 0
+GND
+Wire Wire Line
+	13200 1800 13800 1800
+Text Label 13200 1800 0    10   ~ 0
+GND
+Wire Wire Line
+	11700 1600 11100 1600
+Text Label 11700 1600 0    10   ~ 0
+GND
+Wire Wire Line
+	14200 3400 14200 3500
+Text Label 14200 3400 0    10   ~ 0
+GND
+Wire Wire Line
+	10600 3500 10600 3400
+Text Label 10600 3500 0    10   ~ 0
+GND
+Wire Wire Line
+	12800 5700 12800 5600
+Text Label 12800 5700 0    10   ~ 0
+GND
+Wire Wire Line
+	12500 5700 12500 5600
+Text Label 12500 5700 0    10   ~ 0
+GND
+Wire Wire Line
+	12200 5700 12200 5600
+Text Label 12200 5700 0    10   ~ 0
+GND
+Wire Wire Line
+	11900 5700 11900 5600
+Text Label 11900 5700 0    10   ~ 0
+GND
+Wire Wire Line
+	4100 5100 3700 5100
+Text Label 4100 5100 0    10   ~ 0
+GND
+Wire Wire Line
+	4900 4500 4500 4500
+Text Label 4900 4500 0    10   ~ 0
+GND
+Wire Wire Line
+	9200 6700 9600 6700
+Text Label 9200 6700 0    10   ~ 0
+GND
+Wire Wire Line
+	9700 7200 9700 7100
+Wire Wire Line
+	9700 7100 9700 7000
+Wire Wire Line
+	9800 7000 9800 7100
+Wire Wire Line
+	9800 7100 9700 7100
+Connection ~ 9700 7100
+Text Label 9700 7200 0    10   ~ 0
+GND
+Wire Wire Line
+	10000 7200 10000 7100
+Wire Wire Line
+	10000 7100 10000 7000
+Wire Wire Line
+	9900 7000 9900 7100
+Wire Wire Line
+	9900 7100 10000 7100
+Connection ~ 10000 7100
+Text Label 10000 7200 0    10   ~ 0
+GND
+Wire Wire Line
+	9300 2100 8500 2100
+Text Label 9300 2100 0    10   ~ 0
++3V3
+Wire Wire Line
+	10000 2100 10000 2200
+Text Label 10000 2100 0    10   ~ 0
++3V3
+Wire Wire Line
+	8300 4500 8300 4300
+Wire Wire Line
+	8300 4300 8200 4300
+Wire Wire Line
+	8300 4200 8300 4300
+Connection ~ 8300 4300
+Text Label 8300 4500 0    10   ~ 0
++3V3
+Wire Wire Line
+	8900 1300 8900 1200
+Text Label 8900 1300 0    10   ~ 0
++3V3
+Wire Wire Line
+	9200 1300 9200 1200
+Text Label 9200 1300 0    10   ~ 0
++3V3
+Wire Wire Line
+	13200 1400 13800 1400
+Text Label 13200 1400 0    10   ~ 0
++3V3
+Wire Wire Line
+	13200 1600 13800 1600
+Text Label 13200 1600 0    10   ~ 0
++3V3
+Wire Wire Line
+	14200 3000 14200 3100
+Text Label 14200 3000 0    10   ~ 0
++3V3
+Wire Wire Line
+	9200 2700 8500 2700
+Wire Wire Line
+	9200 1700 9200 2700
+Text Label 8900 2700 2    70   ~ 0
+SDA
+Wire Wire Line
+	4100 1900 3700 1900
+Text Label 4100 1900 2    70   ~ 0
+SDA
+Wire Wire Line
+	5400 1900 5000 1900
+Text Label 5400 1900 2    70   ~ 0
+SDA
+Wire Wire Line
+	1000 2700 1500 2700
+Text Label 1000 2700 0    70   ~ 0
+SDA
+Wire Wire Line
+	2900 2700 2500 2700
+Text Label 2900 2700 2    70   ~ 0
+SDA
+Wire Wire Line
+	8900 2500 8500 2500
+Wire Wire Line
+	8900 1700 8900 2500
+Text Label 8900 2500 2    70   ~ 0
+SCL
+Wire Wire Line
+	4100 2000 3700 2000
+Text Label 4100 2000 2    70   ~ 0
+SCL
+Wire Wire Line
+	5400 2000 5000 2000
+Text Label 5400 2000 2    70   ~ 0
+SCL
+Wire Wire Line
+	1000 2500 1500 2500
+Text Label 1000 2500 0    70   ~ 0
+SCL
+Wire Wire Line
+	2900 2500 2500 2500
+Text Label 2900 2500 2    70   ~ 0
+SCL
+Wire Wire Line
+	1000 1700 1500 1700
+Text Label 1000 1700 0    70   ~ 0
+USB-D-
+Wire Wire Line
+	9200 3800 9600 3800
+Text Label 9200 3800 0    70   ~ 0
+USB-D-
+Wire Wire Line
+	9200 6400 9600 6400
+Text Label 9200 6400 0    70   ~ 0
+USB-D-
+Wire Wire Line
+	1000 1900 1500 1900
+Text Label 1000 1900 0    70   ~ 0
+USB-D+
+Wire Wire Line
+	9200 3900 9600 3900
+Text Label 9200 3900 0    70   ~ 0
+USB-D+
+Wire Wire Line
+	9200 6500 9600 6500
+Text Label 9200 6500 0    70   ~ 0
+USB-D+
+Wire Wire Line
+	1000 2100 1500 2100
+Text Label 1000 2100 0    70   ~ 0
+VBUS
+Wire Wire Line
+	9200 3700 9600 3700
+Text Label 9200 3700 0    70   ~ 0
+VBUS
+Wire Wire Line
+	9200 6300 9600 6300
+Text Label 9200 6300 0    70   ~ 0
+VBUS
+Wire Wire Line
+	13300 3900 11900 3900
+Wire Wire Line
+	11900 3900 11900 4300
+Text Label 13300 3900 2    70   ~ 0
+DI1
+Wire Wire Line
+	4100 4600 3700 4600
+Text Label 4100 4600 2    70   ~ 0
+DI1
+Wire Wire Line
+	4900 4600 4500 4600
+Text Label 4900 4600 2    70   ~ 0
+DI1
+Wire Wire Line
+	13300 4000 12200 4000
+Wire Wire Line
+	12200 4000 12200 4300
+Text Label 13300 4000 2    70   ~ 0
+DI2
+Wire Wire Line
+	4100 4700 3700 4700
+Text Label 4100 4700 2    70   ~ 0
+DI2
+Wire Wire Line
+	4900 4700 4500 4700
+Text Label 4900 4700 2    70   ~ 0
+DI2
+Wire Wire Line
+	13300 4100 12500 4100
+Wire Wire Line
+	12500 4100 12500 4300
+Text Label 13300 4100 2    70   ~ 0
+DI3
+Wire Wire Line
+	4100 4800 3700 4800
+Text Label 4100 4800 2    70   ~ 0
+DI3
+Wire Wire Line
+	4900 4800 4500 4800
+Text Label 4900 4800 2    70   ~ 0
+DI3
+Wire Wire Line
+	13300 4200 12800 4200
+Wire Wire Line
+	12800 4200 12800 4300
+Text Label 13300 4200 2    70   ~ 0
+DI4
+Wire Wire Line
+	4100 4900 3700 4900
+Text Label 4100 4900 2    70   ~ 0
+DI4
+Wire Wire Line
+	4900 4900 4500 4900
+Text Label 4900 4900 2    70   ~ 0
+DI4
+Wire Wire Line
+	4100 2600 3700 2600
+Text Label 4100 2600 2    70   ~ 0
+DO1
+Wire Wire Line
+	5400 2600 5000 2600
+Text Label 5400 2600 2    70   ~ 0
+DO1
+Wire Wire Line
+	11300 2400 11700 2400
+Text Label 11300 2400 0    70   ~ 0
+DO1
+Wire Wire Line
+	4100 2700 3700 2700
+Text Label 4100 2700 2    70   ~ 0
+DO2
+Wire Wire Line
+	5400 2700 5000 2700
+Text Label 5400 2700 2    70   ~ 0
+DO2
+Wire Wire Line
+	11300 2200 11700 2200
+Text Label 11300 2200 0    70   ~ 0
+DO2
+Wire Wire Line
+	4100 2800 3700 2800
+Text Label 4100 2800 2    70   ~ 0
+DO3
+Wire Wire Line
+	5400 2800 5000 2800
+Text Label 5400 2800 2    70   ~ 0
+DO3
+Wire Wire Line
+	11300 2000 11700 2000
+Text Label 11300 2000 0    70   ~ 0
+DO3
+Wire Wire Line
+	4100 2900 3700 2900
+Text Label 4100 2900 2    70   ~ 0
+DO4
+Wire Wire Line
+	5400 2900 5000 2900
+Text Label 5400 2900 2    70   ~ 0
+DO4
+Wire Wire Line
+	11300 1800 11700 1800
+Text Label 11300 1800 0    70   ~ 0
+DO4
+Wire Wire Line
+	2900 3600 2500 3600
+Text Label 2900 3600 2    70   ~ 0
+DO1-3V
+Wire Wire Line
+	13600 2600 13200 2600
+Text Label 13600 2600 2    70   ~ 0
+DO1-3V
+Wire Wire Line
+	1100 3600 1500 3600
+Text Label 1100 3600 0    70   ~ 0
+DO2-3V
+Wire Wire Line
+	13600 2400 13200 2400
+Text Label 13600 2400 2    70   ~ 0
+DO2-3V
+Wire Wire Line
+	2900 3400 2500 3400
+Text Label 2900 3400 2    70   ~ 0
+DO3-3V
+Wire Wire Line
+	13600 2200 13200 2200
+Text Label 13600 2200 2    70   ~ 0
+DO3-3V
+Wire Wire Line
+	1100 3400 1500 3400
+Text Label 1100 3400 0    70   ~ 0
+DO4-3V
+Wire Wire Line
+	13600 2000 13200 2000
+Text Label 13600 2000 2    70   ~ 0
+DO4-3V
+Wire Wire Line
+	12800 5200 12800 5100
+Wire Wire Line
+	12800 5100 12800 4700
+Wire Wire Line
+	13300 5100 12800 5100
+Connection ~ 12800 5100
+Text Label 13300 5100 2    70   ~ 0
+DI4-3V
+Wire Wire Line
+	1100 4200 1500 4200
+Text Label 1100 4200 0    70   ~ 0
+DI4-3V
+Wire Wire Line
+	12200 5200 12200 4900
+Wire Wire Line
+	12200 4900 12200 4700
+Wire Wire Line
+	13300 4900 12200 4900
+Connection ~ 12200 4900
+Text Label 13300 4900 2    70   ~ 0
+DI2-3V
+Wire Wire Line
+	1100 4400 1500 4400
+Text Label 1100 4400 0    70   ~ 0
+DI2-3V
+Wire Wire Line
+	11900 5200 11900 4800
+Wire Wire Line
+	11900 4800 11900 4700
+Wire Wire Line
+	13300 4800 11900 4800
+Connection ~ 11900 4800
+Text Label 13300 4800 2    70   ~ 0
+DI1-3V
+Wire Wire Line
+	2900 4400 2500 4400
+Text Label 2900 4400 2    70   ~ 0
+DI1-3V
+Wire Wire Line
+	12500 5200 12500 5000
+Wire Wire Line
+	12500 5000 12500 4700
+Wire Wire Line
+	13300 5000 12500 5000
+Connection ~ 12500 5000
+Text Label 13300 5000 2    70   ~ 0
+DI3-3V
+Wire Wire Line
+	2900 4200 2500 4200
+Text Label 2900 4200 2    70   ~ 0
+DI3-3V
+Wire Wire Line
+	1100 3800 1500 3800
+Text Label 1100 3800 0    70   ~ 0
+DT4-3V
+Wire Wire Line
+	13600 2800 13200 2800
+Text Label 13600 2800 2    70   ~ 0
+DT4-3V
+Wire Wire Line
+	1100 4000 1500 4000
+Text Label 1100 4000 0    70   ~ 0
+DT2-3V
+Wire Wire Line
+	13600 3200 13200 3200
+Text Label 13600 3200 2    70   ~ 0
+DT2-3V
+Wire Wire Line
+	2900 3800 2500 3800
+Text Label 2900 3800 2    70   ~ 0
+DT3-3V
+Wire Wire Line
+	13600 3000 13200 3000
+Text Label 13600 3000 2    70   ~ 0
+DT3-3V
+Wire Wire Line
+	2900 4000 2500 4000
+Text Label 2900 4000 2    70   ~ 0
+DT1-3V
+Wire Wire Line
+	13600 3400 13200 3400
+Text Label 13600 3400 2    70   ~ 0
+DT1-3V
+Wire Wire Line
+	11300 2600 11700 2600
+Text Label 11300 2600 0    70   ~ 0
+DT4
+Wire Wire Line
+	4100 3900 3700 3900
+Text Label 4100 3900 2    70   ~ 0
+DT4
+Wire Wire Line
+	5400 3900 5000 3900
+Text Label 5400 3900 2    70   ~ 0
+DT4
+Wire Wire Line
+	11300 2800 11700 2800
+Text Label 11300 2800 0    70   ~ 0
+DT3
+Wire Wire Line
+	4100 3800 3700 3800
+Text Label 4100 3800 2    70   ~ 0
+DT3
+Wire Wire Line
+	5400 3800 5000 3800
+Text Label 5400 3800 2    70   ~ 0
+DT3
+Wire Wire Line
+	11300 3000 11700 3000
+Text Label 11300 3000 0    70   ~ 0
+DT2
+Wire Wire Line
+	4100 3700 3700 3700
+Text Label 4100 3700 2    70   ~ 0
+DT2
+Wire Wire Line
+	5400 3700 5000 3700
+Text Label 5400 3700 2    70   ~ 0
+DT2
+Wire Wire Line
+	11300 3200 11700 3200
+Text Label 11300 3200 0    70   ~ 0
+DT1
+Wire Wire Line
+	4100 3600 3700 3600
+Text Label 4100 3600 2    70   ~ 0
+DT1
+Wire Wire Line
+	5400 3600 5000 3600
+Text Label 5400 3600 2    70   ~ 0
+DT1
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:ARDUINO-CONN-8X2 J2
+U 1 1 F2D55355
+P 1500 1500
+F 0 "J2" H 1700 1800 42  0000 L BNN
+F 1 "ARDUINO-CONN-8X2" H 1700 1700 42  0000 L BNN
+F 2 "MIDI Signal Contidioner:ARDUINO-CONN-8X2" H 1500 1500 50  0001 C CNN
+F 3 "" H 1500 1500 50  0001 C CNN
+	1    1500 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:ARDUINO-CONN-8X2 J3
+U 1 1 D6A0AFFD
+P 1500 3400
+F 0 "J3" H 1700 3700 42  0000 L BNN
+F 1 "ARDUINO-CONN-8X2" H 1700 3600 42  0000 L BNN
+F 2 "MIDI Signal Contidioner:ARDUINO-CONN-8X2" H 1500 3400 50  0001 C CNN
+F 3 "" H 1500 3400 50  0001 C CNN
+	1    1500 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 1 1 753049C4
+P 3600 1500
+F 0 "X1" H 3480 1530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 -2200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 1500 50  0001 C CNN
+F 3 "" H 3600 1500 50  0001 C CNN
+	1    3600 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 2 1 753049C8
+P 4900 1500
+F 0 "X1" H 4780 1530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 1600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 1500 50  0001 C CNN
+F 3 "" H 4900 1500 50  0001 C CNN
+	2    4900 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 3 1 753049CC
+P 3600 1600
+F 0 "X1" H 3480 1630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 1700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 1600 50  0001 C CNN
+F 3 "" H 3600 1600 50  0001 C CNN
+	3    3600 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 4 1 753049D0
+P 4900 1600
+F 0 "X1" H 4780 1630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 1700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 1600 50  0001 C CNN
+F 3 "" H 4900 1600 50  0001 C CNN
+	4    4900 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 5 1 753049D4
+P 3600 1700
+F 0 "X1" H 3480 1730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 1800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 1700 50  0001 C CNN
+F 3 "" H 3600 1700 50  0001 C CNN
+	5    3600 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 6 1 753049D8
+P 4900 1700
+F 0 "X1" H 4780 1730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 1800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 1700 50  0001 C CNN
+F 3 "" H 4900 1700 50  0001 C CNN
+	6    4900 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 7 1 753049DC
+P 3600 1800
+F 0 "X1" H 3480 1830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 1900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 1800 50  0001 C CNN
+F 3 "" H 3600 1800 50  0001 C CNN
+	7    3600 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 8 1 753049E0
+P 4900 1800
+F 0 "X1" H 4780 1830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 1900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 1800 50  0001 C CNN
+F 3 "" H 4900 1800 50  0001 C CNN
+	8    4900 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 9 1 753049E4
+P 3600 1900
+F 0 "X1" H 3480 1930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 1900 50  0001 C CNN
+F 3 "" H 3600 1900 50  0001 C CNN
+	9    3600 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 10 1 753049E8
+P 4900 1900
+F 0 "X1" H 4780 1930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 1900 50  0001 C CNN
+F 3 "" H 4900 1900 50  0001 C CNN
+	10   4900 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 11 1 753049EC
+P 3600 2000
+F 0 "X1" H 3480 2030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2000 50  0001 C CNN
+F 3 "" H 3600 2000 50  0001 C CNN
+	11   3600 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 12 1 753049F0
+P 4900 2000
+F 0 "X1" H 4780 2030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2000 50  0001 C CNN
+F 3 "" H 4900 2000 50  0001 C CNN
+	12   4900 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 13 1 753049F4
+P 3600 2100
+F 0 "X1" H 3480 2130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2100 50  0001 C CNN
+F 3 "" H 3600 2100 50  0001 C CNN
+	13   3600 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X1
+U 14 1 753049F8
+P 4900 2100
+F 0 "X1" H 4780 2130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2100 50  0001 C CNN
+F 3 "" H 4900 2100 50  0001 C CNN
+	14   4900 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 1 1 DDF2E3E2
+P 3600 2500
+F 0 "X2" H 3480 2530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2500 50  0001 C CNN
+F 3 "" H 3600 2500 50  0001 C CNN
+	1    3600 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 2 1 DDF2E3EE
+P 4900 2500
+F 0 "X2" H 4780 2530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2500 50  0001 C CNN
+F 3 "" H 4900 2500 50  0001 C CNN
+	2    4900 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 3 1 DDF2E3EA
+P 3600 2600
+F 0 "X2" H 3480 2630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2600 50  0001 C CNN
+F 3 "" H 3600 2600 50  0001 C CNN
+	3    3600 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 4 1 DDF2E3F6
+P 4900 2600
+F 0 "X2" H 4780 2630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2600 50  0001 C CNN
+F 3 "" H 4900 2600 50  0001 C CNN
+	4    4900 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 5 1 DDF2E3F2
+P 3600 2700
+F 0 "X2" H 3480 2730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2700 50  0001 C CNN
+F 3 "" H 3600 2700 50  0001 C CNN
+	5    3600 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 6 1 DDF2E3FE
+P 4900 2700
+F 0 "X2" H 4780 2730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2700 50  0001 C CNN
+F 3 "" H 4900 2700 50  0001 C CNN
+	6    4900 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 7 1 DDF2E3FA
+P 3600 2800
+F 0 "X2" H 3480 2830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 2900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2800 50  0001 C CNN
+F 3 "" H 3600 2800 50  0001 C CNN
+	7    3600 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 8 1 DDF2E3C6
+P 4900 2800
+F 0 "X2" H 4780 2830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 2900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2800 50  0001 C CNN
+F 3 "" H 4900 2800 50  0001 C CNN
+	8    4900 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 9 1 DDF2E3C2
+P 3600 2900
+F 0 "X2" H 3480 2930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 2900 50  0001 C CNN
+F 3 "" H 3600 2900 50  0001 C CNN
+	9    3600 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 10 1 DDF2E3CE
+P 4900 2900
+F 0 "X2" H 4780 2930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 2900 50  0001 C CNN
+F 3 "" H 4900 2900 50  0001 C CNN
+	10   4900 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 11 1 DDF2E3CA
+P 3600 3000
+F 0 "X2" H 3480 3030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3000 50  0001 C CNN
+F 3 "" H 3600 3000 50  0001 C CNN
+	11   3600 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 12 1 DDF2E3D6
+P 4900 3000
+F 0 "X2" H 4780 3030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3000 50  0001 C CNN
+F 3 "" H 4900 3000 50  0001 C CNN
+	12   4900 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 13 1 DDF2E3D2
+P 3600 3100
+F 0 "X2" H 3480 3130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3100 50  0001 C CNN
+F 3 "" H 3600 3100 50  0001 C CNN
+	13   3600 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X2
+U 14 1 DDF2E3DE
+P 4900 3100
+F 0 "X2" H 4780 3130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3100 50  0001 C CNN
+F 3 "" H 4900 3100 50  0001 C CNN
+	14   4900 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 1 1 03A3F618
+P 3600 3500
+F 0 "X3" H 3480 3530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3500 50  0001 C CNN
+F 3 "" H 3600 3500 50  0001 C CNN
+	1    3600 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 2 1 03A3F614
+P 4900 3500
+F 0 "X3" H 4780 3530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3500 50  0001 C CNN
+F 3 "" H 4900 3500 50  0001 C CNN
+	2    4900 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 3 1 03A3F610
+P 3600 3600
+F 0 "X3" H 3480 3630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3600 50  0001 C CNN
+F 3 "" H 3600 3600 50  0001 C CNN
+	3    3600 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 4 1 03A3F60C
+P 4900 3600
+F 0 "X3" H 4780 3630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3600 50  0001 C CNN
+F 3 "" H 4900 3600 50  0001 C CNN
+	4    4900 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 5 1 03A3F608
+P 3600 3700
+F 0 "X3" H 3480 3730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3700 50  0001 C CNN
+F 3 "" H 3600 3700 50  0001 C CNN
+	5    3600 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 6 1 03A3F604
+P 4900 3700
+F 0 "X3" H 4780 3730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3700 50  0001 C CNN
+F 3 "" H 4900 3700 50  0001 C CNN
+	6    4900 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 7 1 03A3F600
+P 3600 3800
+F 0 "X3" H 3480 3830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 3900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3800 50  0001 C CNN
+F 3 "" H 3600 3800 50  0001 C CNN
+	7    3600 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 8 1 03A3F63C
+P 4900 3800
+F 0 "X3" H 4780 3830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 3900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3800 50  0001 C CNN
+F 3 "" H 4900 3800 50  0001 C CNN
+	8    4900 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 9 1 03A3F638
+P 3600 3900
+F 0 "X3" H 3480 3930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 3900 50  0001 C CNN
+F 3 "" H 3600 3900 50  0001 C CNN
+	9    3600 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 10 1 03A3F634
+P 4900 3900
+F 0 "X3" H 4780 3930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 4000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 3900 50  0001 C CNN
+F 3 "" H 4900 3900 50  0001 C CNN
+	10   4900 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 11 1 03A3F630
+P 3600 4000
+F 0 "X3" H 3480 4030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4000 50  0001 C CNN
+F 3 "" H 3600 4000 50  0001 C CNN
+	11   3600 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 12 1 03A3F62C
+P 4900 4000
+F 0 "X3" H 4780 4030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 4100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 4000 50  0001 C CNN
+F 3 "" H 4900 4000 50  0001 C CNN
+	12   4900 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 13 1 03A3F628
+P 3600 4100
+F 0 "X3" H 3480 4130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4100 50  0001 C CNN
+F 3 "" H 3600 4100 50  0001 C CNN
+	13   3600 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X3
+U 14 1 03A3F624
+P 4900 4100
+F 0 "X3" H 4780 4130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 4800 4200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4900 4100 50  0001 C CNN
+F 3 "" H 4900 4100 50  0001 C CNN
+	14   4900 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:24CS01 U4
+U 1 1 7C57E89D
+P 7200 2000
+F 0 "U4" H 7400 2025 59  0000 L BNN
+F 1 "24CS01" H 7400 1100 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:24CS01-SO8" H 7200 2000 50  0001 C CNN
+F 3 "" H 7200 2000 50  0001 C CNN
+	1    7200 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND03
+U 1 1 7679BDCC
+P 4200 4100
+F 0 "#GND03" H 4200 4100 50  0001 C CNN
+F 1 "GND" H 4100 4000 59  0000 L BNN
+F 2 "" H 4200 4100 50  0001 C CNN
+F 3 "" H 4200 4100 50  0001 C CNN
+	1    4200 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND04
+U 1 1 D896219B
+P 5500 3500
+F 0 "#GND04" H 5500 3500 50  0001 C CNN
+F 1 "GND" H 5400 3400 59  0000 L BNN
+F 2 "" H 5500 3500 50  0001 C CNN
+F 3 "" H 5500 3500 50  0001 C CNN
+	1    5500 3500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND05
+U 1 1 EF27308A
+P 5500 2500
+F 0 "#GND05" H 5500 2500 50  0001 C CNN
+F 1 "GND" H 5400 2400 59  0000 L BNN
+F 2 "" H 5500 2500 50  0001 C CNN
+F 3 "" H 5500 2500 50  0001 C CNN
+	1    5500 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND06
+U 1 1 A07C0193
+P 4200 3100
+F 0 "#GND06" H 4200 3100 50  0001 C CNN
+F 1 "GND" H 4100 3000 59  0000 L BNN
+F 2 "" H 4200 3100 50  0001 C CNN
+F 3 "" H 4200 3100 50  0001 C CNN
+	1    4200 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V03
+U 1 1 A56F219E
+P 9400 2100
+F 0 "#+3V03" H 9400 2100 50  0001 C CNN
+F 1 "+3V3" V 9400 2200 59  0000 L BNN
+F 2 "" H 9400 2100 50  0001 C CNN
+F 3 "" H 9400 2100 50  0001 C CNN
+	1    9400 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND014
+U 1 1 109F320A
+P 6700 2700
+F 0 "#GND014" H 6700 2700 50  0001 C CNN
+F 1 "GND" H 6600 2600 59  0000 L BNN
+F 2 "" H 6700 2700 50  0001 C CNN
+F 3 "" H 6700 2700 50  0001 C CNN
+	1    6700 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND015
+U 1 1 257B06B4
+P 9400 2300
+F 0 "#GND015" H 9400 2300 50  0001 C CNN
+F 1 "GND" H 9300 2200 59  0000 L BNN
+F 2 "" H 9400 2300 50  0001 C CNN
+F 3 "" H 9400 2300 50  0001 C CNN
+	1    9400 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND020
+U 1 1 2DF12463
+P 4200 2100
+F 0 "#GND020" H 4200 2100 50  0001 C CNN
+F 1 "GND" H 4100 2000 59  0000 L BNN
+F 2 "" H 4200 2100 50  0001 C CNN
+F 3 "" H 4200 2100 50  0001 C CNN
+	1    4200 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND021
+U 1 1 CF593DC2
+P 5500 1500
+F 0 "#GND021" H 5500 1500 50  0001 C CNN
+F 1 "GND" H 5400 1400 59  0000 L BNN
+F 2 "" H 5500 1500 50  0001 C CNN
+F 3 "" H 5500 1500 50  0001 C CNN
+	1    5500 1500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:C-EUC0805 C3
+U 1 1 0AE61553
+P 10000 2300
+F 0 "C3" H 10060 2315 59  0000 L BNN
+F 1 "100n" H 10060 2115 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:C0805" H 10000 2300 50  0001 C CNN
+F 3 "" H 10000 2300 50  0001 C CNN
+	1    10000 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND024
+U 1 1 664B2FAE
+P 10000 2700
+F 0 "#GND024" H 10000 2700 50  0001 C CNN
+F 1 "GND" H 9900 2600 59  0000 L BNN
+F 2 "" H 10000 2700 50  0001 C CNN
+F 3 "" H 10000 2700 50  0001 C CNN
+	1    10000 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V015
+U 1 1 2573EC9E
+P 10000 2000
+F 0 "#+3V015" H 10000 2000 50  0001 C CNN
+F 1 "+3V3" V 10000 2100 59  0000 L BNN
+F 2 "" H 10000 2000 50  0001 C CNN
+F 3 "" H 10000 2000 50  0001 C CNN
+	1    10000 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:MINI-USB-SHIELD-32005-201 X5
+U 1 1 E45AA7F8
+P 9800 4700
+F 0 "X5" H 9700 5150 59  0000 L BNN
+F 1 "MINI-USB-SHIELD-32005-201" V 10200 4400 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:MINI-USB-32005-201" H 9800 4700 50  0001 C CNN
+F 3 "" H 9800 4700 50  0001 C CNN
+	1    9800 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:MINI-USB-SHIELD-32005-201 X5
+U 2 1 E45AA7F4
+P 9800 5100
+F 0 "X5" H 10100 5000 59  0000 L BNN
+F 1 "MINI-USB-SHIELD-32005-201" V 10200 4800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:MINI-USB-32005-201" H 9800 5100 50  0001 C CNN
+F 3 "" H 9800 5100 50  0001 C CNN
+	2    9800 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:MCP1700-SOT89 U6
+U 1 1 E64FE535
+P 7000 4300
+F 0 "U6" H 7200 4600 42  0000 L BNN
+F 1 "MCP1700-SOT89" H 7200 4500 42  0000 L BNN
+F 2 "MIDI Signal Contidioner:MCP1700-SOT89" H 7000 4300 50  0001 C CNN
+F 3 "" H 7000 4300 50  0001 C CNN
+	1    7000 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:C-EUC0805 C5
+U 1 1 C01458AC
+P 6700 4600
+F 0 "C5" H 6760 4615 59  0000 L BNN
+F 1 "1u" H 6760 4415 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:C0805" H 6700 4600 50  0001 C CNN
+F 3 "" H 6700 4600 50  0001 C CNN
+	1    6700 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:C-EUC0805 C6
+U 1 1 C7601C02
+P 8300 4600
+F 0 "C6" H 8360 4615 59  0000 L BNN
+F 1 "1u" H 8360 4415 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:C0805" H 8300 4600 50  0001 C CNN
+F 3 "" H 8300 4600 50  0001 C CNN
+	1    8300 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND026
+U 1 1 9E0685E6
+P 8300 5000
+F 0 "#GND026" H 8300 5000 50  0001 C CNN
+F 1 "GND" H 8200 4900 59  0000 L BNN
+F 2 "" H 8300 5000 50  0001 C CNN
+F 3 "" H 8300 5000 50  0001 C CNN
+	1    8300 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND027
+U 1 1 419D9C11
+P 7600 5000
+F 0 "#GND027" H 7600 5000 50  0001 C CNN
+F 1 "GND" H 7500 4900 59  0000 L BNN
+F 2 "" H 7600 5000 50  0001 C CNN
+F 3 "" H 7600 5000 50  0001 C CNN
+	1    7600 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND028
+U 1 1 0345B4CC
+P 6700 5000
+F 0 "#GND028" H 6700 5000 50  0001 C CNN
+F 1 "GND" H 6600 4900 59  0000 L BNN
+F 2 "" H 6700 5000 50  0001 C CNN
+F 3 "" H 6700 5000 50  0001 C CNN
+	1    6700 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+09
+U 1 1 540F2EFD
+P 6700 4100
+F 0 "#P+09" H 6700 4100 50  0001 C CNN
+F 1 "+5V" V 6700 4200 59  0000 L BNN
+F 2 "" H 6700 4100 50  0001 C CNN
+F 3 "" H 6700 4100 50  0001 C CNN
+	1    6700 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V017
+U 1 1 A95A55E1
+P 8300 4100
+F 0 "#+3V017" H 8300 4100 50  0001 C CNN
+F 1 "+3V3" V 8300 4200 59  0000 L BNN
+F 2 "" H 8300 4100 50  0001 C CNN
+F 3 "" H 8300 4100 50  0001 C CNN
+	1    8300 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+010
+U 1 1 99CC31BE
+P 9100 4500
+F 0 "#P+010" H 9100 4500 50  0001 C CNN
+F 1 "+5V" V 9100 4600 59  0000 L BNN
+F 2 "" H 9100 4500 50  0001 C CNN
+F 3 "" H 9100 4500 50  0001 C CNN
+	1    9100 4500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND029
+U 1 1 BFC01DE5
+P 9100 4900
+F 0 "#GND029" H 9100 4900 50  0001 C CNN
+F 1 "GND" H 9000 4800 59  0000 L BNN
+F 2 "" H 9100 4900 50  0001 C CNN
+F 3 "" H 9100 4900 50  0001 C CNN
+	1    9100 4900
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+011
+U 1 1 FBD5C941
+P 1200 4600
+F 0 "#P+011" H 1200 4600 50  0001 C CNN
+F 1 "+5V" V 1200 4700 59  0000 L BNN
+F 2 "" H 1200 4600 50  0001 C CNN
+F 3 "" H 1200 4600 50  0001 C CNN
+	1    1200 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND030
+U 1 1 E66C1352
+P 2800 4600
+F 0 "#GND030" H 2800 4600 50  0001 C CNN
+F 1 "GND" H 2700 4500 59  0000 L BNN
+F 2 "" H 2800 4600 50  0001 C CNN
+F 3 "" H 2800 4600 50  0001 C CNN
+	1    2800 4600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND031
+U 1 1 E3033BC1
+P 1100 1500
+F 0 "#GND031" H 1100 1500 50  0001 C CNN
+F 1 "GND" H 1000 1400 59  0000 L BNN
+F 2 "" H 1100 1500 50  0001 C CNN
+F 3 "" H 1100 1500 50  0001 C CNN
+	1    1100 1500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:USB-787616 X6
+U 1 1 960D6DC0
+P 9800 3900
+F 0 "X6" H 9650 4250 59  0000 L BNN
+F 1 "USB-787616" H 9650 3600 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:USB" H 9800 3900 50  0001 C CNN
+F 3 "" H 9800 3900 50  0001 C CNN
+	1    9800 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND032
+U 1 1 BDD76BF8
+P 9400 4000
+F 0 "#GND032" H 9400 4000 50  0001 C CNN
+F 1 "GND" H 9300 3900 59  0000 L BNN
+F 2 "" H 9400 4000 50  0001 C CNN
+F 3 "" H 9400 4000 50  0001 C CNN
+	1    9400 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND07
+U 1 1 9CDE76EF
+P 6700 2500
+F 0 "#GND07" H 6700 2500 50  0001 C CNN
+F 1 "GND" H 6600 2400 59  0000 L BNN
+F 2 "" H 6700 2500 50  0001 C CNN
+F 3 "" H 6700 2500 50  0001 C CNN
+	1    6700 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND08
+U 1 1 DF24F9E8
+P 6700 2300
+F 0 "#GND08" H 6700 2300 50  0001 C CNN
+F 1 "GND" H 6600 2200 59  0000 L BNN
+F 2 "" H 6700 2300 50  0001 C CNN
+F 3 "" H 6700 2300 50  0001 C CNN
+	1    6700 2300
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND09
+U 1 1 928DF91D
+P 6700 2100
+F 0 "#GND09" H 6700 2100 50  0001 C CNN
+F 1 "GND" H 6600 2000 59  0000 L BNN
+F 2 "" H 6700 2100 50  0001 C CNN
+F 3 "" H 6700 2100 50  0001 C CNN
+	1    6700 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R1
+U 1 1 75E26F8D
+P 8900 1500
+F 0 "R1" H 8750 1559 59  0000 L BNN
+F 1 "2.2K" H 8750 1370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 8900 1500 50  0001 C CNN
+F 3 "" H 8900 1500 50  0001 C CNN
+	1    8900 1500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R2
+U 1 1 4DE45D18
+P 9200 1500
+F 0 "R2" H 9050 1559 59  0000 L BNN
+F 1 "2.2K" H 9050 1370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 9200 1500 50  0001 C CNN
+F 3 "" H 9200 1500 50  0001 C CNN
+	1    9200 1500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V01
+U 1 1 406B5002
+P 8900 1100
+F 0 "#+3V01" H 8900 1100 50  0001 C CNN
+F 1 "+3V3" V 8900 1200 59  0000 L BNN
+F 2 "" H 8900 1100 50  0001 C CNN
+F 3 "" H 8900 1100 50  0001 C CNN
+	1    8900 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V02
+U 1 1 37D36547
+P 9200 1100
+F 0 "#+3V02" H 9200 1100 50  0001 C CNN
+F 1 "+3V3" V 9200 1200 59  0000 L BNN
+F 2 "" H 9200 1100 50  0001 C CNN
+F 3 "" H 9200 1100 50  0001 C CNN
+	1    9200 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND010
+U 1 1 845C69E3
+P 9700 5500
+F 0 "#GND010" H 9700 5500 50  0001 C CNN
+F 1 "GND" H 9600 5400 59  0000 L BNN
+F 2 "" H 9700 5500 50  0001 C CNN
+F 3 "" H 9700 5500 50  0001 C CNN
+	1    9700 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND011
+U 1 1 19DA8D48
+P 10000 5500
+F 0 "#GND011" H 10000 5500 50  0001 C CNN
+F 1 "GND" H 9900 5400 59  0000 L BNN
+F 2 "" H 10000 5500 50  0001 C CNN
+F 3 "" H 10000 5500 50  0001 C CNN
+	1    10000 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:74LVC4245A U$2
+U 1 1 A8B04D1A
+P 11700 1200
+F 0 "U$2" H 11900 1300 59  0000 L BNN
+F 1 "74LVC4245A" H 11900 1200 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:74LVC4245A-SO24" H 11700 1200 50  0001 C CNN
+F 3 "" H 11700 1200 50  0001 C CNN
+	1    11700 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND012
+U 1 1 A5F18D96
+P 11000 3600
+F 0 "#GND012" H 11000 3600 50  0001 C CNN
+F 1 "GND" H 10900 3500 59  0000 L BNN
+F 2 "" H 11000 3600 50  0001 C CNN
+F 3 "" H 11000 3600 50  0001 C CNN
+	1    11000 3600
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND013
+U 1 1 9E3D6951
+P 11000 3400
+F 0 "#GND013" H 11000 3400 50  0001 C CNN
+F 1 "GND" H 10900 3300 59  0000 L BNN
+F 2 "" H 11000 3400 50  0001 C CNN
+F 3 "" H 11000 3400 50  0001 C CNN
+	1    11000 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V06
+U 1 1 F50F61D1
+P 13900 1400
+F 0 "#+3V06" H 13900 1400 50  0001 C CNN
+F 1 "+3V3" V 13900 1500 59  0000 L BNN
+F 2 "" H 13900 1400 50  0001 C CNN
+F 3 "" H 13900 1400 50  0001 C CNN
+	1    13900 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+01
+U 1 1 BCDF72C5
+P 11000 1400
+F 0 "#P+01" H 11000 1400 50  0001 C CNN
+F 1 "+5V" V 11000 1500 59  0000 L BNN
+F 2 "" H 11000 1400 50  0001 C CNN
+F 3 "" H 11000 1400 50  0001 C CNN
+	1    11000 1400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND022
+U 1 1 FB1CD9CF
+P 13900 3600
+F 0 "#GND022" H 13900 3600 50  0001 C CNN
+F 1 "GND" H 13800 3500 59  0000 L BNN
+F 2 "" H 13900 3600 50  0001 C CNN
+F 3 "" H 13900 3600 50  0001 C CNN
+	1    13900 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V05
+U 1 1 D30003A2
+P 13900 1600
+F 0 "#+3V05" H 13900 1600 50  0001 C CNN
+F 1 "+3V3" V 13900 1700 59  0000 L BNN
+F 2 "" H 13900 1600 50  0001 C CNN
+F 3 "" H 13900 1600 50  0001 C CNN
+	1    13900 1600
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND023
+U 1 1 C7080FD3
+P 13900 1800
+F 0 "#GND023" H 13900 1800 50  0001 C CNN
+F 1 "GND" H 13800 1700 59  0000 L BNN
+F 2 "" H 13900 1800 50  0001 C CNN
+F 3 "" H 13900 1800 50  0001 C CNN
+	1    13900 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND025
+U 1 1 2EE633C3
+P 11000 1600
+F 0 "#GND025" H 11000 1600 50  0001 C CNN
+F 1 "GND" H 10900 1500 59  0000 L BNN
+F 2 "" H 11000 1600 50  0001 C CNN
+F 3 "" H 11000 1600 50  0001 C CNN
+	1    11000 1600
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:C-EUC0805 C1
+U 1 1 218CB388
+P 14200 3200
+F 0 "C1" H 14260 3215 59  0000 L BNN
+F 1 "100n" H 14260 3015 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:C0805" H 14200 3200 50  0001 C CNN
+F 3 "" H 14200 3200 50  0001 C CNN
+	1    14200 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND033
+U 1 1 8D923520
+P 14200 3600
+F 0 "#GND033" H 14200 3600 50  0001 C CNN
+F 1 "GND" H 14100 3500 59  0000 L BNN
+F 2 "" H 14200 3600 50  0001 C CNN
+F 3 "" H 14200 3600 50  0001 C CNN
+	1    14200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+3V3 #+3V07
+U 1 1 A36165E5
+P 14200 2900
+F 0 "#+3V07" H 14200 2900 50  0001 C CNN
+F 1 "+3V3" V 14200 3000 59  0000 L BNN
+F 2 "" H 14200 2900 50  0001 C CNN
+F 3 "" H 14200 2900 50  0001 C CNN
+	1    14200 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:C-EUC0805 C2
+U 1 1 69098DAB
+P 10600 3200
+F 0 "C2" H 10660 3215 59  0000 L BNN
+F 1 "100n" H 10660 3015 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:C0805" H 10600 3200 50  0001 C CNN
+F 3 "" H 10600 3200 50  0001 C CNN
+	1    10600 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND034
+U 1 1 0FD0C583
+P 10600 3600
+F 0 "#GND034" H 10600 3600 50  0001 C CNN
+F 1 "GND" H 10500 3500 59  0000 L BNN
+F 2 "" H 10600 3600 50  0001 C CNN
+F 3 "" H 10600 3600 50  0001 C CNN
+	1    10600 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+02
+U 1 1 339DE9D3
+P 10600 2700
+F 0 "#P+02" H 10600 2700 50  0001 C CNN
+F 1 "+5V" V 10600 2800 59  0000 L BNN
+F 2 "" H 10600 2700 50  0001 C CNN
+F 3 "" H 10600 2700 50  0001 C CNN
+	1    10600 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND035
+U 1 1 CF03C53C
+P 13900 2800
+F 0 "#GND035" H 13900 2800 50  0001 C CNN
+F 1 "GND" H 13800 2700 59  0000 L BNN
+F 2 "" H 13900 2800 50  0001 C CNN
+F 3 "" H 13900 2800 50  0001 C CNN
+	1    13900 2800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND036
+U 1 1 397F6EFB
+P 13900 3000
+F 0 "#GND036" H 13900 3000 50  0001 C CNN
+F 1 "GND" H 13800 2900 59  0000 L BNN
+F 2 "" H 13900 3000 50  0001 C CNN
+F 3 "" H 13900 3000 50  0001 C CNN
+	1    13900 3000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND037
+U 1 1 7CFE796D
+P 13900 3200
+F 0 "#GND037" H 13900 3200 50  0001 C CNN
+F 1 "GND" H 13800 3100 59  0000 L BNN
+F 2 "" H 13900 3200 50  0001 C CNN
+F 3 "" H 13900 3200 50  0001 C CNN
+	1    13900 3200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND038
+U 1 1 9C9B1271
+P 13900 3400
+F 0 "#GND038" H 13900 3400 50  0001 C CNN
+F 1 "GND" H 13800 3300 59  0000 L BNN
+F 2 "" H 13900 3400 50  0001 C CNN
+F 3 "" H 13900 3400 50  0001 C CNN
+	1    13900 3400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R3
+U 1 1 D33015C9
+P 11900 4500
+F 0 "R3" H 11750 4559 59  0000 L BNN
+F 1 "10K" H 11750 4370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 11900 4500 50  0001 C CNN
+F 3 "" H 11900 4500 50  0001 C CNN
+	1    11900 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R4
+U 1 1 AFFF0EDA
+P 11900 5400
+F 0 "R4" H 11750 5459 59  0000 L BNN
+F 1 "20K" H 11750 5270 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 11900 5400 50  0001 C CNN
+F 3 "" H 11900 5400 50  0001 C CNN
+	1    11900 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R5
+U 1 1 F256FF88
+P 12200 4500
+F 0 "R5" H 12050 4559 59  0000 L BNN
+F 1 "10K" H 12050 4370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12200 4500 50  0001 C CNN
+F 3 "" H 12200 4500 50  0001 C CNN
+	1    12200 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R6
+U 1 1 A1C4E51F
+P 12200 5400
+F 0 "R6" H 12050 5459 59  0000 L BNN
+F 1 "20K" H 12050 5270 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12200 5400 50  0001 C CNN
+F 3 "" H 12200 5400 50  0001 C CNN
+	1    12200 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R7
+U 1 1 99333350
+P 12500 4500
+F 0 "R7" H 12350 4559 59  0000 L BNN
+F 1 "10K" H 12350 4370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12500 4500 50  0001 C CNN
+F 3 "" H 12500 4500 50  0001 C CNN
+	1    12500 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R8
+U 1 1 76F37CC2
+P 12500 5400
+F 0 "R8" H 12350 5459 59  0000 L BNN
+F 1 "20K" H 12350 5270 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12500 5400 50  0001 C CNN
+F 3 "" H 12500 5400 50  0001 C CNN
+	1    12500 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R9
+U 1 1 A8D07F15
+P 12800 4500
+F 0 "R9" H 12650 4559 59  0000 L BNN
+F 1 "10K" H 12650 4370 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12800 4500 50  0001 C CNN
+F 3 "" H 12800 4500 50  0001 C CNN
+	1    12800 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:R-EU_R0805W R10
+U 1 1 3D2573FF
+P 12800 5400
+F 0 "R10" H 12650 5459 59  0000 L BNN
+F 1 "20K" H 12650 5270 59  0000 L BNN
+F 2 "MIDI Signal Contidioner:R0805W" H 12800 5400 50  0001 C CNN
+F 3 "" H 12800 5400 50  0001 C CNN
+	1    12800 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND016
+U 1 1 99D4D269
+P 11900 5800
+F 0 "#GND016" H 11900 5800 50  0001 C CNN
+F 1 "GND" H 11800 5700 59  0000 L BNN
+F 2 "" H 11900 5800 50  0001 C CNN
+F 3 "" H 11900 5800 50  0001 C CNN
+	1    11900 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND017
+U 1 1 0A5A0AC8
+P 12200 5800
+F 0 "#GND017" H 12200 5800 50  0001 C CNN
+F 1 "GND" H 12100 5700 59  0000 L BNN
+F 2 "" H 12200 5800 50  0001 C CNN
+F 3 "" H 12200 5800 50  0001 C CNN
+	1    12200 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND018
+U 1 1 E0081D19
+P 12500 5800
+F 0 "#GND018" H 12500 5800 50  0001 C CNN
+F 1 "GND" H 12400 5700 59  0000 L BNN
+F 2 "" H 12500 5800 50  0001 C CNN
+F 3 "" H 12500 5800 50  0001 C CNN
+	1    12500 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND019
+U 1 1 48B3EBD8
+P 12800 5800
+F 0 "#GND019" H 12800 5800 50  0001 C CNN
+F 1 "GND" H 12700 5700 59  0000 L BNN
+F 2 "" H 12800 5800 50  0001 C CNN
+F 3 "" H 12800 5800 50  0001 C CNN
+	1    12800 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+04
+U 1 1 A7FDB2D8
+P 4200 1500
+F 0 "#P+04" H 4200 1500 50  0001 C CNN
+F 1 "+5V" V 4200 1600 59  0000 L BNN
+F 2 "" H 4200 1500 50  0001 C CNN
+F 3 "" H 4200 1500 50  0001 C CNN
+	1    4200 1500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+05
+U 1 1 33ACA7EC
+P 5500 2100
+F 0 "#P+05" H 5500 2100 50  0001 C CNN
+F 1 "+5V" V 5500 2200 59  0000 L BNN
+F 2 "" H 5500 2100 50  0001 C CNN
+F 3 "" H 5500 2100 50  0001 C CNN
+	1    5500 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+06
+U 1 1 B0F39303
+P 4200 2500
+F 0 "#P+06" H 4200 2500 50  0001 C CNN
+F 1 "+5V" V 4200 2600 59  0000 L BNN
+F 2 "" H 4200 2500 50  0001 C CNN
+F 3 "" H 4200 2500 50  0001 C CNN
+	1    4200 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+07
+U 1 1 BC2DCEA9
+P 5500 3100
+F 0 "#P+07" H 5500 3100 50  0001 C CNN
+F 1 "+5V" V 5500 3200 59  0000 L BNN
+F 2 "" H 5500 3100 50  0001 C CNN
+F 3 "" H 5500 3100 50  0001 C CNN
+	1    5500 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+08
+U 1 1 B54CCCBB
+P 4200 3500
+F 0 "#P+08" H 4200 3500 50  0001 C CNN
+F 1 "+5V" V 4200 3600 59  0000 L BNN
+F 2 "" H 4200 3500 50  0001 C CNN
+F 3 "" H 4200 3500 50  0001 C CNN
+	1    4200 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+012
+U 1 1 E517971B
+P 5500 4100
+F 0 "#P+012" H 5500 4100 50  0001 C CNN
+F 1 "+5V" V 5500 4200 59  0000 L BNN
+F 2 "" H 5500 4100 50  0001 C CNN
+F 3 "" H 5500 4100 50  0001 C CNN
+	1    5500 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 1 1 16444AAD
+P 3600 4500
+F 0 "X4" H 3480 4530 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4500 50  0001 C CNN
+F 3 "" H 3600 4500 50  0001 C CNN
+	1    3600 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 2 1 16444AA1
+P 4400 4500
+F 0 "X4" H 4280 4530 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 4600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 4500 50  0001 C CNN
+F 3 "" H 4400 4500 50  0001 C CNN
+	2    4400 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 3 1 16444AA5
+P 3600 4600
+F 0 "X4" H 3480 4630 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4600 50  0001 C CNN
+F 3 "" H 3600 4600 50  0001 C CNN
+	3    3600 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 4 1 16444AB9
+P 4400 4600
+F 0 "X4" H 4280 4630 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 4700 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 4600 50  0001 C CNN
+F 3 "" H 4400 4600 50  0001 C CNN
+	4    4400 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 5 1 16444ABD
+P 3600 4700
+F 0 "X4" H 3480 4730 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4700 50  0001 C CNN
+F 3 "" H 3600 4700 50  0001 C CNN
+	5    3600 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 6 1 16444AB1
+P 4400 4700
+F 0 "X4" H 4280 4730 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 4800 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 4700 50  0001 C CNN
+F 3 "" H 4400 4700 50  0001 C CNN
+	6    4400 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 7 1 16444AB5
+P 3600 4800
+F 0 "X4" H 3480 4830 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 4900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4800 50  0001 C CNN
+F 3 "" H 3600 4800 50  0001 C CNN
+	7    3600 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 8 1 16444A89
+P 4400 4800
+F 0 "X4" H 4280 4830 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 4900 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 4800 50  0001 C CNN
+F 3 "" H 4400 4800 50  0001 C CNN
+	8    4400 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 9 1 16444A8D
+P 3600 4900
+F 0 "X4" H 3480 4930 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 5000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 4900 50  0001 C CNN
+F 3 "" H 3600 4900 50  0001 C CNN
+	9    3600 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 10 1 16444A81
+P 4400 4900
+F 0 "X4" H 4280 4930 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 5000 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 4900 50  0001 C CNN
+F 3 "" H 4400 4900 50  0001 C CNN
+	10   4400 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 11 1 16444A85
+P 3600 5000
+F 0 "X4" H 3480 5030 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 5100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 5000 50  0001 C CNN
+F 3 "" H 3600 5000 50  0001 C CNN
+	11   3600 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 12 1 16444A99
+P 4400 5000
+F 0 "X4" H 4280 5030 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 5100 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 5000 50  0001 C CNN
+F 3 "" H 4400 5000 50  0001 C CNN
+	12   4400 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 13 1 16444A9D
+P 3600 5100
+F 0 "X4" H 3480 5130 51  0000 R TNN
+F 1 "SSW-107-02-G-D" H 3500 5200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 3600 5100 50  0001 C CNN
+F 3 "" H 3600 5100 50  0001 C CNN
+	13   3600 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:SSW-107-02-G-D X4
+U 14 1 16444A91
+P 4400 5100
+F 0 "X4" H 4280 5130 51  0001 R TNN
+F 1 "SSW-107-02-G-D" H 4300 5200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:SSW-107-02-G-D" H 4400 5100 50  0001 C CNN
+F 3 "" H 4400 5100 50  0001 C CNN
+	14   4400 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND039
+U 1 1 D092AC48
+P 4200 5100
+F 0 "#GND039" H 4200 5100 50  0001 C CNN
+F 1 "GND" H 4100 5000 59  0000 L BNN
+F 2 "" H 4200 5100 50  0001 C CNN
+F 3 "" H 4200 5100 50  0001 C CNN
+	1    4200 5100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+03
+U 1 1 00F05DF6
+P 4200 4500
+F 0 "#P+03" H 4200 4500 50  0001 C CNN
+F 1 "+5V" V 4200 4600 59  0000 L BNN
+F 2 "" H 4200 4500 50  0001 C CNN
+F 3 "" H 4200 4500 50  0001 C CNN
+	1    4200 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND040
+U 1 1 E4BD4CA6
+P 5000 4500
+F 0 "#GND040" H 5000 4500 50  0001 C CNN
+F 1 "GND" H 4900 4400 59  0000 L BNN
+F 2 "" H 5000 4500 50  0001 C CNN
+F 3 "" H 5000 4500 50  0001 C CNN
+	1    5000 4500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:+5V #P+015
+U 1 1 E802E752
+P 5000 5100
+F 0 "#P+015" H 5000 5100 50  0001 C CNN
+F 1 "+5V" V 5000 5200 59  0000 L BNN
+F 2 "" H 5000 5100 50  0001 C CNN
+F 3 "" H 5000 5100 50  0001 C CNN
+	1    5000 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:MINI-USB-SHIELD-32005-201 X7
+U 1 1 097078D9
+P 9800 6500
+F 0 "X7" H 9700 6950 59  0000 L BNN
+F 1 "MINI-USB-SHIELD-32005-201" V 10200 6200 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:MINI-USB-32005-201" H 9800 6500 50  0001 C CNN
+F 3 "" H 9800 6500 50  0001 C CNN
+	1    9800 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:MINI-USB-SHIELD-32005-201 X7
+U 2 1 097078D5
+P 9800 6900
+F 0 "X7" H 10100 6800 59  0000 L BNN
+F 1 "MINI-USB-SHIELD-32005-201" V 10200 6600 59  0001 L BNN
+F 2 "MIDI Signal Contidioner:MINI-USB-32005-201" H 9800 6900 50  0001 C CNN
+F 3 "" H 9800 6900 50  0001 C CNN
+	2    9800 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND01
+U 1 1 DB8695AC
+P 9100 6700
+F 0 "#GND01" H 9100 6700 50  0001 C CNN
+F 1 "GND" H 9000 6600 59  0000 L BNN
+F 2 "" H 9100 6700 50  0001 C CNN
+F 3 "" H 9100 6700 50  0001 C CNN
+	1    9100 6700
+	0    1    1    0   
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND02
+U 1 1 13A376EC
+P 9700 7300
+F 0 "#GND02" H 9700 7300 50  0001 C CNN
+F 1 "GND" H 9600 7200 59  0000 L BNN
+F 2 "" H 9700 7300 50  0001 C CNN
+F 3 "" H 9700 7300 50  0001 C CNN
+	1    9700 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MIDI_Signal_Contidioner-eagle-import:GND #GND041
+U 1 1 D9BFE6C2
+P 10000 7300
+F 0 "#GND041" H 10000 7300 50  0001 C CNN
+F 1 "GND" H 9900 7200 59  0000 L BNN
+F 2 "" H 10000 7300 50  0001 C CNN
+F 3 "" H 10000 7300 50  0001 C CNN
+	1    10000 7300
+	1    0    0    -1  
+$EndComp
+Text Notes 700  4200 0    59   ~ 0
+BIN18
+Text Notes 700  4400 0    59   ~ 0
+BIN19
+$EndSCHEMATC

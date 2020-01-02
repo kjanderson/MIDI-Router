@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name MIDI_Signal_Contidioner-eagle-import)(type Legacy)(uri ${KIPRJMOD}/MIDI_Signal_Contidioner-eagle-import.lib)(options "")(descr ""))
+)
