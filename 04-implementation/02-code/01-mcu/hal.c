@@ -129,7 +129,7 @@ static void _Hal_InitGpio(void)
     REFOCONL = 0x9000;
      */
     REFOCONL = 0x9000;
-    REFOCONH = 0x0002;
+    REFOCONH = 0x0000;
     /* enable "clock" output on OC1 */
 #if 0
     OC1CON1 = 0x0000;
@@ -306,7 +306,7 @@ static void _Hal_InitSpi(void)
 static void _Hal_InitClock(void)
 {
     /* this is the default value, so I probably don't need to set this */
-    CLKDIVbits.CPDIV = 0U;
+    CLKDIVbits.CPDIV = 1U;
     
     /* turn on FRC self tuning
      *  enable self tuning

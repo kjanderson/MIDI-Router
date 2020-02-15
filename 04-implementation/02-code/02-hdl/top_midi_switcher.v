@@ -33,6 +33,22 @@
  * History
  * Version    Revision    Notes
  * 0.0        0.0         Test version to facilitate board bring up
+ *
+ * Notes
+ * A note regarding CDC issues.
+ * Since clk is generated from the microcontroller clock, all the derived clocks
+ * are synchronized to that, so in principle there is only one clock domain, even
+ * though spi_sck is several times slower.
+ *
+ * Regarding synchronized inputs
+ * Similar to CDC issues, all inputs are synchronized to the CPU clock
+ * for the same reason. Normally, the FPGA clock would be generated from
+ * an oscillator. But in this case, clk is generated from the microcontroller's
+ * core clock.
+ *
+ * Regarding clock skew
+ * The microcontroller clock was selected to be 8 MHz to limit clock skew.
+ * The clock skew is much less than 1% of a clock period.
  *********************************************************************/
 module top_midi_switcher(
     clk,
@@ -76,7 +92,7 @@ mstreset rst0(
     clk
 );
 
-/* instantiate a 16-bit shift register to test connectivity */
+/* instantiate an 8-bit shift register to test connectivity */
 shiftreg sr0(
     nreset,
     clk,
