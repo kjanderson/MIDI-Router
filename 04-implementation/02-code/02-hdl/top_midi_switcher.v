@@ -62,24 +62,25 @@ module top_midi_switcher(
 );
 
 /* 41 outputs */
-input wire clk;
-input wire [3:0] midi_in;
+input  wire clk;
+input  wire [3:0] midi_in;
 output wire [3:0] midi_out;
-input wire [3:0] gpio_fbin;
-input wire spi_clk;
+input  wire [3:0] gpio_fbin;
+input  wire spi_clk;
 output wire spi_miso;
-input wire spi_mosi;
-input wire spi_ss;
+input  wire spi_mosi;
+input  wire spi_ss;
 
 /* make the register a multiple of 8 bits to fit the MCU SPI pattern */
 wire [7:0] regout;
 wire nreset;
+wire [3:0] midi_in_filt;
 
 /* assign outputs */
-assign midi_out[0] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
-assign midi_out[1] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
-assign midi_out[2] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
-assign midi_out[3] = midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3];
+assign midi_out[0] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
+assign midi_out[1] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
+assign midi_out[2] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
+assign midi_out[3] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
 
 // assign gpio_fbin = regout[3:0];
 
@@ -100,6 +101,30 @@ shiftreg sr0(
     spi_mosi,
     spi_miso,
     regout
+);
+
+synchronizer syn0(
+    .clk(clk),
+    .a_in(midi_in[0]),
+    .y_out(midi_in_filt[0])
+);
+
+synchronizer syn1(
+    .clk(clk),
+    .a_in(midi_in[1]),
+    .y_out(midi_in_filt[1])
+);
+
+synchronizer syn12(
+    .clk(clk),
+    .a_in(midi_in[2]),
+    .y_out(midi_in_filt[2])
+);
+
+synchronizer syn13(
+    .clk(clk),
+    .a_in(midi_in[3]),
+    .y_out(midi_in_filt[3])
 );
 
 endmodule

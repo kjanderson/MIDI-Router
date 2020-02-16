@@ -24,7 +24,7 @@ assign reset_n = !(& _sr);
 /* implement a shift register to help the simulation along */
 always @ (posedge clk)
 begin
-    _sr <= {_sr[0], 1};
+    _sr <= {_sr[0], 1'b1};
 end
 
 endmodule
