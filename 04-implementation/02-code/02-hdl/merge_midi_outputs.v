@@ -37,4 +37,31 @@ assign midi_out[2] = midi_sel[2] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_i
 assign midi_out[3] = midi_sel[3] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
                                  : 1'b1;
 
+always @(posedge clk)
+begin : bhv_sel
+    if (midi_sel[0]) begin
+        _midi_sel[0] <= midi_sel[0];
+    else
+        _midi_sel[0] <= _midi_sel[0];
+    end
+    
+    if (midi_sel[1]) begin
+        _midi_sel[1] <= midi_sel[1];
+    else
+        _midi_sel[1] <= _midi_sel[1];
+    end
+    
+    if (midi_sel[2]) begin
+        _midi_sel[2] <= midi_sel[2];
+    else
+        _midi_sel[2] <= _midi_sel[2];
+    end
+    
+    if (midi_sel[2]) begin
+        _midi_sel[2] <= midi_sel[2];
+    else
+        _midi_sel[2] <= _midi_sel[2];
+    end
+end
+
 endmodule
