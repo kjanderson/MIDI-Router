@@ -77,10 +77,12 @@ wire nreset;
 wire [3:0] midi_in_filt;
 
 /* assign outputs */
+/*
 assign midi_out[0] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
 assign midi_out[1] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
 assign midi_out[2] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
 assign midi_out[3] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
+*/
 
 // assign gpio_fbin = regout[3:0];
 
@@ -125,6 +127,13 @@ synchronizer syn13(
     .clk(clk),
     .a_in(midi_in[3]),
     .y_out(midi_in_filt[3])
+);
+
+merge_midi_outputs merge0(
+    .clk(clk),
+    .midi_in(midi_in),
+    .midi_out(midi_out),
+    .midi_sel(4'hF)
 );
 
 endmodule

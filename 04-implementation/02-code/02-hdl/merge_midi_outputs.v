@@ -27,40 +27,50 @@ input  wire [3:0] midi_in;
 output wire [3:0] midi_out;
 input  wire [3:0] midi_sel;
 
+reg [3:0] _midi_sel;
+
 /* continuous assignments */
-assign midi_out[0] = midi_sel[0] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
+assign midi_out[0] = _midi_sel[0] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
                                  : 1'b1;
-assign midi_out[1] = midi_sel[1] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
+assign midi_out[1] = _midi_sel[1] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
                                  : 1'b1;
-assign midi_out[2] = midi_sel[2] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
+assign midi_out[2] = _midi_sel[2] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
                                  : 1'b1;
-assign midi_out[3] = midi_sel[3] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
+assign midi_out[3] = _midi_sel[3] ? midi_in[0] & midi_in[1] & midi_in[2] & midi_in[3]
                                  : 1'b1;
 
 always @(posedge clk)
 begin : bhv_sel
     if (midi_sel[0]) begin
         _midi_sel[0] <= midi_sel[0];
+    end
     else
+    begin
         _midi_sel[0] <= _midi_sel[0];
     end
     
     if (midi_sel[1]) begin
         _midi_sel[1] <= midi_sel[1];
+    end
     else
+    begin
         _midi_sel[1] <= _midi_sel[1];
     end
     
     if (midi_sel[2]) begin
         _midi_sel[2] <= midi_sel[2];
+    end
     else
+    begin
         _midi_sel[2] <= _midi_sel[2];
     end
     
-    if (midi_sel[2]) begin
-        _midi_sel[2] <= midi_sel[2];
+    if (midi_sel[3]) begin
+        _midi_sel[3] <= midi_sel[2];
+    end
     else
-        _midi_sel[2] <= _midi_sel[2];
+    begin
+        _midi_sel[3] <= _midi_sel[2];
     end
 end
 
