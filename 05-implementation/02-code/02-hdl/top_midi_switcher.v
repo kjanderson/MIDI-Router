@@ -58,7 +58,7 @@ module top_midi_switcher(
     spi_clk,
     spi_miso,
     spi_mosi,
-    spi_ss
+    spi_ss,
 );
 
 /* 41 outputs */
@@ -71,38 +71,13 @@ output wire spi_miso;
 input  wire spi_mosi;
 input  wire spi_ss;
 
-/* make the register a multiple of 8 bits to fit the MCU SPI pattern */
-wire [7:0] regout;
-wire nreset;
 wire [3:0] midi_in_filt;
-
-/* assign outputs */
-/*
-assign midi_out[0] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
-assign midi_out[1] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
-assign midi_out[2] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
-assign midi_out[3] = midi_in_filt[0] & midi_in_filt[1] & midi_in_filt[2] & midi_in_filt[3];
-*/
-
-// assign gpio_fbin = regout[3:0];
-
-/* board bring-up debug: loopback interface */
-// assign spi_miso = spi_mosi;
-
-/* instantiate the reset module to get a reset pulse */
-mstreset rst0(
-    nreset,
-    clk
-);
 
 /* instantiate an 8-bit shift register to test connectivity */
 shiftreg sr0(
-    nreset,
-    clk,
-    spi_clk,
-    spi_mosi,
-    spi_miso,
-    regout
+    .spi_clk(spi_clk),
+    .din(spi_mosi),
+    .dout(spi_miso)
 );
 
 synchronizer syn0(
@@ -117,13 +92,13 @@ synchronizer syn1(
     .y_out(midi_in_filt[1])
 );
 
-synchronizer syn12(
+synchronizer syn2(
     .clk(clk),
     .a_in(midi_in[2]),
     .y_out(midi_in_filt[2])
 );
 
-synchronizer syn13(
+synchronizer syn3(
     .clk(clk),
     .a_in(midi_in[3]),
     .y_out(midi_in_filt[3])
@@ -131,9 +106,8 @@ synchronizer syn13(
 
 merge_midi_outputs merge0(
     .clk(clk),
-    .midi_in(midi_in),
-    .midi_out(midi_out),
-    .midi_sel(4'hF)
+    .midi_in(midi_in_filt),
+    .midi_out(midi_out)
 );
 
 endmodule

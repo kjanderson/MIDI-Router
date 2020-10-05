@@ -89,8 +89,9 @@ static void _Hal_InitTimer(void);
  *  SPI ports:  SPI MOSI
  *              SPI MISO
  *              SPI SCK
- *  Clk Output: REFO (32 MHz) (RB13)
- *  Clk Output: OC1 (8 MHz) (RB13)
+ *  Core frequency: 32 MHz
+ *  Core clock: 16 MHz
+ *  Clk Output: REFO (250 KHz) (RB13)
  *********************************************************************/
 static void _Hal_InitGpio(void)
 {
@@ -121,28 +122,8 @@ static void _Hal_InitGpio(void)
     RPINR20bits.SDI1R = 7;
     __builtin_write_OSCCONL(OSCCON |   0x40);
     
-    /* enable reference output on REFO pin */
-    /*
-    while((REFOCONL & _REFOCONL_ROACTIVE_MASK) != 0U)
-    {
-    }
-    REFOCONL = 0x9000;
-     */
-    REFOCONL = 0x9000;
-    REFOCONH = 0x0000;
-    /* enable "clock" output on OC1 */
-#if 0
-    OC1CON1 = 0x0000;
-    OC1CON2 = 0x0000;
-    /* default timer synchronization is OK, so leave as is */
-    OC1R = 1;
-    OC1RS = 1;
-    T2CON = 0;
-    PR2 = 1;
-    OC1CON1 = _OC1CON1_OCM_MASK & 5;
-    OC1CON2 = _OC1CON2_SYNCSEL_MASK & 12;
-    T2CON = _T2CON_TON_MASK;
-#endif
+    REFOCONL = 0x9000U;
+    REFOCONH = 0x001FU;
 }
 
 /**********************************************************************
@@ -212,8 +193,8 @@ static void _Hal_InitSpiForFpga(void)
  * SCK frequency is 16 MHz
  *   data sampled during SCK falling edge (CKE=0, CKP=1)
  *   data bytes are sent MSb first
- *   SCK frequency shall be 500 kHz
- *   choose 500 kHz: primary prescale 4:1, secondary prescale 2:1
+ *   SCK frequency shall be 125 kHz
+ *   choose 125 kHz: primary prescale 4:1, secondary prescale 2:1
  *********************************************************************/
 static void _Hal_InitSpi(void)
 {
@@ -249,9 +230,9 @@ static void _Hal_InitSpi(void)
     
     /* baud rate settings
          - 8 MHz peripheral clock
-         - 500 kHz SPI clock
+         - 125 kHz SPI clock
      */
-    SPI1BRGL = 7U;
+    SPI1BRGL = 0x1FU;
     
     /* SPI1STAT settings
      *   clear SPIROV flag
@@ -302,20 +283,27 @@ static void _Hal_InitSpi(void)
  *   Input clock (FRC) is 8 MHz
  *   PLLMODE (div by 2) set to 0001 to select 4 MHz PLL input (required)
  *   CPDIV set to 00 to select 32 MHz system clock
+ *
+ * Update
+ * The following settings apply:
+ *   Input clock (FRCDIV) is 500 kHz
+ *   CPDIV set to 00 to select 500 kHz system clock
  *********************************************************************/
 static void _Hal_InitClock(void)
 {
     /* this is the default value, so I probably don't need to set this */
-    CLKDIVbits.CPDIV = 1U;
+    CLKDIVbits.CPDIV = 0U;
     
     /* turn on FRC self tuning
      *  enable self tuning
      *  stop in idle mode
      *  use USB clock as reference
      */
+#if 0
     OSCTUNbits.STEN = 1U;
     OSCTUNbits.STSIDL = 1U;
     OSCTUNbits.STSRC = 1U;
+#endif
 }
 
 /**********************************************************************
