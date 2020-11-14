@@ -23,22 +23,15 @@
 module tb(
 );
 
-parameter STATE_IDLE = 1'b0;
-parameter STATE_READ = 1'b1;
-
-reg clk;
-reg bus_clk;
-reg bus_rd;
-reg midi_in;
 reg rst;
-wire irq;
-wire [7:0] midi_dat;
-wire midi_dat_rdy;
-reg midi_dat_rd;
-reg [7:0] gen_midi_dat;
-reg [7:0] rcv_midi_dat;
-reg int_curr_state;
-reg int_next_state;
+reg clk;
+reg midi_in;
+reg [7:0] midi_tst_data;
+reg [7:0] midi_vfc_data;
+reg [7:0] addr;
+reg stb;
+reg we;
+wire ack;
 
 always #4 clk <= ~clk;
 
@@ -72,62 +65,15 @@ task uart_tx;
     end
 endtask
 
-/* introduce a state machine to automatically read out the FIFO data */
-always @(int_curr_state, midi_dat_rdy)
-begin: st_cl
-    case(int_curr_state)
-    STATE_IDLE: begin
-        if (midi_dat_rdy == 1'b1) begin
-            int_next_state = STATE_READ;
-        end
-    end
-    STATE_READ: begin
-        if (midi_dat_rdy == 1'b0) begin
-            int_next_state = STATE_IDLE;
-        end
-    end
-    default: begin
-        int_next_state = STATE_IDLE;
-    end
-    endcase
-end
-
-always @(posedge clk, posedge rst)
-begin: st_sl
-    if (rst == 1'b1) begin
-        int_curr_state <= STATE_IDLE;
-    end
-    else begin
-        int_curr_state <= int_next_state;
-    end
-end
-
-always @(posedge clk, posedge rst)
-begin: st_op
-    if (rst == 1'b1) begin
-        midi_dat_rd <= 1'b0;
-    end
-    else begin
-        case(int_curr_state)
-        STATE_IDLE: begin
-            midi_dat_rd <= 1'b0;
-        end
-        STATE_READ: begin
-            midi_dat_rd <= 1'b1;
-        end
-        default: begin
-            midi_dat_rd <= 1'b0;
-        end
-        endcase
-    end
-end
-
 /* use sequential logic in the initial block to avoid race conditions */
 initial begin
     rst = 0;
     clk = 0;
     midi_in = 1'b1;
-    midi_dat_rd = 1'b0;
+    addr = 8'h00;
+    midi_tst_data = 8'h00;
+    stb = 1'b0;
+    we = 1'b0;
     
     /* reset pulse */
     @(negedge clk);
@@ -137,52 +83,48 @@ initial begin
     
     /* simulation */
     @(negedge clk);
-    gen_midi_dat = 8'h80;
-    uart_tx(gen_midi_dat);
+    midi_tst_data = 8'hDE;
+    uart_tx(midi_tst_data);
     
-    @(posedge midi_dat_rdy);
-    assert(gen_midi_dat == midi_dat);
-    
-    @(negedge clk);
-    gen_midi_dat = 8'h01;
-    uart_tx(gen_midi_dat);
-    
-    assert(gen_midi_dat == midi_dat);
+    /* wait for data ready in this test case */
+    // @(posedge m0.int_uart_data_rdy);
     
     @(negedge clk);
-    gen_midi_dat = 8'h80;
-    uart_tx(gen_midi_dat);
+    @(negedge clk);
+    @(negedge clk);
+    @(negedge clk);
+    @(negedge clk);
+    addr = 8'h00;
+    stb = 1'b1;
+    @(negedge clk);
+    stb = 1'b0;
+    assert(midi_vfc_data == 8'h01);
     
-    @(posedge midi_dat_rdy);
-    @(negedge midi_dat_rdy);
-    assert(gen_midi_dat == midi_dat);
-    /*
-    */
+    @(negedge clk);
+    addr = 8'h01;
+    stb = 1'b1;
+    @(negedge clk);
+    stb = 1'b0;
+    assert(midi_vfc_data == midi_tst_data);
     
     @(negedge clk);
-    /*
     @(negedge clk);
     @(negedge clk);
     @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    */
     
     $finish;
 end
 
-midi_rx midi_rx_0(
-    .rst(rst),
-    .clk(clk),
+midi_rx m0(
     .midi_in(midi_in),
-    .midi_data(midi_dat),
-    .midi_data_rdy(midi_dat_rdy),
-    .midi_data_rd(midi_dat_rd)
+    .wb_clk_i(clk),
+    .wb_rst_i(rst),
+    .wb_addr_i(addr),
+    .wb_dat_i(midi_tst_data),
+    .wb_dat_o(midi_vfc_data),
+    .wb_stb_i(stb),
+    .wb_ack_o(ack),
+    .wb_we_i(we)
 );
 
 endmodule
