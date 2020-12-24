@@ -191,7 +191,7 @@ static void _Hal_InitSpiForFpga(void)
  * This function initializes the SPI port for application use.
  * 
  * SCK frequency is 16 MHz
- *   data sampled during SCK falling edge (CKE=0, CKP=1)
+ *   data sampled during SCK falling edge (CKE=1, CKP=1)
  *   data bytes are sent MSb first
  *   SCK frequency shall be 125 kHz
  *   choose 125 kHz: primary prescale 4:1, secondary prescale 2:1
@@ -250,11 +250,11 @@ static void _Hal_InitSpi(void)
     /* SPI1CON1 settings
      *  8-bit data
      *  SS pin controlled as GPIO
-     *  CKE = 0
+     *  CKE = 1
      *  CKP = 1
      *  master mode
      */
-    SPI1CON1L = 0x0060U;
+    SPI1CON1L = 0x0160U;
     /* ignore receiver overflow
      * ignore transmit underrun
      */
