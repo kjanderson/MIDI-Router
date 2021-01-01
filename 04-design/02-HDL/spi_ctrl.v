@@ -1,4 +1,21 @@
-// TODO: create signal active for one clock cycle to indicate a byte has transferred on the SPI bus.
+/**********************************************************************
+ * spi_ctrl
+ *
+ * Description
+ * This module implements the controller for the SPI shift register.
+ *
+ * Notes
+ * The state machine may cycle through several cmd/exe/ld/read sequences,
+ * depending on how long spi_ss is deasserted, but it should work.
+ *
+ * The spi_ss needs to be deasserted for at least one sck bit time
+ * between frames, to allow a read/execute operation to occur.
+ *
+ * Known Issues
+ * The state machine cycles too many times. This causes write operations to fail,
+ * because the write command gets latched the first cycle, but turned into a read
+ * operation in the other cycles. It seems I still need some way to arm the mechanism.
+ *********************************************************************/
 module spi_ctrl
 (
     clk,
@@ -16,14 +33,14 @@ module spi_ctrl
     wb_we_o
 );
 
-parameter ST_IDLE = 3'h0;
-parameter ST_CMD  = 3'h1;
+parameter ST_IDLE    = 3'h0;
+parameter ST_CMD     = 3'h1;
 parameter ST_WR_DATA = 3'h2;
 parameter ST_WR_EXE  = 3'h3;
-parameter ST_RD_EXE = 3'h4;
+parameter ST_RD_EXE  = 3'h4;
 parameter ST_RD_LOAD = 3'h5;
 parameter ST_RD_DATA = 3'h6;
-parameter ST_RSVD    = 3'h7;
+parameter ST_CLR     = 3'h7;
 
 
 `define BIT_WE 8'h80
@@ -57,18 +74,21 @@ wire [7:0] spi_data_o;
 reg spi_ld;
 reg int_wb_stb_o;
 reg int_wb_we_o;
-reg int_spi_xchg_stb;
+wire int_spi_xchg_rdy;
+wire int_timeout;
+wire [7:0] int_cnt;
 
 assign wb_addr_o = int_addr;
 assign wb_dat_o = int_data;
 assign wb_stb_o = int_wb_stb_o;
 assign wb_we_o = int_wb_we_o;
+assign int_timeout = &(int_cnt);
 
-always @(int_spi_curr_state, int_bit_cnt)
+always @(int_spi_curr_state, int_spi_xchg_rdy, int_timeout)
 begin: sm_cl
     case(int_spi_curr_state)
     ST_IDLE: begin
-        if (int_spi_xchg_stb == 1) begin
+        if (int_spi_xchg_rdy == 1) begin
             int_spi_next_state = ST_CMD;
         end
         else begin
@@ -76,7 +96,10 @@ begin: sm_cl
         end
     end
     ST_CMD: begin
-        if (int_cmd & `MASK_WE) begin
+        if (int_timeout == 1) begin
+            int_spi_next_state = ST_IDLE;
+        end
+        else if (int_cmd == 1) begin
             int_spi_next_state = ST_WR_DATA;
         end
         else begin
@@ -84,7 +107,10 @@ begin: sm_cl
         end
     end
     ST_WR_DATA: begin
-        if (int_spi_xchg_stb == 1) begin
+        if (int_timeout == 1) begin
+            int_spi_next_state = ST_IDLE;
+        end
+        else if (int_spi_xchg_rdy == 1) begin
             int_spi_next_state = ST_WR_EXE;
         end
         else begin
@@ -92,15 +118,21 @@ begin: sm_cl
         end
     end
     ST_WR_EXE: begin
-        if (wb_ack_i == 1) begin
+        if (int_timeout == 1) begin
             int_spi_next_state = ST_IDLE;
+        end
+        else if (wb_ack_i == 1) begin
+            int_spi_next_state = ST_CLR;
         end
         else begin
             int_spi_next_state = ST_WR_EXE;
         end
     end
     ST_RD_EXE: begin
-        if (wb_ack_i == 1) begin
+        if (int_timeout == 1) begin
+            int_spi_next_state = ST_IDLE;
+        end
+        else if (wb_ack_i == 1) begin
             int_spi_next_state = ST_RD_LOAD;
         end
         else begin
@@ -108,15 +140,26 @@ begin: sm_cl
         end
     end
     ST_RD_LOAD: begin
-        int_spi_next_state = ST_RD_DATA;
-    end
-    ST_RD_DATA: begin
-        if (int_spi_xchg_stb == 1) begin
+        if (int_timeout == 1) begin
             int_spi_next_state = ST_IDLE;
         end
         else begin
             int_spi_next_state = ST_RD_DATA;
         end
+    end
+    ST_RD_DATA: begin
+        if (int_timeout == 1) begin
+            int_spi_next_state = ST_IDLE;
+        end
+        else if (int_spi_xchg_rdy == 1) begin
+            int_spi_next_state = ST_CLR;
+        end
+        else begin
+            int_spi_next_state = ST_RD_DATA;
+        end
+    end
+    ST_CLR: begin
+        int_spi_next_state = ST_IDLE;
     end
     default: begin
         int_spi_next_state = ST_IDLE;
@@ -129,6 +172,13 @@ begin: bhv_sm_sl
     int_spi_curr_state <= int_spi_next_state;
 end
 
+/* outputs controlled in this block:
+ *   spi_ld
+ *   int_addr
+ *   int_wb_we_o
+ *   int_wb_stb_o
+ *   int_spi_xchg_ack
+ */
 always @(posedge clk)
 begin: bhv_sm_op
     case(int_spi_curr_state)
@@ -136,7 +186,7 @@ begin: bhv_sm_op
         spi_ld <= 0;
         int_addr <= 8'h00;
         int_wb_we_o <= 0;
-        if (int_spi_xchg_stb == 1) begin
+        if (int_spi_xchg_rdy == 1) begin
             int_cmd <= spi_data_o[7];
         end
         else begin
@@ -157,18 +207,21 @@ begin: bhv_sm_op
     ST_RD_EXE: begin
     end
     ST_RD_LOAD: begin
-        spi_ld <= 1;
+        spi_ld <= spi_ss;
         spi_data_i <= wb_dat_o;
     end
     ST_RD_DATA: begin
         spi_ld <= 0;
+    end
+    ST_CLR: begin
     end
     default: begin
     end
     endcase
 end
 
-always @(posedge spi_sck)
+/* data sampled on falling edge of spi_sck */
+always @(negedge spi_sck)
 begin: bhv_bit_cnt
     if (spi_ss == 0) begin
         int_bit_cnt <= int_bit_cnt + 1;
@@ -178,23 +231,23 @@ begin: bhv_bit_cnt
     end
 end
 
-always @(posedge clk)
-begin: bhv_spi_xchg_stb
-    if ((int_bit_cnt == 7) && (spi_sck == 1) && (int_spi_xchg_stb == 0)) begin
-        int_spi_xchg_stb <= 1;
-    end
-    else begin
-        int_spi_xchg_stb <= 0;
-    end
-end
-
-shiftreg sr0(
+spislave sr0(
+    .clk(clk),
     .sck(spi_sck),
-    .ser_i(spi_mosi),
-    .ser_o(spi_miso),
+    .sdi(spi_mosi),
+    .sdo(spi_miso),
+    .ss(spi_ss),
     .data_i(spi_data_i),
     .data_o(spi_data_o),
-    .ld(spi_ld)
+    .ld(spi_ld),
+    .rdy(int_spi_xchg_rdy)
+);
+
+/* reset the counter if there are any sck edges */
+up_counter c0(
+    .clk(clk),
+    .clr(spi_sck),
+    .cnt(int_cnt)
 );
 
 endmodule

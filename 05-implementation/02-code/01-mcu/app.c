@@ -1,12 +1,8 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <hal.h>
+#include "hal.h"
 #include "app.h"
-#include "spi-ctrl.h"
-
-#include "system.h"
-#include "usb.h"
-#include "usb_device_cdc.h"
+//#include "spi-ctrl.h"
 
 static uint8_t fg_uFpgaMode;
 static uint16_t fg_uLedPeriod;
@@ -27,7 +23,7 @@ void App_Init(void)
     fg_uLedDuty = 500U;
     fg_uLedCnt = fg_uLedPeriod;
     
-    SpiCtrl_Init(&g_SpiCtrl);
+    //SpiCtrl_Init(&g_SpiCtrl);
 }
 
 /**********************************************************************
@@ -54,7 +50,7 @@ void App_TickIsr(void)
 {
     /* when the router is implemented,
      * code here will start an SPI transaction in response to buttons */
-    SpiCtrl_SendData(&g_SpiCtrl, 0xDE);
+    //SpiCtrl_SendData(&g_SpiCtrl, 0xDE);
     
     /* blink the LED according to the application state */
     if (fg_uFpgaMode > 0U)
@@ -99,34 +95,6 @@ void App_IdleTasks(void)
 {
     /* when the router is implemented,
      * code here will retrieve data from the FIFO for processing */
-    
-    /* implement a UART echo device for now */
-    uint8_t uBytesRead;
-    uint8_t vuBuffer[64];
-    static uint8_t uState = 0U;
-    
-    uBytesRead = 0U;
-    switch(uState)
-    {
-        case 0:
-            uBytesRead = getsUSBUSART(&(vuBuffer[0]), sizeof(vuBuffer));
-            if (uBytesRead > 0U)
-            {
-                if (USBUSARTIsTxTrfReady())
-                {
-                    uState = 1U;
-                }
-            }
-            break;
-            
-        case 1:
-            putUSBUSART(vuBuffer, uBytesRead);
-            break;
-            
-        default:
-            break;
-    }
-    
 }
 
 /**********************************************************************
@@ -141,3 +109,4 @@ void App_SpiRxIsr(uint8_t uData)
 {
     (void)uData;
 }
+

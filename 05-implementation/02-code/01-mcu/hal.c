@@ -1,18 +1,8 @@
 #include <xc.h>
 
 #include "app.h"
-#include <hal.h>
-#include "spi-ctrl.h"
-
-#include "system.h"
-
-//#include "app_device_cdc_basic.h"
-#include "app_device_cdc_to_uart.h"
-#include "app_led_usb_status.h"
-
-#include "usb.h"
-#include "usb_device.h"
-#include "usb_device_cdc.h"
+#include "hal.h"
+//#include "spi-ctrl.h"
 
 #include "fpga.h"
 
@@ -372,11 +362,6 @@ uint8_t Hal_InitFpga(void)
  *********************************************************************/
 void Hal_InitPeripherals(void)
 {
-    SYSTEM_Initialize(SYSTEM_STATE_USB_START);
-
-    USBDeviceInit();
-    USBDeviceAttach();
-
     _Hal_InitClock();
     _Hal_InitCore();
     _Hal_InitTimer();
@@ -423,17 +408,10 @@ void Hal_Timer1Config(uint16_t uTicks, uint8_t uOptions)
     T1CON = 0x8000U;
 }
 
+/* candidate for removal, since this was added to support device-specific
+ * USB functions */
 void Hal_IdleTasks(void)
 {
-    SYSTEM_Tasks();
-
-#if defined(USB_POLLING)
-    USBDeviceTasks();
-#endif
-
-    //Application specific tasks
-    //APP_DeviceCDCBasicDemoTasks();
-    APP_DeviceCDCEmulatorTasks();
 }
 
 /**********************************************************************
@@ -560,7 +538,7 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 
 void __attribute__((__interrupt__, auto_psv)) _SPI1RXInterrupt(void)
 {
-    SpiCtrl_RxIsr(&g_SpiCtrl, SPI1BUFL);
+    // SpiCtrl_RxIsr(&g_SpiCtrl, SPI1BUFL);
     
     IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
 }
