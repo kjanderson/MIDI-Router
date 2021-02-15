@@ -60,6 +60,7 @@ begin: bhv_sdo
 end
 
 /* data sampled during clk falling edge */
+/*
 always @(negedge sck, posedge ld)
 begin: bhv_sr
     if ((ld == 1) && (ss == 1)) begin
@@ -68,6 +69,11 @@ begin: bhv_sr
     else begin
         int_sr <= {int_sr[6:0], sdi};
     end
+end
+*/
+always @(negedge sck)
+begin: bhv_sr
+    int_sr <= {int_sr[6:0], sdi};
 end
 
 always @(posedge clk, posedge ss)

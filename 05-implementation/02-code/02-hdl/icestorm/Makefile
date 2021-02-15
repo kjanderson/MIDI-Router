@@ -2,9 +2,7 @@ SRC_DIR=..
 PCF_DIR=../constraints
 DEVICE=1k
 PACKAGE=vq100
-SRC=$(SRC_DIR)/top_midi_switcher.v \
-    $(SRC_DIR)/shiftreg.v \
-    $(SRC_DIR)/mstreset.v
+SRC=$(SRC_DIR)/top_midi_switcher.v
 PCF=$(PCF_DIR)/midi_switcher.pcf
 EXE=midi-router
 

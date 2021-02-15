@@ -1,22 +1,12 @@
 /**********************************************************************
- * tb_uart_rx
+ * tb_uart_tx.sv
  *
- * This module implements the test bench for the uart_rx module.
+ * This module implements the test bench for the uart_tx module.
  *
- * The application provides a 125 KHz sample clock to the module.
+ * The application provides a 250 KHz sample clock to the module.
  *
  * Notes
- * This module compiles and generates midi_in.
- * Still need to verify the bus and irq interface.
- * May need to come back to irq and bus_rd interface, depending on details
- * of the FIFO implementation.
- *
- * TODO
- *  1. define how long bus_rd will remain asserted and therefore how long
- *     the midi_rx module will assert bus_dat.
- *
- * Tests
- * 01: verify midi_rx module 0 receives a signal and asserts its data on the bus.
+ * This module compiles and generates midi_out.
  *********************************************************************/
 
 `timescale 1us / 1ns
@@ -36,6 +26,9 @@ always #4 clk <= ~clk;
 
 /* use sequential logic in the initial block to avoid race conditions */
 initial begin
+    $dumpfile("tb_uart_tx.vcd");
+    $dumpvars(0, tb);
+
     rst = 0;
     clk = 0;
     tx_strobe = 0;
@@ -53,16 +46,8 @@ initial begin
     tx_strobe = 1'b1;
     @(negedge clk);
     tx_strobe = 1'b0;
-    //@(negedge tx_busy);
+    @(negedge tx_busy);
     
-    for (ii=0; ii<(10*8); ii++) begin
-        @(negedge clk);
-    end
-    
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
     
     $finish;
 end

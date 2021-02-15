@@ -1,138 +1,96 @@
 module top(
-    reset,
     clk,
     midi_in,
-    midi_out
+    midi_out,
+    gpio_fbin,
+    spi_clk,
+    spi_miso,
+    spi_mosi,
+    spi_ss
 );
 
 /* I/O ports */
-input  wire reset;
 input  wire clk;
 input  wire [3:0] midi_in;
 output wire [3:0] midi_out;
+output wire [3:0] gpio_fbin;
+input  wire spi_clk;
+output wire spi_miso;
+input  wire spi_mosi;
+input  wire spi_ss;
 
 /* internal signals */
+wire int_reset;
 wire [3:0] midi_sync;
-wire [3:0] bus_addr;
-wire [7:0] bus_data;
-wire [3:0] irq;
-wire fifo_rd;
-wire fifo_wr;
-wire [7:0] fifo_data;
 wire [7:0] sr_data;
-wire fifo_empty_n;
 wire _midi_out;
-wire [3:0] bus_rd;
+wire int_spi_rdy;
+wire int_uart_tx;
+wire int_uart_busy;
 
-assign midi_out[0] = _midi_out;
-assign midi_out[1] = _midi_out;
-assign midi_out[2] = _midi_out;
-assign midi_out[3] = _midi_out;
+/* route UART output to all MIDI outputs */
+assign midi_out[0] = int_uart_tx;
+assign midi_out[1] = int_uart_tx;
+assign midi_out[2] = int_uart_tx;
+assign midi_out[3] = int_uart_tx;
+
+/* route MIDI inputs to the MCU */
+assign gpio_fbin[0] = midi_in[0];
+assign gpio_fbin[1] = midi_in[1];
+assign gpio_fbin[2] = midi_in[2];
+assign gpio_fbin[3] = midi_in[3];
 
 /* synchronize MIDI inputs */
 synchronizer s0(
-    .reset(reset),
     .clk(clk),
     .a(midi_in[0]),
     .y(midi_sync[0])
 );
 
 synchronizer s1(
-    .reset(reset),
     .clk(clk),
     .a(midi_in[1]),
     .y(midi_sync[1])
 );
 
 synchronizer s2(
-    .reset(reset),
     .clk(clk),
     .a(midi_in[2]),
     .y(midi_sync[2])
 );
 
 synchronizer s3(
-    .reset(reset),
     .clk(clk),
     .a(midi_in[3]),
     .y(midi_sync[3])
 );
 
-/* UART 0 for MIDI input */
-midi_rx #(4'h0) mr0(
-    .reset(reset),
-    .clk(clk),
-    .midi_in(midi_sync[0]),
-    .bus_addr(bus_addr),
-    .bus_dat(bus_data),
-    .irq(irq[0]),
-    .bus_rd(bus_rd[0])
+mstreset r0(
+    .reset(int_reset),
+    .clk(clk)
 );
 
-/* UART 1 for MIDI input */
-midi_rx #(4'h1) mr1(
-    .reset(reset),
+/* SPI interface */
+spislave sr0(
     .clk(clk),
-    .midi_in(midi_sync[1]),
-    .bus_addr(bus_addr),
-    .bus_dat(bus_data),
-    .irq(irq[1]),
-    .bus_rd(bus_rd[1])
-);
-
-/* UART 2 for MIDI input */
-midi_rx #(4'h2) mr2(
-    .reset(reset),
-    .clk(clk),
-    .midi_in(midi_sync[2]),
-    .bus_addr(bus_addr),
-    .bus_dat(bus_data),
-    .irq(irq[2]),
-    .bus_rd(bus_rd[2])
-);
-
-/* UART 3 for MIDI input */
-midi_rx #(4'h3) mr3(
-    .reset(reset),
-    .clk(clk),
-    .midi_in(midi_sync[3]),
-    .bus_addr(bus_addr),
-    .bus_dat(bus_data),
-    .irq(irq[3]),
-    .bus_rd(bus_rd[3])
-);
-
-/* MIDI data bus master */
-bus_master bm0(
-    .reset(reset),
-    .clk(clk),
-    .addr(bus_addr),
-    .data(bus_data),
-    .irq(irq),
-    .fifo_data(fifo_data),
-    .fifo_wr(fifo_wr),
-    .bus_rd(bus_rd)
-);
-
-/* FIFO for merging MIDI data */
-fifo f0(
-    .reset(reset),
-    .clk(clk),
-    .rd(fifo_rd),
-    .wr(fifo_wr),
-    .data_i(fifo_data),
+    .sck(spi_clk),
+    .sdi(spi_mosi),
+    .sdo(spi_miso),
+    .ss(spi_ss),
+    .data_i(8'h00),
     .data_o(sr_data),
-    .empty_n(fifo_empty_n)
+    .ld(1'b0),
+    .rdy(int_spi_rdy)
 );
 
-/* output shift register for MIDI output data */
-shiftreg sr0(
-    .reset(reset),
+/* TX UART for output */
+uart_tx u0(
+    .rst(int_reset),
     .clk(clk),
-    .data_i(sr_data),
-    .ser_o(_midi_out),
-    .fifo_rd(fifo_rd),
-    .fifo_empty_n(fifo_empty_n)
+    .tx_strobe(int_spi_rdy),
+    .data(sr_data),
+    .tx(int_uart_tx),
+    .busy(int_uart_busy)
 );
 
 endmodule

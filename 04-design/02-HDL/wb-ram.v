@@ -1,3 +1,9 @@
+/**********************************************************************
+ * wb_ram
+ *
+ * Description
+ * This module provides a wishbone interface to a block RAM.
+ *********************************************************************/
 module wb_ram(
     wb_rst_i,
     wb_clk_i,
@@ -8,6 +14,9 @@ module wb_ram(
     wb_stb_i,
     wb_ack_o,
 );
+
+parameter WB_START_ADDR = 8'h00;
+parameter WB_END_ADDR = 8'h1F;
 
 input  wire wb_rst_i;
 input  wire wb_clk_i;
@@ -27,7 +36,10 @@ begin: bhv_ack
     int_ack = wb_stb_i;
 end
 
-ram r0(
+ram #(
+    .ADDR_SIZE(8)
+)
+r0(
     .wdata(wb_dat_i),
     .waddr(wb_addr_i),
     .we(wb_we_i & wb_stb_i),
