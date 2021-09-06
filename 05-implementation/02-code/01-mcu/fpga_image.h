@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 
-//#define FPGA_IMAGE_SIZE 32300
-#define FPGA_IMAGE_SIZE 32220
+#define FPGA_IMAGE_SIZE 32299
 
 extern const uint8_t vuFpgaImage[FPGA_IMAGE_SIZE];
 

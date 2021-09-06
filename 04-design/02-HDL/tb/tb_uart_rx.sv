@@ -30,6 +30,12 @@ reg midi_in;
 wire [7:0] uart_dat;
 reg [7:0] gen_midi_dat;
 wire uart_data_rdy;
+wire clk_en_2;
+wire clk_en_4;
+wire clk_en_8;
+wire clk_en_16;
+wire clk_en_32;
+wire clk_en_64;
 
 always #4 clk <= ~clk;
 
@@ -41,24 +47,24 @@ task uart_tx;
     
     begin
     /* start bit */
-    @(negedge clk);
+    @(negedge clk_en_8);
     midi_in = 1'b0;
     for (ii=0; ii<8; ii++) begin
-        @(negedge clk);
+        @(negedge clk_en_8);
     end
     
     /* data bits */
     for (jj=0; jj<8; jj=jj+1) begin
         midi_in = datai[jj];
         for (ii=0; ii<8; ii=ii+1) begin
-            @(negedge clk);
+            @(negedge clk_en_8);
         end
     end
     
     /* stop bit */
     midi_in = 1'b1;
     for (ii=0; ii<8; ii++) begin
-        @(negedge clk);
+        @(negedge clk_en_8);
     end
     end
 endtask
@@ -76,24 +82,30 @@ initial begin
     rst = 0;
     
     /* simulation */
-    @(negedge clk);
+    @(negedge clk_en_8);
     gen_midi_dat = 8'hDE;
     uart_tx(gen_midi_dat);
     
     assert(uart_dat == 8'hDE);
     assert(uart_data_rdy == 1'b1);
     
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    
     $finish;
 end
+
+clk_en_gen cg0(
+    .clk(clk),
+    .clk_en_2(clk_en_2),
+    .clk_en_4(clk_en_4),
+    .clk_en_8(clk_en_8),
+    .clk_en_16(clk_en_16),
+    .clk_en_32(clk_en_32),
+    .clk_en_64(clk_en_64)
+);
 
 uart_rx u0(
     .reset(rst),
     .clk(clk),
+    .clk_en(clk_en_8),
     .uart_in(midi_in),
     .uart_data(uart_dat),
     .uart_data_rdy(uart_data_rdy)

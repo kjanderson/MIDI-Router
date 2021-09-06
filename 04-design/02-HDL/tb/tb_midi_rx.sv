@@ -12,6 +12,7 @@
  * of the FIFO implementation.
  *
  * TODO
+ *  7. add a feature to clear the bitmap when the appropriate data item is read.
  *
  * Tests
  * 01: verify the midi_rx module receives a signal and asserts its data on the bus.
@@ -27,11 +28,12 @@ reg rst;
 reg clk;
 reg midi_in;
 reg [7:0] midi_tst_data;
-reg [7:0] midi_vfc_data;
-reg [7:0] addr;
-reg stb;
-reg we;
-wire ack;
+reg [7:0] wb_addr;
+reg [7:0] wb_dat_o;
+wire [7:0] wb_dat_i;
+reg wb_stb;
+reg wb_we;
+wire wb_ack;
 
 always #4 clk <= ~clk;
 
@@ -70,10 +72,11 @@ initial begin
     rst = 0;
     clk = 0;
     midi_in = 1'b1;
-    addr = 8'h00;
     midi_tst_data = 8'h00;
-    stb = 1'b0;
-    we = 1'b0;
+    wb_addr = 8'h00;
+    wb_dat_o = 8'h00;
+    wb_stb = 1'b0;
+    wb_we = 1'b0;
     
     /* reset pulse */
     @(negedge clk);
@@ -82,30 +85,42 @@ initial begin
     rst = 0;
     
     /* simulation */
-    @(negedge clk);
-    midi_tst_data = 8'hDE;
+    /* test case 1: send complete message on input 1 */
+    midi_tst_data = 8'h80;
     uart_tx(midi_tst_data);
-    
-    /* wait for data ready in this test case */
     // @(posedge m0.int_uart_data_rdy);
-    
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    addr = 8'h00;
-    stb = 1'b1;
-    @(negedge clk);
-    stb = 1'b0;
-    assert(midi_vfc_data == 8'h01);
-    
-    @(negedge clk);
-    addr = 8'h01;
-    stb = 1'b1;
-    @(negedge clk);
-    stb = 1'b0;
-    assert(midi_vfc_data == midi_tst_data);
+
+    midi_tst_data = 8'h3E;
+    uart_tx(midi_tst_data);
+    // @(posedge m0.int_uart_data_rdy);
+
+    midi_tst_data = 8'h40;
+    uart_tx(midi_tst_data);
+    // @(posedge m0.int_uart_data_rdy);
+
+    wb_addr = 8'h00;
+    wb_dat_o = 8'h00;
+    wb_stb = 1'b1;
+    @(posedge clk);
+    @(posedge clk);
+    wb_stb = 1'b0;
+
+    @(posedge clk);
+    @(posedge clk);
+
+    wb_addr = 8'h02;
+    wb_dat_o = 8'h00;
+    wb_stb = 1'b1;
+    @(posedge clk);
+    @(posedge clk);
+    wb_stb = 1'b0;
+
+    /* test case 2: send complete 2-byte message */
+    midi_tst_data = 8'hC0;
+    uart_tx(midi_tst_data);
+
+    midi_tst_data = 8'h00;
+    uart_tx(midi_tst_data);
     
     @(negedge clk);
     @(negedge clk);
@@ -117,14 +132,14 @@ end
 
 midi_rx m0(
     .midi_in(midi_in),
-    .wb_clk_i(clk),
-    .wb_rst_i(rst),
-    .wb_addr_i(addr),
-    .wb_dat_i(midi_tst_data),
-    .wb_dat_o(midi_vfc_data),
-    .wb_stb_i(stb),
-    .wb_ack_o(ack),
-    .wb_we_i(we)
+    .clk(clk),
+    .rst(rst),
+    .wb_addr_i(wb_addr),
+    .wb_dat_i(wb_dat_o),
+    .wb_dat_o(wb_dat_i),
+    .wb_we_i(wb_we),
+    .wb_stb_i(wb_stb),
+    .wb_ack_o(wb_ack)
 );
 
 endmodule

@@ -1,6 +1,20 @@
+/**********************************************************************
+ * uart_rx
+ *
+ * Description
+ * This module implements the uart receiver module needed by the MIDI switcher
+ * application.
+ *
+ * History
+ * Date       Rev Notes
+ * ---------- --- ----------------------------------------------------
+ * 07/26/2021 0.1 Initial version
+ *********************************************************************/
+
 module uart_rx(
     reset,
     clk,
+    clk_en,
     uart_in,
     uart_data,
     uart_data_rdy
@@ -16,6 +30,7 @@ parameter PERIF_ADDR = 4'h0;
 `define UART_BIT_LEN      3'h7
 
 input        clk;
+input        clk_en;
 input        reset;
 input        uart_in;
 output [7:0] uart_data;
@@ -95,76 +110,86 @@ begin: bhv_cl_state
 end
 
 /* sequential logic portion of state machine */
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_seq_state
     if (reset == 1'b1) begin
         _uart_state <= `UART_STATE_IDLE;
     end
     else begin
-        _uart_state <= _uart_next_state;
+        if (clk_en == 1) begin
+            _uart_state <= _uart_next_state;
+        end
     end
 end
 
 /* state machine doesn't have outputs */
 
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_samp_cnt
     if (reset == 1'b1) begin
         _uart_samp_cnt <= 2'h0;
     end
     else begin
-        if (_uart_state != `UART_STATE_IDLE) begin
-            _uart_samp_cnt <= _uart_samp_cnt + 2'h1;
-        end
-        else begin
-            _uart_samp_cnt <= 2'h0;
+        if (clk_en == 1) begin
+            if (_uart_state != `UART_STATE_IDLE) begin
+                _uart_samp_cnt <= _uart_samp_cnt + 2'h1;
+            end
+            else begin
+                _uart_samp_cnt <= 2'h0;
+            end
         end
     end
 end
 
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_bit_cnt
     if (reset == 1'b1) begin
         _uart_bit_cnt <= 3'h0;
     end
     else begin
-        if (_uart_state == `UART_STATE_DATA) begin
-            if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
-                _uart_bit_cnt <= _uart_bit_cnt + 3'h1;
+        if (clk_en == 1) begin
+            if (_uart_state == `UART_STATE_DATA) begin
+                if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
+                    _uart_bit_cnt <= _uart_bit_cnt + 3'h1;
+                end
             end
         end
     end
 end
 
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_samp
     if (reset == 1'b1) begin
         _samp <= 3'h0;
     end
     else begin
-        if (_uart_state != `UART_STATE_IDLE) begin
-            if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h3) begin
-                _samp[0] <= uart_in;
-            end
-            else if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h2) begin
-                _samp[1] <= uart_in;
-            end
-            else if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h1) begin
-                _samp[2] <= uart_in;
+        if (clk_en == 1) begin
+            if (_uart_state != `UART_STATE_IDLE) begin
+                if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h3) begin
+                    _samp[0] <= uart_in;
+                end
+                else if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h2) begin
+                    _samp[1] <= uart_in;
+                end
+                else if (_uart_samp_cnt == `UART_SAMP_INDEX-3'h1) begin
+                    _samp[2] <= uart_in;
+                end
             end
         end
     end
 end
 
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_uart_sr
     if (reset == 1'b1) begin
         _uart_sr <= 8'h00;
     end
     else begin
-        if (_uart_state == `UART_STATE_DATA) begin
-            if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
-                _uart_sr <= {_uart_vote, _uart_sr[7:1]};
+        if (clk_en == 1) begin
+            if (_uart_state == `UART_STATE_DATA) begin
+                if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
+                    _uart_sr <= {_uart_vote, _uart_sr[7:1]};
+                end
             end
         end
     end
@@ -176,28 +201,32 @@ begin: bhv_uart_data_rdy
         _uart_data_rdy <= 1'b0;
     end
     else begin
-        if (_uart_state == `UART_STATE_STOP) begin
-            if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
-                _uart_data_rdy <= 1'b1;
+        if (clk_en == 1) begin
+            if (_uart_state == `UART_STATE_STOP) begin
+                if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
+                    _uart_data_rdy <= 1'b1;
+                end
             end
-        end
-        else if (_uart_state == `UART_STATE_IDLE) begin
-            _uart_data_rdy <= 1'b0;
+            else if (_uart_state == `UART_STATE_IDLE) begin
+                _uart_data_rdy <= 1'b0;
+            end
         end
     end
 end
 
 /* duplicate logic from uart_data_rdy block
  * so both signals are ready at the same time. */
-always @(posedge clk, posedge reset)
+always @(posedge clk)
 begin: bhv_uart_reg
     if (reset == 1'b1) begin
         _uart_reg <= 8'h00;
     end
     else begin
-        if (_uart_state == `UART_STATE_STOP) begin
-            if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
-                _uart_reg <= _uart_sr;
+        if (clk_en == 1) begin
+            if (_uart_state == `UART_STATE_STOP) begin
+                if (_uart_samp_cnt == `UART_SAMP_INDEX) begin
+                    _uart_reg <= _uart_sr;
+                end
             end
         end
     end

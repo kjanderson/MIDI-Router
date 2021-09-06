@@ -1,13 +1,15 @@
+#include <stdint.h>
 #include <xc.h>
 
 #include "app.h"
 #include "hal.h"
-//#include "spi-ctrl.h"
+#include "spi-ctrl.h"
+#include "globals.h"
 
 #include "fpga.h"
 
 /* private functions */
-static void _Hal_InitGpio(void);
+static void _Hal_InitGpio(uint8_t uMode);
 static void _Hal_InitSpiForFpga(void);
 static void _Hal_InitSpi(void);
 static void _Hal_InitClock(void);
@@ -83,7 +85,7 @@ static void _Hal_InitTimer(void);
  *  Core clock: 16 MHz
  *  Clk Output: REFO (250 KHz) (RB13)
  *********************************************************************/
-static void _Hal_InitGpio(void)
+static void _Hal_InitGpio(uint8_t uMode)
 {
     /* enable outputs */
     TRISA = 0xFFFF;
@@ -91,7 +93,8 @@ static void _Hal_InitGpio(void)
     TRISC = 0xFFFF;
     /* disable analog function on pin 1 */
     ANSBbits.ANSB9 = 0;
-    Hal_GpioEnableOutputSpiSs();
+    // Hal_GpioEnableOutputSpiSs();
+    // Hal_GpioClrCfgSpiSs();
     Hal_GpioEnableOutputMode();
     Hal_GpioEnableOutputReset();
     
@@ -106,10 +109,33 @@ static void _Hal_InitGpio(void)
      *  SS   on GPIO RC3
      *  MISO on RP7, pin 43
      *  OC1  on RP13, pin 11 */
-    RPOR10bits.RP20R = 8;
-    RPOR10bits.RP21R = 7;
-    RPOR6bits.RP13R = 13;
-    RPINR20bits.SDI1R = 7;
+    if (uMode == 0U)
+    {
+        RPOR10bits.RP20R = 8;
+        RPOR10bits.RP21R = 7;
+        RPOR6bits.RP13R = 13;
+        RPINR20bits.SDI1R = 7;
+    }
+
+    /* UART U1: RP9 */
+    RPINR18bits.U1RXR = 9;
+    /* UART U2: RP22 */
+    RPINR19bits.U2RXR = 22;
+    /* UART U3: RP23 */
+    RPINR17bits.U3RXR = 23;
+    /* UART U4: RP24 */
+    RPINR27bits.U4RXR = 24;
+    
+    /* set RP23 to UART4 TX */
+    //RPOR11bits.RP23R = 21U;
+    /* set RP24 to UART4 TX */
+    //RPOR12bits.RP24R = 21U;
+    if (uMode == 1U)
+    {
+        /* set RP21 to UART4 TX */
+        RPOR10bits.RP21R = 21U;
+    }
+    
     __builtin_write_OSCCONL(OSCCON |   0x40);
     
     REFOCONL = 0x9000U;
@@ -328,6 +354,45 @@ static void _Hal_InitTimer(void)
     T1CON = 0U;
     PR1 = 16000U;
     T1CON = 0x8000U;
+    
+    /* 1 byte time of the 125 KHz SPI clock */
+    T2CON = 0U;
+    PR2 = 640U;
+    T2CON = 0x8000U;
+    
+    /* 320 usec: 1 UART byte time */
+    T3CON = 0U;
+    // PR3 = 2560U;
+    PR3 = 4000U;
+    T3CON = 0x8000U;
+}
+
+static void _Hal_InitUart(void)
+{
+    U1MODE = 0U;
+    U1BRG = 15U;
+    U1MODEbits.UARTEN = 1;
+    U1STA = 0U;
+    U1STAbits.URXEN = 1;
+    
+    U2MODE = 0U;
+    U2BRG = 15U;
+    U2MODEbits.UARTEN = 1;
+    U2STA = 0U;
+    U2STAbits.URXEN = 1;
+    
+    U3MODE = 0U;
+    U3BRG = 15U;
+    U3MODEbits.UARTEN = 1;
+    U3STA = 0U;
+    U3STAbits.URXEN = 1;
+    
+    U4MODE = 0U;
+    U4BRG = 15U;
+    U4MODEbits.UARTEN = 1;
+    U4STA = 0U;
+    U4STAbits.URXEN = 1;
+    U4STAbits.UTXEN = 1;
 }
 
 /**********************************************************************
@@ -348,7 +413,7 @@ uint8_t Hal_InitFpga(void)
     _Hal_InitClock();
     _Hal_InitCore();
     _Hal_InitTimer();
-    _Hal_InitGpio();
+    _Hal_InitGpio(0U);
     _Hal_InitSpiForFpga();
     
     return Fpga_Configure();
@@ -365,9 +430,10 @@ void Hal_InitPeripherals(void)
     _Hal_InitClock();
     _Hal_InitCore();
     _Hal_InitTimer();
-    _Hal_InitGpio();
-    _Hal_InitSpi();
+    _Hal_InitGpio(1U);
+    // _Hal_InitSpi();
     _Hal_InitTimer();
+    _Hal_InitUart();
     _Hal_InitWatchdog();
 }
 
@@ -384,6 +450,28 @@ void Hal_InitInterrupts(void)
     IFS0 &= ~(_IFS0_T1IF_MASK);
     /* turn on Timer1 interrupt */
     IEC0 |= _IEC0_T1IE_MASK;
+    
+    /* clear Timer2 interrupt */
+    // IFS0 &= ~(_IFS0_T2IF_MASK);
+    /* turn on Timer2 interrupt */
+    // IEC0 |= _IEC0_T2IE_MASK;
+    
+    /* clear Timer3 interrupt */
+    // IFS0 &= ~(_IFS0_T3IF_MASK);
+    /* turn on Timer3 interrupt */
+    // IEC0 |= _IEC0_T3IE_MASK;
+    
+    /* turn on UART interrupts: U1RX, U2RX, U3RX, U4TX */
+    IFS0 &= ~(_IFS0_U1RXIF_MASK);
+    IEC0 |= _IEC0_U1RXIE_MASK;
+    IFS0 &= ~(_IFS1_U2RXIF_MASK);
+    IEC1 |= _IEC1_U2RXIE_MASK;
+    IFS5 &= ~(_IFS5_U3RXIF_MASK);
+    IEC5 |= _IEC5_U3RXIE_MASK;
+    IFS5 &= ~(_IFS5_U4TXIF_MASK);
+    IEC5 |= _IEC5_U4TXIE_MASK;
+    IFS5 &= ~(_IFS5_U4RXIF_MASK);
+    IEC5 |= _IEC5_U4RXIE_MASK;
     
     /* interrupt for SPI1 was turned on during initialization */
 }
@@ -408,6 +496,15 @@ void Hal_Timer1Config(uint16_t uTicks, uint8_t uOptions)
     T1CON = 0x8000U;
 }
 
+void Hal_Timer2Config(uint16_t uTicks, uint8_t uOptions)
+{
+    (void)uOptions;
+    
+    T2CON = 0U;
+    PR2 = uTicks;
+    T2CON = 0x8000U;
+}
+
 /* candidate for removal, since this was added to support device-specific
  * USB functions */
 void Hal_IdleTasks(void)
@@ -425,7 +522,7 @@ void Hal_EraseFlashSector(uint32_t uBaseAddress)
     uint32_t progAddr;
     uint16_t offset;
     
-    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1);
+    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1U);
     
     TBLPAG = progAddr >> 16;
     offset = (uint16_t)(progAddr & (uint32_t)0xFFFF);
@@ -455,7 +552,7 @@ void Hal_WriteFlashPage(uint32_t uBaseAddress, uint8_t *vuData)
     uint16_t uCnt;
     uint32_t insnIndex;
     
-    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1);
+    progAddr = uBaseAddress & ~(HAL_BYTES_PER_SECTOR - 1U);
     
     /* NVMCON:
      *   WREN = 1
@@ -536,9 +633,86 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
     IFS0 &= ~(_IFS0_T1IF_MASK);
 }
 
+void __attribute__((__interrupt__, auto_psv)) _T2Interrupt(void)
+{
+    // SpiCtrl_TickIsr(&g_SpiCtrl);
+    
+    /* clear the interrupt to receive more timer interrupts */
+    IFS0 &= ~(_IFS0_T2IF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _T3Interrupt(void)
+{
+    // MergeOutput_TickIsr(&g_MergeOutput);
+    
+    /* clear the interrupt to receive more timer interrupts */
+    IFS0 &= ~(_IFS0_T3IF_MASK);
+}
+
 void __attribute__((__interrupt__, auto_psv)) _SPI1RXInterrupt(void)
 {
     // SpiCtrl_RxIsr(&g_SpiCtrl, SPI1BUFL);
     
     IFS3 &= ~(_IFS3_SPI1RXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U1RXInterrupt(void)
+{
+    uint8_t uRx;
+    
+    uRx = U1RXREG;
+    MidiParser_RxIsr(&g_MidiParser1, uRx);
+    
+    IFS0 &= ~(_IFS0_U1RXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U2RXInterrupt(void)
+{
+    uint8_t uRx;
+    
+    uRx = U2RXREG;
+    MidiParser_RxIsr(&g_MidiParser2, uRx);
+    
+    IFS1 &= ~(_IFS1_U2RXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U3RXInterrupt(void)
+{
+    uint8_t uRx;
+    
+    uRx = U3RXREG;
+    MidiParser_RxIsr(&g_MidiParser3, uRx);
+    
+    IFS5 &= ~(_IFS5_U3RXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U4RXInterrupt(void)
+{
+    uint8_t uRx;
+    
+    uRx = U4RXREG;
+    MidiParser_RxIsr(&g_MidiParser4, uRx);
+    
+    IFS5 &= ~(_IFS5_U4RXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U1TXInterrupt(void)
+{
+    IFS0 &= ~(_IFS0_U1TXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U2TXInterrupt(void)
+{
+    IFS1 &= ~(_IFS1_U2TXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U3TXInterrupt(void)
+{
+    IFS5 &= ~(_IFS5_U3TXIF_MASK);
+}
+
+void __attribute__((__interrupt__, auto_psv)) _U4TXInterrupt(void)
+{
+    MergeOutput_TxIsr(&g_MergeOutput);
+    IFS5 &= ~(_IFS5_U4TXIF_MASK);
 }

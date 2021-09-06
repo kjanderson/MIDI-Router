@@ -1,65 +1,56 @@
-#include <stdio.h>
 #include <stdint.h>
-#include <hal.h>
+#include "hal.h"
 #include "spi-ctrl.h"
 
-SpiCtrl g_SpiCtrl;
-
-void SpiCtrl_Init(SpiCtrl *pSelf)
+void SpiCtrl_Ctor(SpiCtrl *pSelf)
 {
-    uint8_t uCnt;
-    
-    pSelf->eState = SPI_ST_ECHO;
-    
-    pSelf->uRxCnt = 0U;
-    pSelf->uRxLength = 0U;
-    pSelf->uTxCnt = 0U;
-    pSelf->uTxLength = 0U;
-    
-    for (uCnt=0; uCnt<2; uCnt++)
-    {
-        pSelf->rxData[uCnt] = 0U;
-        pSelf->txData[uCnt] = 0U;
-    }
+    pSelf->uReady = 1U;
 }
 
 void SpiCtrl_RxIsr(SpiCtrl *pSelf, uint8_t uData)
 {
-    volatile uint8_t uStatus;
-    uStatus = 0U;
+    /* write only interface, so don't do anything with the data */
+    (void)pSelf;
+    (void)uData;
+    Hal_GpioClrCfgSpiSs();
     
-    if (pSelf->uRxCnt < HAL_DIM(pSelf->rxData))
-    {
-        pSelf->rxData[pSelf->uRxCnt] = uData;
-        pSelf->uRxCnt = pSelf->uRxCnt + 1U;
-        
-        if ((pSelf->uTxLength > 0U) &&
-            (pSelf->uTxCnt == pSelf->uTxLength))
-        {
-            uStatus = 1U;
-            /* send message to process the data frame */
-        }
-    }
-    
-    if (pSelf->uTxCnt < HAL_DIM(pSelf->txData) &&
-        pSelf->uTxCnt < (pSelf->uTxLength))
-    {
-        Hal_SpiSetTxData(pSelf->txData[pSelf->uTxCnt]);
-        pSelf->uTxCnt = pSelf->uTxCnt + 1U;
-    }
+#if 0
+    Hal_Timer2Clear();
+    Hal_Timer2Restart();
+#endif
+}
+
+void SpiCtrl_TickIsr(SpiCtrl *pSelf)
+{
+    pSelf->uReady = 1U;
 }
 
 void SpiCtrl_SendData(SpiCtrl *pSelf, uint8_t uData)
 {
     Hal_IrqDisable();
-    pSelf->txData[0U] = uData;
-    pSelf->txData[1U] = 0U;
-    pSelf->uTxLength = 2U;
-    pSelf->uRxCnt = 0U;
-    pSelf->uTxCnt = 1U;
+    SpiCtrl_SendDataIsr(pSelf, uData);
     Hal_IrqEnable();
-    if (Hal_SpiTxReady())
+}
+
+void SpiCtrl_SendDataIsr(SpiCtrl *pSelf, uint8_t uData)
+{
+    (void)pSelf;
+    
+    while(Hal_SpiTxReady() == 0)
     {
-        Hal_SpiSetTxData(pSelf->txData[0U]);
     }
+    Hal_GpioSetCfgSpiSs();
+    Hal_SpiSetTxData(uData);
+#if 0
+    if ((pSelf->uReady == 1U) && Hal_SpiTxReady())
+    {
+        Hal_GpioSetCfgSpiSs();
+        pSelf->uReady = 0U;
+        Hal_SpiSetTxData(uData);
+    }
+    else
+    {
+        /* drop data */
+    }
+#endif
 }

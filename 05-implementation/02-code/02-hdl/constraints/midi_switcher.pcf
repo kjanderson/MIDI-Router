@@ -14,10 +14,10 @@
 
 ###IOSet List 43
 set_io clk 13
-set_io gpio_fbin[0] 19
-set_io gpio_fbin[1] 18
-set_io gpio_fbin[2] 16
-set_io gpio_fbin[3] 15
+set_io gpio_fbin0 19
+set_io gpio_fbin1 18
+set_io gpio_fbin2 16
+set_io gpio_fbin3 15
 #set_io gpio_bin[0] 21
 #set_io gpio_bin[1] 20
 #set_io gpio_bin[2] 19

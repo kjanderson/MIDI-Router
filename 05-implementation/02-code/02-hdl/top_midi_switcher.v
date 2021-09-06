@@ -48,18 +48,47 @@ module top_midi_switcher(
 input  wire clk;
 input  wire [3:0] midi_in;
 input  wire [3:0] midi_out;
-output wire [3:0] gpio_fbin;
+output wire gpio_fbin0;
+output wire gpio_fbin1;
+output wire gpio_fbin2;
+input  wire gpio_fbin3;
 input  wire spi_clk;
 output wire spi_miso;
 input  wire spi_mosi;
 input  wire spi_ss;
 
+wire [2:0] int_midi_in_syn;
+reg [2:0] int_midi_in;
+
 assign gpio_fbin[0] = midi_in[0];
 assign gpio_fbin[1] = midi_in[1];
 assign gpio_fbin[2] = midi_in[2];
-assign gpio_fbin[3] = midi_in[3];
+assign  = midi_in[3];
 
 assign spi_miso = spi_mosi;
+
+synchronizer s0(
+    .clk(clk),
+    .a_in(midi_in[0]),
+    .y_out(int_midi_in_syn[0])
+);
+
+synchronizer s1(
+    .clk(clk),
+    .a_in(midi_in[1]),
+    .y_out(int_midi_in_syn[1])
+);
+
+synchronizer s2(
+    .clk(clk),
+    .a_in(midi_in[2]),
+    .y_out(int_midi_in_syn[2])
+);
+
+always @(posedge clk)
+begin: bhv_fbin
+    int_midi_in <= int_midi_in_syn;
+end
 
 endmodule
 

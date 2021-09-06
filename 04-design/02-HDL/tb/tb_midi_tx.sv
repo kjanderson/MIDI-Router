@@ -6,6 +6,7 @@
  * The application provides a 125 KHz sample clock to the module.
  *
  * Notes
+ * 1. need to stimulate the UART with a strobe to start. Otherwise, it can't finish.
  *
  * TODO
  *
@@ -18,72 +19,55 @@
 module tb(
 );
 
-parameter STATE_IDLE = 1'b0;
-parameter STATE_READ = 1'b1;
-
+integer ii;
 reg clk;
 reg rst;
-reg [7:0] midi_dat [3:0];
-reg [3:0] midi_dat_rdy;
-wire midi_dat_rd;
 wire midi_tx;
-integer ii;
+reg [7:0] wb_dat_i;
+reg fifo_empty_n;
+wire fifo_rd;
 
 always #4 clk <= ~clk;
 
 /* use sequential logic in the initial block to avoid race conditions */
 initial begin
-    rst = 0;
     clk = 0;
-    for (ii=0; ii<4; ii++) begin
-        midi_dat[ii] = 0;
-    end
-    midi_dat_rdy = 0;
-    
+    wb_dat_i = 8'h00;
+    fifo_empty_n = 1'b0;
+
     /* reset pulse */
-    @(negedge clk);
+    @(posedge clk);
     rst = 1;
-    @(negedge clk);
+    @(posedge clk);
     rst = 0;
+
+    /* initialize internal register data */
+    midi_tx_0.int_fifo_rd = 0;
+    midi_tx_0.int_uart_stb = 0;
+    midi_tx_0.u0.int_cnt = 0;
+    midi_tx_0.u0.int_bit_cnt = 0;
     
     /* simulation */
-    @(negedge clk);
-    midi_dat[0] = 8'h01;
-    midi_dat[1] = 8'h00;
-    midi_dat[2] = 8'h00;
-    midi_dat[3] = 8'h00;
-    midi_dat_rdy = 4'h1;
-    for (ii=0; ii<256; ii++) begin
-        @(negedge clk);
+    wb_dat_i = 8'h80;
+    fifo_empty_n = 1'b1;
+    @(posedge clk);
+    fifo_empty_n = 1'b0;
+    @(posedge clk);
+    for (ii=0; ii<100; ii++) begin
+        @(posedge clk);
     end
-    
-    /*
-    */
-    
-    @(negedge clk);
-    /*
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    @(negedge clk);
-    */
-    
+    fifo_empty_n = 1'b0;
+
     $finish;
 end
 
 midi_tx midi_tx_0(
     .rst(rst),
     .clk(clk),
-    .midi_data(midi_dat),
-    .midi_data_rdy(),
-    .midi_data_rd(),
-    .midi_tx()
+    .midi_tx(midi_tx),
+    .fifo_data(wb_dat_i),
+    .fifo_empty_n(fifo_empty_n),
+    .fifo_rd(fifo_rd)
 );
 
 endmodule

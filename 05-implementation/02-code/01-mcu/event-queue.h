@@ -3,11 +3,12 @@
 
 #include <stdint.h>
 
-#define EVENT_QUEUE_SIZE 16
+#define EVENT_QUEUE_SIZE 16U
 
 typedef enum _QEvent QEvent;
 enum _QEvent {
-    EV_SPI_DATA
+    EV_SPI_DATA,
+    EV_MIDI_DATA
 };
 
 typedef struct _Event Event;

@@ -4,14 +4,14 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define HAL_INSNS_PER_SECTOR 512
-#define HAL_BYTES_PER_INSN 3
-#define HAL_INSNS_PER_PAGE 64
+#define HAL_INSNS_PER_SECTOR 512U
+#define HAL_BYTES_PER_INSN 3U
+#define HAL_INSNS_PER_PAGE 64U
 #define HAL_BYTES_PER_SECTOR ((HAL_INSNS_PER_SECTOR) * (HAL_BYTES_PER_INSN))
 #define HAL_BYTES_PER_PAGE ((HAL_INSNS_PER_PAGE) * (HAL_BYTES_PER_INSN))
 
 /* utility functions */
-#define HAL_DIM(x) (sizeof((x))/sizeof((x[0])))
+#define HAL_DIM(x) (sizeof((x))/(sizeof((x[0]))))
 
 /* interrupt interface */
 #define Hal_IrqDisable() __builtin_disi(0x3FFF)
@@ -56,7 +56,7 @@
 #define Hal_GpioDisableOutputFbin2() (TRISCbits.TRISC7 = 1)
 #define Hal_GpioSetFbin2() (LATCbits.LATC7 = 1)
 #define Hal_GpioClrFbin2() (LATCbits.LATC7 = 0)
-/* FBIN3 */
+/* FBIN3 (FPGA reset) */
 #define Hal_GpioGetFbin3() (PORTCbits.RC8)
 #define Hal_GpioEnableOutputFbin3() (TRISCbits.TRISC8 = 0)
 #define Hal_GpioDisableOutputFbin3() (TRISCbits.TRISC8 = 1)
@@ -73,9 +73,19 @@
 /* Timer interface */
 #define Hal_Timer1Disable() (T1CON &= ~(_T1CON_TON_MASK))
 #define Hal_Timer1Enable() (T1CON |= _T1CON_TON_MASK)
-#define Hal_Timer1IsExpired() (IFS0 & _IFS0_T1IF_MASK)
+#define Hal_Timer1IsExpired() ((IFS0 & _IFS0_T1IF_MASK) != 0U)
 #define Hal_Timer1Clear() (IFS0 &= ~(_IFS0_T1IF_MASK))
 #define Hal_Timer1Restart() (TMR1 = 0)
+#define Hal_Timer2Disable() (T2CON &= ~(_T2CON_TON_MASK))
+#define Hal_Timer2Enable() (T2CON |= _T2CON_TON_MASK)
+#define Hal_Timer2IsExpired() ((IFS0 & _IFS0_T2IF_MASK) != 0U)
+#define Hal_Timer2Clear() (IFS0 &= ~(_IFS0_T2IF_MASK))
+#define Hal_Timer2Restart() (TMR2 = 0)
+#define Hal_Timer3Disable() (T3CON &= ~(_T3CON_TON_MASK))
+#define Hal_Timer3Enable() (T3CON |= _T3CON_TON_MASK)
+#define Hal_Timer3IsExpired() ((IFS0 & _IFS0_T3IF_MASK) != 0U)
+#define Hal_Timer3Clear() (IFS0 &= ~(_IFS0_T3IF_MASK))
+#define Hal_Timer3Restart() (TMR3 = 0)
 
 /* SPI interface */
 #define Hal_Spi1TxBusy() ((SPI1STATL & _SPI1STATL_SPIRBF_MASK) == 0)
@@ -88,11 +98,23 @@ void Hal_SpiSetTxData(uint8_t uData);
 /* USB interface */
 #define Hal_UsbDisableVbusPort() (TRISB |= _TRISB_TRISB7_MASK)
 
+/* UART interface */
+#define Hal_Uart1GetData() ((U1RXREG))
+#define Hal_Uart2GetData() ((U2RXREG))
+#define Hal_Uart3GetData() ((U3RXREG))
+#define Hal_Uart4GetData() ((U4RXREG))
+#define Hal_Uart1SetDataByte(x) (U1TXREG = (x))
+#define Hal_Uart2SetDataByte(x) (U2TXREG = (x))
+#define Hal_Uart3SetDataByte(x) (U3TXREG = (x))
+#define Hal_Uart4SetDataByte(x) (U4TXREG = (x))
+#define Hal_Uart1IsTxBusy() (U1STA & _U1STA_TRMT_MASK)
+
 uint8_t Hal_InitFpga(void);
 void Hal_InitPeripherals(void);
 void Hal_InitInterrupts(void);
 void Hal_SpiInitForFpga(void);
 void Hal_Timer1Config(uint16_t uTicks, uint8_t uFlags);
+void Hal_Timer2Config(uint16_t uTicks, uint8_t uFlags);
 void Hal_IdleTasks(void);
 void Hal_EraseFlashSector(uint32_t uBaseAddress);
 void Hal_WriteFlashPage(uint32_t uBaseAddress, uint8_t *vuData);

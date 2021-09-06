@@ -3,8 +3,8 @@ CFLAGS=-I.
 LDFLAGS=-lcunit
 EXE=a.out
 
-$(EXE): event-queue.c ../event-queue.c ../spi-ctrl.c
-	$(CC) $(CFLAGS) event-queue.c ../event-queue.c ../spi-ctrl.c $(LDFLAGS) -o $(EXE)
+$(EXE): merge_outputs.c ../merge_outputs.c
+	$(CC) $(CFLAGS) merge_outputs.c ../merge_outputs.c $(LDFLAGS) -o $(EXE)
 
 clean:
 	rm -f a.out

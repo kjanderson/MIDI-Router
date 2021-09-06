@@ -4,14 +4,12 @@
  * Description
  * This file implements the uart_tx module.
  * This receives data on command and in turn shifts data out on the tx pin.
- *
- * TODO:
- *  1. figure out why the state machine doesn't return to IDLE when finished.
  *********************************************************************/
 
 module uart_tx(
     rst,
     clk,
+    clk_en,
     tx_strobe,
     data,
     tx,
@@ -25,6 +23,7 @@ parameter STATE_STOP =  2'h3;
 
 input  wire rst;
 input  wire clk;
+input  wire clk_en;
 input  wire tx_strobe;
 input  [7:0] data;
 output tx;
@@ -89,67 +88,67 @@ end
 /**********************************************************************
  * state machine combinational logic
  *********************************************************************/
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_sm_sl
     if (rst == 1) begin
         int_curr_state <= STATE_IDLE;
     end
     else begin
-        int_curr_state <= int_next_state;
+        if (clk_en == 1) begin
+            int_curr_state <= int_next_state;
+        end
     end
 end
 
 /**********************************************************************
  * state machine combinational logic
  *********************************************************************/
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_sm_op
     if (rst == 1) begin
+        int_cnt_en <= 0;
+        int_bit_cnt_en <= 0;
     end
     else begin
-        case(int_curr_state)
-        STATE_IDLE: begin
-            int_cnt_en <= 0;
-            int_bit_cnt_en <= 0;
+        if (clk_en == 1) begin
+            case(int_curr_state)
+            STATE_IDLE: begin
+                int_cnt_en <= 0;
+                int_bit_cnt_en <= 0;
+            end
+            STATE_START: begin
+                int_cnt_en <= 1;
+                int_bit_cnt_en <= 0;
+            end
+            STATE_DATA: begin
+                int_cnt_en <= 1;
+                int_bit_cnt_en <= 1;
+            end
+            STATE_STOP: begin
+                int_cnt_en <= 1;
+                int_bit_cnt_en <= 0;
+            end
+            default: begin
+                int_cnt_en <= 0;
+                int_bit_cnt_en <= 0;
+            end
+            endcase
         end
-        STATE_START: begin
-            int_cnt_en <= 1;
-            int_bit_cnt_en <= 0;
-        end
-        STATE_DATA: begin
-            int_cnt_en <= 1;
-            int_bit_cnt_en <= 1;
-        end
-        STATE_STOP: begin
-            int_cnt_en <= 1;
-            int_bit_cnt_en <= 0;
-        end
-        default: begin
-            int_cnt_en <= 0;
-            int_bit_cnt_en <= 0;
-        end
-        endcase
     end
 end
 
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_cnt
-    if (rst == 1) begin
-        int_cnt <= 0;
-    end
-    else begin
+    if (clk_en == 1) begin
         if (int_cnt_en == 1) begin
             int_cnt <= int_cnt + 1;
         end
     end
 end
 
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_bit_cnt
-    if (rst == 1) begin
-        int_bit_cnt <= 0;
-    end
-    else begin
+    if (clk_en == 1) begin
         if (int_bit_cnt_en == 1) begin
             if ((& int_cnt) == 1) begin
                 int_bit_cnt <= int_bit_cnt + 1;
@@ -158,12 +157,9 @@ begin: bhv_bit_cnt
     end
 end
 
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_uart_sr
-    if (rst == 1) begin
-        int_uart_sr <= 0;
-    end
-    else begin
+    if (clk_en == 1) begin
         if ((int_bit_cnt_en == 1) && ((& int_cnt) == 1)) begin
             int_uart_sr <= {1'b0, int_uart_sr[7:1]};
         end
@@ -175,12 +171,9 @@ begin: bhv_uart_sr
     end
 end
 
-always @(posedge clk, posedge rst)
+always @(posedge clk)
 begin: bhv_tx
-    if (rst == 1) begin
-        int_tx <= 1;
-    end
-    else begin
+    if (clk_en == 1) begin
         if (int_curr_state == STATE_IDLE) begin
             int_tx <= 1;
         end
@@ -197,4 +190,3 @@ begin: bhv_tx
 end
 
 endmodule
-

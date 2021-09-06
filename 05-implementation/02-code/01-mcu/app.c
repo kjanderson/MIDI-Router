@@ -31,12 +31,14 @@ void App_Init(void)
  * 
  * Description
  * Access function for FPGA mode.
+ * 
+ * Notes
+ * This function is only called from main(), and before interrupts
+ * are enabled. No need to protect fg_uFpgaMode.
  *********************************************************************/
 void App_SetFpgaMode(uint8_t uValue)
 {
-    Hal_IrqDisable();
     fg_uFpgaMode = uValue;
-    Hal_IrqEnable();
 }
 
 /**********************************************************************

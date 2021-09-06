@@ -3,7 +3,7 @@
  *
  * This module implements the test bench for the shiftreg module.
  *
- * The intended application provides a 1 MHz SPI clock.
+ * The intended application provides a 125 KHz SPI clock.
  * To simulate this, a counter is invoked in the test bench that acts
  * as a prescaler.
  * To simulate a break between bytes of data, the blank parameter is
@@ -12,6 +12,8 @@
  *
  * Status
  * Basic design elements are verified.
+ *
+ * There are still a couple outstanding problems. Need to investigate the failing assertions.
  *********************************************************************/
 `include "verilog_assert.vh"
 
@@ -21,6 +23,7 @@ module tb(
 reg clk;
 reg spi_enable;
 reg mosi;
+wire miso;
 reg rst;
 wire sck;
 reg sck_in;
@@ -34,7 +37,7 @@ wire spi_rdy;
 
 always #4 clk <= ~clk;
 
-assign sck = (spi_enable == 1) ? sck_in : 0;
+assign sck = (spi_enable == 1) ? sck_in : 1;
 
 always @(posedge clk)
 begin: bhv_sck
@@ -91,8 +94,10 @@ task spi_xchg;
     @(negedge sck);
     datao[0] = miso;
 
+    @(posedge sck);
+
     spi_enable = 0;
-    @(negedge sck_in);
+    @(posedge sck_in);
     spi_ss = 1;
 
     end
@@ -108,13 +113,13 @@ initial begin
     spi_enable = 0;
     spi_ld = 0;
     mosi = 0;
-    sck_in = 0;
+    sck_in = 1;
     spi_ss = 1;
 
     /* initialize internal memory for sr0 instance */
     sr0.int_sr = 8'h00;
     sr0.int_sdo = 0;
-    sr0.int_rdy_arm = 0;
+    // sr0.int_rdy_arm = 0;
     sr0.int_rdy = 0;
 
     /* generate reset pulse */
@@ -125,7 +130,30 @@ initial begin
     
     /* examine data load and shift in of the same value */
     @(posedge clk);
-    ld_data = 8'hDE;
+    ld_data = 8'h80;
+    spi_ld = 1;
+    @(posedge clk);
+    spi_ld = 0;
+    `ASSERT (sr0.int_sr, ld_data)
+    spi_xchg(ld_data, test_data);
+    `ASSERT (test_data, ld_data)
+    @(posedge clk);
+
+    /* clear out shift register buffer */
+    @(posedge clk);
+    spi_xchg(8'h01, test_data);
+    @(posedge clk);
+
+    /* with an empty shift register buffer, examine shift of data */
+    @(posedge clk);
+    @(posedge clk);
+    spi_xchg(ld_data, test_data);
+    `ASSERT (test_data, 8'h00);
+    @(posedge clk);
+
+    /* examine data load and shift in of the same value */
+    @(posedge clk);
+    ld_data = 8'h00;
     spi_ld = 1;
     @(posedge clk);
     spi_ld = 0;
@@ -151,7 +179,9 @@ initial begin
     $finish;
 end
 
-spislave sr0(
+spislave #(
+    .DATA_WIDTH(8))
+sr0(
     .clk(clk),
     .sck(sck),
     .sdi(mosi),

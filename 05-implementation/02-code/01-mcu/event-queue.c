@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "event-queue.h"
-#include <hal.h>
+#include "hal.h"
 
 void EventQueue_Init(EventQueue *pSelf)
 {

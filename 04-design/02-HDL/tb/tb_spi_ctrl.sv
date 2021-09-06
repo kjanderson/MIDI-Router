@@ -38,7 +38,7 @@ always #4 clk <= ~clk;
 
 assign wb_ack = wb_stb;
 
-assign spi_sck = (spi_enable == 1) ? sck_in[2] : 0;
+assign spi_sck = (spi_enable == 1) ? sck_in[2] : 1;
 
 always @(posedge clk)
 begin: bhv_sck
@@ -95,6 +95,8 @@ task spi_xchg;
     @(negedge spi_sck);
     datao[0] = spi_miso;
 
+    @(posedge spi_sck);
+
     spi_enable = 0;
     @(posedge sck_in[2]);
     spi_ss = 1;
@@ -118,15 +120,12 @@ initial begin
     sc0.sr0.int_sr = 8'h00;
     sc0.sr0.int_sdo = 0;
     sc0.sr0.int_rdy = 0;
-    sc0.sr0.int_rdy_arm = 0;
     
     sc0.int_spi_curr_state = 0;
     sc0.int_spi_next_state = 0;
     sc0.int_cmd = 0;
     sc0.int_addr = 0;
     sc0.int_data = 0;
-    sc0.int_bit_cnt = 0;
-    sc0.spi_data_i = 0;
     sc0.spi_ld = 0;
     sc0.int_wb_stb_o = 0;
 
@@ -138,18 +137,19 @@ initial begin
     @(negedge clk);
     rst = 0;
     
-    /* send the following sequence: read address 0, provide clock for data */
+    /* send the following sequence: write h80 to address 0 */
     #2048 @(posedge clk);
-    spi_xchg(8'h00, spi_data_o);
-    @(posedge sck_in[2]);
-    spi_xchg(8'h00, spi_data_o);
-    @(posedge sck_in[2]);
-
-    /* send the following sequence: write address 0, with data 0xDE */
-    @(posedge clk);
     spi_xchg(8'h80, spi_data_o);
     @(posedge sck_in[2]);
-    spi_xchg(8'hDE, spi_data_o);
+    spi_xchg(8'h01, spi_data_o);
+    @(posedge sck_in[2]);
+
+    /* send the following sequence: read address 0, provide clock for data */
+    wb_dat_i = 8'h01;
+    @(posedge clk);
+    spi_xchg(8'h00, spi_data_o);
+    @(posedge sck_in[2]);
+    spi_xchg(8'h00, spi_data_o);
     @(posedge sck_in[2]);
     
     @(posedge clk);
@@ -158,13 +158,12 @@ initial begin
 end
 
 spi_ctrl sc0(
+    .reset(rst),
     .clk(clk),
     .spi_miso(spi_miso),
     .spi_mosi(spi_mosi),
     .spi_sck(spi_sck),
     .spi_ss(spi_ss),
-    .wb_clk_i(clk),
-    .wb_rst_i(rst),
     .wb_addr_o(wb_addr),
     .wb_dat_i(wb_dat_i),
     .wb_dat_o(wb_dat_o),
