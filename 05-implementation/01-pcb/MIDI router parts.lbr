@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.0">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -2495,10 +2495,10 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pin name="P45/VSS" x="66.04" y="-114.3" length="middle" direction="pas" rot="R90"/>
 <pin name="P46/VDD" x="71.12" y="-114.3" length="middle" direction="pas" rot="R90"/>
 <pin name="P47/RPI43/RD14" x="76.2" y="-114.3" length="middle" direction="pas" rot="R90"/>
-<pin name="P48/PMA9/RP10/RD15" x="81.28" y="-114.3" length="middle" direction="pas" rot="R90"/>
+<pin name="P48/RP5/RD15" x="81.28" y="-114.3" length="middle" direction="pas" rot="R90"/>
 <pin name="P49/PMA9/RP10/RF4" x="86.36" y="-114.3" length="middle" direction="pas" rot="R90"/>
 <pin name="P50/PMA8/RP17/RF5" x="91.44" y="-114.3" length="middle" direction="pas" rot="R90"/>
-<pin name="P51/USBID" x="114.3" y="-91.44" length="middle" direction="pas" rot="R180"/>
+<pin name="P51/RP16/USBID/RF3" x="114.3" y="-91.44" length="middle" direction="pas" rot="R180"/>
 <pin name="P52/RP30/RF2" x="114.3" y="-86.36" length="middle" direction="pas" rot="R180"/>
 <pin name="P53/RP15/RF8" x="114.3" y="-81.28" length="middle" direction="pas" rot="R180"/>
 <pin name="P54/VBUS" x="114.3" y="-76.2" length="middle" direction="pas" rot="R180"/>
@@ -2530,7 +2530,7 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <pin name="P80/PMD13/RD13" x="71.12" y="53.34" length="middle" direction="pas" rot="R270"/>
 <pin name="P81/PMWR/PMENB/RP25/RD4" x="66.04" y="53.34" length="middle" direction="pas" rot="R270"/>
 <pin name="P82/PMRD/RP20/RD5" x="60.96" y="53.34" length="middle" direction="pas" rot="R270"/>
-<pin name="P83/U5R/PMD14/RD6" x="55.88" y="53.34" length="middle" direction="pas" rot="R270"/>
+<pin name="P83/U5RX/PMD14/RD6" x="55.88" y="53.34" length="middle" direction="pas" rot="R270"/>
 <pin name="P84/PMD15/RD7" x="50.8" y="53.34" length="middle" direction="pas" rot="R270"/>
 <pin name="P85/VCAP" x="45.72" y="53.34" length="middle" direction="pas" rot="R270"/>
 <pin name="P86/NC" x="40.64" y="53.34" length="middle" direction="pas" rot="R270"/>
@@ -3500,11 +3500,11 @@ Source: PIC24FJ256GB110.bsd</description>
 <connect gate="G$1" pin="P45/VSS" pad="45"/>
 <connect gate="G$1" pin="P46/VDD" pad="46"/>
 <connect gate="G$1" pin="P47/RPI43/RD14" pad="47"/>
-<connect gate="G$1" pin="P48/PMA9/RP10/RD15" pad="48"/>
+<connect gate="G$1" pin="P48/RP5/RD15" pad="48"/>
 <connect gate="G$1" pin="P49/PMA9/RP10/RF4" pad="49"/>
 <connect gate="G$1" pin="P5/PMD7/RE7" pad="5"/>
 <connect gate="G$1" pin="P50/PMA8/RP17/RF5" pad="50"/>
-<connect gate="G$1" pin="P51/USBID" pad="51"/>
+<connect gate="G$1" pin="P51/RP16/USBID/RF3" pad="51"/>
 <connect gate="G$1" pin="P52/RP30/RF2" pad="52"/>
 <connect gate="G$1" pin="P53/RP15/RF8" pad="53"/>
 <connect gate="G$1" pin="P54/VBUS" pad="54"/>
@@ -3539,7 +3539,7 @@ Source: PIC24FJ256GB110.bsd</description>
 <connect gate="G$1" pin="P80/PMD13/RD13" pad="80"/>
 <connect gate="G$1" pin="P81/PMWR/PMENB/RP25/RD4" pad="81"/>
 <connect gate="G$1" pin="P82/PMRD/RP20/RD5" pad="82"/>
-<connect gate="G$1" pin="P83/U5R/PMD14/RD6" pad="83"/>
+<connect gate="G$1" pin="P83/U5RX/PMD14/RD6" pad="83"/>
 <connect gate="G$1" pin="P84/PMD15/RD7" pad="84"/>
 <connect gate="G$1" pin="P85/VCAP" pad="85"/>
 <connect gate="G$1" pin="P86/NC" pad="86"/>
